@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import markdownItKatex from 'markdown-it-katex'
 
 export default defineConfig({
   title: '智能体应用开发实践赛 · 知识手册',
@@ -6,9 +7,16 @@ export default defineConfig({
   lang: 'zh-CN',
   cleanUrls: true,
 
+  markdown: {
+    config(md) {
+      md.use(markdownItKatex)
+    },
+  },
+
   themeConfig: {
     nav: [
       { text: '总览', link: '/' },
+      { text: '模拟考试', link: '/exam' },
       { text: '知识网络图', link: '/graph' },
       { text: '第 1 章', link: '/ch01_ai_foundation' },
       { text: '第 2 章', link: '/ch02_os_linux' },
@@ -24,6 +32,7 @@ export default defineConfig({
         text: '导航',
         items: [
           { text: '总览', link: '/' },
+          { text: '模拟考试', link: '/exam' },
           { text: '知识网络图', link: '/graph' },
         ],
       },

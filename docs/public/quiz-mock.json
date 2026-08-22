@@ -1,0 +1,8702 @@
+{
+  "questions": [
+    {
+      "id": "M001",
+      "type": "single",
+      "module": "ai",
+      "stem": "智能体在下棋时不断尝试不同走法，根据对局输赢给出的奖励信号逐步改进策略，这种学习方式属于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "强化学习"
+        },
+        {
+          "key": "B",
+          "text": "监督学习"
+        },
+        {
+          "key": "C",
+          "text": "无监督学习"
+        },
+        {
+          "key": "D",
+          "text": "半监督学习"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "强化学习没有现成答案，靠环境交互的反馈与奖励调整策略，奖励信号替代了标签。监督学习需要带标签数据，无监督学习则从无标签数据中寻找结构。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M002",
+      "type": "single",
+      "module": "ai",
+      "stem": "关于逻辑回归，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "本质仍是线性模型，靠非线性激活输出概率"
+        },
+        {
+          "key": "B",
+          "text": "直接输出连续数值，不产生概率"
+        },
+        {
+          "key": "C",
+          "text": "属于典型的非监督学习算法"
+        },
+        {
+          "key": "D",
+          "text": "输出结果不需要经过任何激活函数"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "逻辑回归本质仍是线性模型，只是通过 Sigmoid 激活函数输出概率，用于二分类；它是理解神经网络（多层线性组合加激活）的起点。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M003",
+      "type": "single",
+      "module": "ai",
+      "stem": "线性回归拟合连续数值时，训练过程通常通过梯度下降优化的目标是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "均方误差（MSE）"
+        },
+        {
+          "key": "B",
+          "text": "交叉熵损失"
+        },
+        {
+          "key": "C",
+          "text": "分类准确率"
+        },
+        {
+          "key": "D",
+          "text": "召回率"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "线性回归是特征的线性组合，用梯度下降最小化均方误差 MSE；交叉熵损失和准确率、召回率属于分类任务的范畴。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M004",
+      "type": "single",
+      "module": "ai",
+      "stem": "K 近邻（KNN）算法为某个新样本判定类别时，其决策依据是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "与它距离最近的 K 个训练样本按多数投票决定"
+        },
+        {
+          "key": "B",
+          "text": "训练阶段学习到的显式分类规则"
+        },
+        {
+          "key": "C",
+          "text": "所有训练样本特征的均值向量"
+        },
+        {
+          "key": "D",
+          "text": "随机抽取 K 个样本的标签"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "KNN 是惰性算法，预测时才计算新样本与训练集的距离，取最近的 K 个样本多数投票定类别；它不在训练阶段学习显式规则。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M005",
+      "type": "single",
+      "module": "ai",
+      "stem": "相比单棵决策树，随机森林通常更不易过拟合，主要原因在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "每棵树用随机子集训练，多棵树投票平均摊平单棵的过拟合"
+        },
+        {
+          "key": "B",
+          "text": "每棵树都使用全部特征和全部样本"
+        },
+        {
+          "key": "C",
+          "text": "树的数量越少泛化越好"
+        },
+        {
+          "key": "D",
+          "text": "随机森林不再需要特征参与划分"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "随机森林由多棵在随机子集上训练的决策树组成，投票输出结果，多棵树结果平均化能摊平单棵树的过拟合，即降低方差。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M006",
+      "type": "single",
+      "module": "ai",
+      "stem": "梯度提升树（GBDT）中，序列中后续每棵树的主要拟合对象是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "前序模型的残差"
+        },
+        {
+          "key": "B",
+          "text": "复制前一棵树的结构"
+        },
+        {
+          "key": "C",
+          "text": "样本间的欧氏距离"
+        },
+        {
+          "key": "D",
+          "text": "特征的标准差"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "GBDT 逐棵树拟合前序残差，本质是沿损失下降方向做梯度下降，只是用树去拟合这个方向，代表实现如 XGBoost。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M007",
+      "type": "single",
+      "module": "ai",
+      "stem": "两类样本线性可分时，SVM 选择最优分类超平面的核心依据是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "到两侧最近样本的距离（间隔）最大"
+        },
+        {
+          "key": "B",
+          "text": "穿过的训练样本数量最多"
+        },
+        {
+          "key": "C",
+          "text": "到坐标系原点距离最小"
+        },
+        {
+          "key": "D",
+          "text": "与某个特征轴保持平行"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "能分开两类的线有无数条，SVM 选间隔最大的那条：间隔越大，数据点受轻微扰动也不易被分错，对新样本泛化更好。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M008",
+      "type": "single",
+      "module": "ai",
+      "stem": "在 SVM 中，真正约束超平面位置的是哪类样本？",
+      "options": [
+        {
+          "key": "A",
+          "text": "间隔边界上的少数支持向量"
+        },
+        {
+          "key": "B",
+          "text": "全部训练样本"
+        },
+        {
+          "key": "C",
+          "text": "远离超平面的多数样本"
+        },
+        {
+          "key": "D",
+          "text": "随机抽取的部分样本"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "只有间隔边界上的支持向量决定超平面，其余样本只要不越界就不影响结果，因此模型稀疏，只记住关键样本。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M009",
+      "type": "single",
+      "module": "ai",
+      "stem": "当数据在原始空间中线性不可分时，SVM 常用的处理手段是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "用核函数在高维空间中直接计算内积，不必显式做映射"
+        },
+        {
+          "key": "B",
+          "text": "直接删除一半特征"
+        },
+        {
+          "key": "C",
+          "text": "改用欧氏距离阈值分类"
+        },
+        {
+          "key": "D",
+          "text": "增大训练样本数量"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "核技巧把数据映射到高维空间使其线性可分，核函数直接计算高维内积而无需真的映射，RBF 高斯核最常用，相当于无穷维特征空间。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M010",
+      "type": "single",
+      "module": "ai",
+      "stem": "朴素贝叶斯被称为\"朴素\"，是因为它做出了哪项简化假设？",
+      "options": [
+        {
+          "key": "A",
+          "text": "特征之间条件独立"
+        },
+        {
+          "key": "B",
+          "text": "特征之间完全线性相关"
+        },
+        {
+          "key": "C",
+          "text": "样本数量必须无限多"
+        },
+        {
+          "key": "D",
+          "text": "各类别概率必须相等"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "条件独立假设使联合概率拆成各特征概率之积；否则估计特征组合的联合分布需要的数据随特征数指数增长，现实中无法估准。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M011",
+      "type": "single",
+      "module": "ai",
+      "stem": "朴素贝叶斯模型在训练阶段的主要工作是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "统计先验概率与各特征的条件概率"
+        },
+        {
+          "key": "B",
+          "text": "反复迭代更新多层网络权重"
+        },
+        {
+          "key": "C",
+          "text": "对样本做主成分分析"
+        },
+        {
+          "key": "D",
+          "text": "搜索最大间隔超平面"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "朴素贝叶斯训练只是统计频率：从数据中统计先验和条件概率即可，因此训练极快、可增量更新，常用于文本分类。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M012",
+      "type": "single",
+      "module": "ai",
+      "stem": "使用 K-means 聚类算法前，用户通常必须预先确定：",
+      "options": [
+        {
+          "key": "A",
+          "text": "簇的数量 K"
+        },
+        {
+          "key": "B",
+          "text": "学习率大小"
+        },
+        {
+          "key": "C",
+          "text": "隐藏层数量"
+        },
+        {
+          "key": "D",
+          "text": "支持向量的个数"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "K-means 把样本分成 K 簇并迭代更新簇中心，K 需要预先指定，且结果对初始中心敏感。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M013",
+      "type": "single",
+      "module": "ai",
+      "stem": "主成分分析（PCA）实现降维的基本思想是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "把高维数据投影到方差最大的方向上"
+        },
+        {
+          "key": "B",
+          "text": "随机删除一半的特征列"
+        },
+        {
+          "key": "C",
+          "text": "计算所有样本的两两距离后取平均"
+        },
+        {
+          "key": "D",
+          "text": "把各特征逐元素相加成一列"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "PCA 把高维数据投影到方差最大的方向实现降维，在保留主要信息的同时降低计算量，常作为预处理步骤。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M014",
+      "type": "single",
+      "module": "ai",
+      "stem": "对特征做 z-score 标准化后，处理结果的统计特征是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "均值为 0、方差为 1"
+        },
+        {
+          "key": "B",
+          "text": "均值为 1、方差为 0"
+        },
+        {
+          "key": "C",
+          "text": "所有数值固定落在 0 到 1 之间"
+        },
+        {
+          "key": "D",
+          "text": "中位数为 0、标准差为 2"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "z-score 标准化是减去均值再除以标准差，处理后均值归零、方差为 1；归一化才是把数值映射到固定区间如 0 到 1。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M015",
+      "type": "single",
+      "module": "ai",
+      "stem": "在训练集、验证集、测试集的三分法中，用于调参和模型选择的数据是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "验证集"
+        },
+        {
+          "key": "B",
+          "text": "训练集"
+        },
+        {
+          "key": "C",
+          "text": "测试集"
+        },
+        {
+          "key": "D",
+          "text": "未划分的原始全量数据"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "训练集用于更新参数，验证集用于调参和模型选择（防过拟合的哨兵），测试集只用于最终评估，不应参与调参。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M016",
+      "type": "single",
+      "module": "ai",
+      "stem": "分类评估中，精确率（Precision）衡量的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "预测为正类的样本中预测正确的比例"
+        },
+        {
+          "key": "B",
+          "text": "真实正类中被正确找出的比例"
+        },
+        {
+          "key": "C",
+          "text": "全部样本中被判对的比例"
+        },
+        {
+          "key": "D",
+          "text": "正类样本与负类样本的数量之比"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "精确率衡量预测为正类的样本中预测正确的比例，召回率衡量真实正类中被正确找出的比例，二者均由混淆矩阵计算得出。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M017",
+      "type": "single",
+      "module": "ai",
+      "stem": "F1 分数与精确率、召回率之间的数学关系是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "二者的调和平均"
+        },
+        {
+          "key": "B",
+          "text": "二者的算术平均"
+        },
+        {
+          "key": "C",
+          "text": "精确率乘以召回率"
+        },
+        {
+          "key": "D",
+          "text": "精确率减去召回率"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "精确率与召回率往往此消彼长，F1 是二者的调和平均，能同时惩罚两者的不足。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M018",
+      "type": "single",
+      "module": "ai",
+      "stem": "多层神经网络必须借助激活函数引入非线性，根本原因在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "完全线性的多层叠加仍是线性变换"
+        },
+        {
+          "key": "B",
+          "text": "激活函数可以显著减少模型参数量"
+        },
+        {
+          "key": "C",
+          "text": "激活函数用于替代损失函数"
+        },
+        {
+          "key": "D",
+          "text": "激活函数只在输出层起数值作用"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "多层线性变换叠加后仍等价于一次线性变换，无法表达复杂映射；激活函数引入非线性，这是从逻辑回归走向深度网络的关键区别。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M019",
+      "type": "single",
+      "module": "ai",
+      "stem": "卷积神经网络（CNN）在图像任务上表现突出的主要原因在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "用卷积核提取局部特征"
+        },
+        {
+          "key": "B",
+          "text": "严格按时间序列顺序处理输入"
+        },
+        {
+          "key": "C",
+          "text": "用记忆单元保存长距离依赖"
+        },
+        {
+          "key": "D",
+          "text": "无需任何训练直接推理"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "CNN 用卷积核提取局部特征，适合图像；按序列顺序处理是 RNN 的特点，记忆长依赖是 LSTM 的改进方向。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M020",
+      "type": "single",
+      "module": "ai",
+      "stem": "相比基础 RNN，LSTM 的关键改进在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "缓解长序列训练中的梯度问题"
+        },
+        {
+          "key": "B",
+          "text": "只允许单层网络结构"
+        },
+        {
+          "key": "C",
+          "text": "不再使用任何激活函数"
+        },
+        {
+          "key": "D",
+          "text": "只能处理图像类数据"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "RNN 按序列顺序处理文本和时间序列，LSTM 通过门控结构缓解长序列中的梯度问题，使更长的依赖关系可以被学习。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M021",
+      "type": "single",
+      "module": "ai",
+      "stem": "分类任务中最常用的损失函数是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "交叉熵损失"
+        },
+        {
+          "key": "B",
+          "text": "均方误差（MSE）"
+        },
+        {
+          "key": "C",
+          "text": "平均绝对误差（MAE）"
+        },
+        {
+          "key": "D",
+          "text": "L2 正则项"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "交叉熵损失衡量预测概率分布与真实分布的差异，是分类任务的常用选择；MSE 和 MAE 属于回归任务常用损失。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M022",
+      "type": "single",
+      "module": "ai",
+      "stem": "Momentum 优化器相对普通 SGD 的主要改进是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "累积历史梯度冲量，缓解更新震荡"
+        },
+        {
+          "key": "B",
+          "text": "强制所有参数使用同一学习率"
+        },
+        {
+          "key": "C",
+          "text": "完全放弃梯度信息只靠随机游走"
+        },
+        {
+          "key": "D",
+          "text": "只更新网络偏置而不更新权重"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "SGD 每次用小批量估计梯度，Momentum 累积历史梯度冲量缓解震荡；Adam 则在此基础上自适应调整每个参数的学习率。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M023",
+      "type": "single",
+      "module": "ai",
+      "stem": "Dropout 防止过拟合的具体做法是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "训练时随机丢弃部分神经元"
+        },
+        {
+          "key": "B",
+          "text": "推理时删除一半网络权重"
+        },
+        {
+          "key": "C",
+          "text": "缩小输入图片的分辨率"
+        },
+        {
+          "key": "D",
+          "text": "强制减少训练轮数"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Dropout 在训练时随机丢弃部分神经元，防止网络过度依赖某些节点；它作用于训练过程，而非推理阶段。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M024",
+      "type": "single",
+      "module": "ai",
+      "stem": "与 L2 正则化相比，L1 正则化的独特效果是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "把部分权重精确压缩到零，产生稀疏解"
+        },
+        {
+          "key": "B",
+          "text": "只让所有权重整体按比例变小"
+        },
+        {
+          "key": "C",
+          "text": "对权重完全不产生约束"
+        },
+        {
+          "key": "D",
+          "text": "自动扩充训练集规模"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "L1 在零点附近梯度恒定，推动权重精确归零从而稀疏；L2 梯度随权重线性缩小，只能压小权重、一般不会归零。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M025",
+      "type": "single",
+      "module": "ai",
+      "stem": "早停（Early Stopping）选择停止训练的时机是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "验证集表现开始变差时"
+        },
+        {
+          "key": "B",
+          "text": "训练集损失恰好降到 0 时"
+        },
+        {
+          "key": "C",
+          "text": "达到预设轮数后无条件停止"
+        },
+        {
+          "key": "D",
+          "text": "测试集第一次出结果时"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "早停持续观察验证集表现，一旦验证集开始变差就停止训练，避免模型在训练集上学过头、损害泛化能力。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M026",
+      "type": "single",
+      "module": "ai",
+      "stem": "模型对训练数据的微小波动十分敏感，训练集表现远好于测试集，这种情况主要反映：",
+      "options": [
+        {
+          "key": "A",
+          "text": "高方差，对应过拟合"
+        },
+        {
+          "key": "B",
+          "text": "高偏差，对应欠拟合"
+        },
+        {
+          "key": "C",
+          "text": "无偏估计，模型状态良好"
+        },
+        {
+          "key": "D",
+          "text": "数据增强过度导致"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "方差衡量模型对训练数据变化的敏感程度，高方差对应过拟合；高偏差则对应欠拟合。模型复杂度上升时偏差下降、方差上升。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M027",
+      "type": "single",
+      "module": "ai",
+      "stem": "医疗诊断等高风险场景要求模型能解释判断理由，当必须使用难以解释的模型时，常用的折中手段是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "用 LIME、SHAP 等工具做事后解释"
+        },
+        {
+          "key": "B",
+          "text": "直接隐藏模型的输出结果"
+        },
+        {
+          "key": "C",
+          "text": "无限制地加深网络层数"
+        },
+        {
+          "key": "D",
+          "text": "把损失函数改为 L2 正则项"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "可解释性与精度常此消彼长：高要求选决策树、线性模型，追求精度选集成树或深度学习，折中方案是用 LIME、SHAP 做事后解释。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M028",
+      "type": "single",
+      "module": "ai",
+      "stem": "自注意力计算中，用点积除以 √d_k 再送入 softmax 的主要原因是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "防止点积数值过大落入 softmax 饱和区"
+        },
+        {
+          "key": "B",
+          "text": "减少模型的可训练参数量"
+        },
+        {
+          "key": "C",
+          "text": "使键矩阵强制对称"
+        },
+        {
+          "key": "D",
+          "text": "加快词表构建速度"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "注意力分数 s_ij = (q_i·k_j)/√d_k，除以维度平方根能防止点积过大，避免 softmax 进入梯度平缓的饱和区。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M029",
+      "type": "single",
+      "module": "ai",
+      "stem": "多头注意力中，各头输出沿特征维拼接后，如何恢复到原来的 d 维？",
+      "options": [
+        {
+          "key": "A",
+          "text": "再与输出投影矩阵 Wᵒ 相乘融合"
+        },
+        {
+          "key": "B",
+          "text": "直接求平均后除以头数"
+        },
+        {
+          "key": "C",
+          "text": "逐元素取各头最大值"
+        },
+        {
+          "key": "D",
+          "text": "与输入矩阵逐位相乘"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "多头把注意力过程并行做 H 次，各头输出沿特征维拼接后经输出投影 Wᵒ 融合回 d 维，且 H×d_k=d 使计算量与单头相当。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M030",
+      "type": "single",
+      "module": "ai",
+      "stem": "MLA（多头潜在注意力）大幅节省 KV Cache 的核心思路是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "把隐状态压缩成低维潜向量缓存，展开时再还原各头 KV"
+        },
+        {
+          "key": "B",
+          "text": "直接删除一半注意力头"
+        },
+        {
+          "key": "C",
+          "text": "用循环网络完全替代注意力计算"
+        },
+        {
+          "key": "D",
+          "text": "只缓存最后一个 Token 的键值"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "MLA 缓存低维 c_tᵏᵛ 而非每头完整 KV，压缩与展开矩阵合并后计算结果与标准 MHA 等价，计算量不变而缓存大幅变小。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M031",
+      "type": "single",
+      "module": "ai",
+      "stem": "MLA 中位置信息不压入共享潜向量的原因是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "位置信息用独立的旋转键通道承载，与内容通道互不干扰"
+        },
+        {
+          "key": "B",
+          "text": "位置信息会显著增大 KV Cache 体积"
+        },
+        {
+          "key": "C",
+          "text": "位置编码只对训练阶段有效"
+        },
+        {
+          "key": "D",
+          "text": "位置信息对生成结果没有影响"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "KV 权重矩阵近似低秩，内容可压入潜向量，但位置信息不能压进共享潜向量，故额外用独立旋转键通道承载，内容与位置互不干扰。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M032",
+      "type": "single",
+      "module": "ai",
+      "stem": "贪心解码每步都选概率最高的 Token，它最典型的缺陷是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "结果确定但容易陷入局部最优，输出重复单调"
+        },
+        {
+          "key": "B",
+          "text": "输出完全随机不可复现"
+        },
+        {
+          "key": "C",
+          "text": "生成前必须额外微调模型"
+        },
+        {
+          "key": "D",
+          "text": "必须与温度参数配合才能运行"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "贪心解码永远选最高概率，结果确定，但容易陷入局部最优而重复单调；采样类策略用随机性打破这一点。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M033",
+      "type": "single",
+      "module": "ai",
+      "stem": "温度采样中，temperature 取值大于 1 时对概率分布的影响是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "分布更平滑，输出更随机"
+        },
+        {
+          "key": "B",
+          "text": "分布更尖锐，输出更确定"
+        },
+        {
+          "key": "C",
+          "text": "分布保持不变，只改变词表"
+        },
+        {
+          "key": "D",
+          "text": "只影响首 Token 的选择"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "机制是先把 logits 除以温度再做 softmax：高温把差距抹平（更随机），低温把差距放大（更确定）。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M034",
+      "type": "single",
+      "module": "ai",
+      "stem": "关于 top_k 采样的候选集合，下列说法正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "候选数固定为 K，例如保留前 50 个 Token"
+        },
+        {
+          "key": "B",
+          "text": "候选数随每一步概率分布动态变化"
+        },
+        {
+          "key": "C",
+          "text": "候选集合由累计概率阈值决定"
+        },
+        {
+          "key": "D",
+          "text": "候选集合始终等于整个词表"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "top_k 固定保留概率最高的前 K 个候选再采样，K 是定值；候选数随分布变化是 top_p 的特点。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M035",
+      "type": "single",
+      "module": "ai",
+      "stem": "为抑制生成文本中反复出现相同 Token，常用的控制手段是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "重复惩罚，降低已出现 Token 的概率"
+        },
+        {
+          "key": "B",
+          "text": "把温度调到 5 以上"
+        },
+        {
+          "key": "C",
+          "text": "强制改用贪心解码"
+        },
+        {
+          "key": "D",
+          "text": "缩短上下文窗口"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "重复惩罚通过降低已出现 Token 的概率来抑制重复；生成控制还包括最大生成 Token 数和停止符等手段。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M036",
+      "type": "single",
+      "module": "ai",
+      "stem": "LoRA 微调时实际参与训练的参数量约占原始参数的：",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.1% 到 1% 的低秩分解矩阵"
+        },
+        {
+          "key": "B",
+          "text": "全部参数"
+        },
+        {
+          "key": "C",
+          "text": "大约一半的参数"
+        },
+        {
+          "key": "D",
+          "text": "原始参数的两倍"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "LoRA 冻结原始权重，只训练低秩分解矩阵，参数量降到 0.1%~1%；其有效的原因在于微调对权重的更新量往往呈低秩。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M037",
+      "type": "single",
+      "module": "ai",
+      "stem": "QLoRA 相比 LoRA 能进一步降低显存占用，关键在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "把基座权重做了量化"
+        },
+        {
+          "key": "B",
+          "text": "删除了模型的部分隐藏层"
+        },
+        {
+          "key": "C",
+          "text": "改用更高位宽的整数存储权重"
+        },
+        {
+          "key": "D",
+          "text": "从微调改回全量训练"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "QLoRA 在 LoRA 基础上把基座权重量化以进一步降低显存；PEFT 类方法整体上大幅降低微调的显存和算力需求。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M038",
+      "type": "single",
+      "module": "ai",
+      "stem": "模型权重从 FP16 量化为 INT8 后，每个参数的字节数变化是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "从 2 字节降到 1 字节"
+        },
+        {
+          "key": "B",
+          "text": "从 4 字节升到 8 字节"
+        },
+        {
+          "key": "C",
+          "text": "从 1 字节升到 2 字节"
+        },
+        {
+          "key": "D",
+          "text": "保持不变，仍为 2 字节"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "量化把高精度浮点权重映射到低精度整数，FP16 每参数 2 字节，INT8 每参数 1 字节，显存占用减少约一半。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M039",
+      "type": "single",
+      "module": "ai",
+      "stem": "大模型推理时的显存占用主要由哪三部分组成？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模型权重、KV Cache、激活值"
+        },
+        {
+          "key": "B",
+          "text": "梯度、优化器状态、学习率"
+        },
+        {
+          "key": "C",
+          "text": "训练集、验证集、测试集"
+        },
+        {
+          "key": "D",
+          "text": "词表、位置编码、损失值"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "推理显存 = 权重 + KV Cache + 激活值；其中权重占大头，KV Cache 随序列长度线性增长，激活值随 batch 增大。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M040",
+      "type": "single",
+      "module": "ai",
+      "stem": "vLLM 推理引擎实现高吞吐的关键机制是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "用 PagedAttention 管理 KV Cache 并支持连续批处理"
+        },
+        {
+          "key": "B",
+          "text": "强制所有请求串行推理"
+        },
+        {
+          "key": "C",
+          "text": "用 CPU 完全替代 GPU 计算"
+        },
+        {
+          "key": "D",
+          "text": "禁用一切量化手段"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "vLLM 采用 PagedAttention 管理 KV Cache 减少碎片，配合连续批处理让完成的请求立即移出、新请求立即补入，GPU 持续满载。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M041",
+      "type": "single",
+      "module": "ai",
+      "stem": "MoE（混合专家）模型能省算力的根本原因在于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "稀疏激活，每次推理只计算被路由选中的少数专家"
+        },
+        {
+          "key": "B",
+          "text": "总参数量远小于普通模型"
+        },
+        {
+          "key": "C",
+          "text": "完全不需要训练"
+        },
+        {
+          "key": "D",
+          "text": "把权重全部放在 CPU 内存"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "MoE 把网络拆成多个专家子网络，每次推理只激活部分专家（如 8 个中激活 2 个），总参数量大但实际计算量小。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M042",
+      "type": "single",
+      "module": "ai",
+      "stem": "检索场景下，衡量两个文本语义相似度通常使用的指标是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "余弦相似度"
+        },
+        {
+          "key": "B",
+          "text": "精确率"
+        },
+        {
+          "key": "C",
+          "text": "学习率"
+        },
+        {
+          "key": "D",
+          "text": "混淆矩阵"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Embedding 模型把文本编码为固定维度向量，向量空间中的距离反映语义相似度，常用余弦相似度衡量。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M043",
+      "type": "single",
+      "module": "ai",
+      "stem": "大规模向量数据下，为避免全库线性扫描、加速相似度检索，通常采用的措施是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "使用 HNSW 图索引、IVF 倒排等近似最近邻索引"
+        },
+        {
+          "key": "B",
+          "text": "对向量按字典序排序后二分查找"
+        },
+        {
+          "key": "C",
+          "text": "每次检索前重新训练 Embedding 模型"
+        },
+        {
+          "key": "D",
+          "text": "把向量压缩成单个标量存储"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "全库线性扫描在大规模数据下太慢，近似最近邻索引（如 HNSW、IVF）用空间结构跳过大量无关向量来加速检索。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M044",
+      "type": "single",
+      "module": "ai",
+      "stem": "RAG 中执行相似度检索时，查询文本的处理方式是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "编码为向量后与库中向量比较，找出最相似的 K 个片段"
+        },
+        {
+          "key": "B",
+          "text": "直接与库中文本做逐字字符串匹配"
+        },
+        {
+          "key": "C",
+          "text": "随机抽取 K 个片段"
+        },
+        {
+          "key": "D",
+          "text": "按片段长度排序取前 K 个"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "向量数据库存储向量并支持相似度检索，检索时把查询编码为向量，找出最相似的 K 个片段注入上下文，这是 RAG 的基础组件。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M045",
+      "type": "single",
+      "module": "ai",
+      "stem": "语音识别（ASR）模型的核心功能是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "把语音转为文本"
+        },
+        {
+          "key": "B",
+          "text": "把文本转为语音"
+        },
+        {
+          "key": "C",
+          "text": "把图像转为文本描述"
+        },
+        {
+          "key": "D",
+          "text": "对视频做目标检测"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "语音识别模型把语音转为文本，语音合成模型把文本转为语音；视觉语言模型支持看图问答，视频模型支持视频理解。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M046",
+      "type": "multi",
+      "module": "ai",
+      "stem": "监督学习的典型任务包括：",
+      "options": [
+        {
+          "key": "A",
+          "text": "分类"
+        },
+        {
+          "key": "B",
+          "text": "聚类"
+        },
+        {
+          "key": "C",
+          "text": "回归"
+        },
+        {
+          "key": "D",
+          "text": "降维"
+        },
+        {
+          "key": "E",
+          "text": "频繁项集挖掘"
+        },
+        {
+          "key": "F",
+          "text": "序列生成"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "C"
+      ],
+      "explanation": "监督学习用带标签数据学习输入到目标的映射，典型任务是分类和回归；聚类、降维属于无监督学习。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M047",
+      "type": "multi",
+      "module": "ai",
+      "stem": "无监督学习通常用于解决哪些问题？",
+      "options": [
+        {
+          "key": "A",
+          "text": "聚类"
+        },
+        {
+          "key": "B",
+          "text": "降维"
+        },
+        {
+          "key": "C",
+          "text": "带标签的分类"
+        },
+        {
+          "key": "D",
+          "text": "有监督的回归预测"
+        },
+        {
+          "key": "E",
+          "text": "序列标注"
+        },
+        {
+          "key": "F",
+          "text": "逻辑回归"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B"
+      ],
+      "explanation": "无监督学习处理无标签数据，从数据分布中发现结构，典型任务是聚类和降维；分类、回归、序列标注都属于监督学习。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M048",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于分类任务常用评估指标的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "准确率"
+        },
+        {
+          "key": "B",
+          "text": "精确率"
+        },
+        {
+          "key": "C",
+          "text": "召回率"
+        },
+        {
+          "key": "D",
+          "text": "均方误差（MSE）"
+        },
+        {
+          "key": "E",
+          "text": "平均绝对误差（MAE）"
+        },
+        {
+          "key": "F",
+          "text": "决定系数 R²"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "分类评估常用准确率、精确率、召回率和 F1；MSE、MAE 属于回归评估指标。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M049",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些情况容易引发模型过拟合？",
+      "options": [
+        {
+          "key": "A",
+          "text": "特征数量过多"
+        },
+        {
+          "key": "B",
+          "text": "模型复杂度过高"
+        },
+        {
+          "key": "C",
+          "text": "训练数据过少"
+        },
+        {
+          "key": "D",
+          "text": "使用数据增强"
+        },
+        {
+          "key": "E",
+          "text": "增大批量大小"
+        },
+        {
+          "key": "F",
+          "text": "调高学习率"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "特征过多、模型复杂度过高、训练数据过少都会引发过拟合；数据增强恰恰是缓解过拟合的手段。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M050",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些做法有助于缓解过拟合？",
+      "options": [
+        {
+          "key": "A",
+          "text": "在损失函数上增加正则化惩罚"
+        },
+        {
+          "key": "B",
+          "text": "训练时使用 Dropout"
+        },
+        {
+          "key": "C",
+          "text": "通过数据增强增加样本多样性"
+        },
+        {
+          "key": "D",
+          "text": "继续增加特征数量"
+        },
+        {
+          "key": "E",
+          "text": "不断加深网络层数"
+        },
+        {
+          "key": "F",
+          "text": "减少训练样本量"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "正则化、Dropout、早停、数据增强都是缓解过拟合的常用手段；增加特征、加深网络、减少数据反而会加重过拟合。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M051",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些算法对特征尺度较为敏感，使用前通常需要做特征缩放？",
+      "options": [
+        {
+          "key": "A",
+          "text": "K 近邻（KNN）"
+        },
+        {
+          "key": "B",
+          "text": "支持向量机（SVM）"
+        },
+        {
+          "key": "C",
+          "text": "决策树"
+        },
+        {
+          "key": "D",
+          "text": "朴素贝叶斯"
+        },
+        {
+          "key": "E",
+          "text": "随机森林"
+        },
+        {
+          "key": "F",
+          "text": "梯度提升树（GBDT）"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B"
+      ],
+      "explanation": "KNN、SVM 这类基于距离/内积的算法对特征尺度敏感，需要先缩放；树模型按特征条件划分，不依赖距离度量。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M052",
+      "type": "multi",
+      "module": "ai",
+      "stem": "多头注意力中，每个头由隐状态派生的查询、键、值，其作用分别是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "查询决定该 Token 想关注序列中的谁"
+        },
+        {
+          "key": "B",
+          "text": "键是供其他 Token 匹配的标签"
+        },
+        {
+          "key": "C",
+          "text": "值是被取走的内容"
+        },
+        {
+          "key": "D",
+          "text": "查询直接决定最终输出文本"
+        },
+        {
+          "key": "E",
+          "text": "键决定词表的概率分布"
+        },
+        {
+          "key": "F",
+          "text": "三者作用完全相同，无任何区别"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "q_t 是第 t 个 Token 的查询（想关注谁），k_t 是供匹配的键标签，v_t 是被加权取走的值内容；三者在注意力计算中各司其职。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M053",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于常见解码策略的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "贪心解码"
+        },
+        {
+          "key": "B",
+          "text": "温度采样"
+        },
+        {
+          "key": "C",
+          "text": "Top-k 采样"
+        },
+        {
+          "key": "D",
+          "text": "模拟退火解码"
+        },
+        {
+          "key": "E",
+          "text": "马尔可夫链解码"
+        },
+        {
+          "key": "F",
+          "text": "词频排序解码"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "教材给出的解码策略为贪心解码、温度采样、Top-k 采样、Top-p 采样；D、E、F 均不是教材所述的解码策略。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M054",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些属于采样参数的数值配置？",
+      "options": [
+        {
+          "key": "A",
+          "text": "temperature=0.7"
+        },
+        {
+          "key": "B",
+          "text": "top_p=0.9"
+        },
+        {
+          "key": "C",
+          "text": "top_k=50"
+        },
+        {
+          "key": "D",
+          "text": "学习率 0.001"
+        },
+        {
+          "key": "E",
+          "text": "批量大小 32"
+        },
+        {
+          "key": "F",
+          "text": "隐藏层维度 512"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "采样参数是解码策略的数值旋钮，典型有 temperature、top_k、top_p；学习率、批量大小、隐藏层维度属于训练和模型配置。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M055",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些属于生成控制的手段？",
+      "options": [
+        {
+          "key": "A",
+          "text": "限制最大生成 Token 数"
+        },
+        {
+          "key": "B",
+          "text": "重复惩罚"
+        },
+        {
+          "key": "C",
+          "text": "设置停止符"
+        },
+        {
+          "key": "D",
+          "text": "修改词表大小"
+        },
+        {
+          "key": "E",
+          "text": "调整训练学习率"
+        },
+        {
+          "key": "F",
+          "text": "增大推理批量"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "生成控制包括最大生成 Token 数限制输出长度、重复惩罚抑制重复、停止符在特定 Token 处结束生成；其余与生成控制无关。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M056",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于模型微调（含参数高效微调）方式的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "全量微调"
+        },
+        {
+          "key": "B",
+          "text": "SFT 监督微调"
+        },
+        {
+          "key": "C",
+          "text": "LoRA 低秩微调"
+        },
+        {
+          "key": "D",
+          "text": "数据清洗"
+        },
+        {
+          "key": "E",
+          "text": "仅修改提示词"
+        },
+        {
+          "key": "F",
+          "text": "特征选择"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "微调方式包括全量微调、SFT、LoRA、QLoRA 等 PEFT 方法；数据清洗、修改提示词、特征选择不属于微调方式。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M057",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于常见大模型量化方式的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "GPTQ"
+        },
+        {
+          "key": "B",
+          "text": "AWQ"
+        },
+        {
+          "key": "C",
+          "text": "INT4"
+        },
+        {
+          "key": "D",
+          "text": "FP32 全精度存储"
+        },
+        {
+          "key": "E",
+          "text": "Dropout"
+        },
+        {
+          "key": "F",
+          "text": "批处理"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "常见量化方式有 GPTQ、AWQ、INT8、INT4；FP32 是未量化的全精度格式，Dropout 和批处理不属于量化。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M058",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于大模型推理引擎的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "vLLM"
+        },
+        {
+          "key": "B",
+          "text": "llama.cpp"
+        },
+        {
+          "key": "C",
+          "text": "TensorRT-LLM"
+        },
+        {
+          "key": "D",
+          "text": "Kafka"
+        },
+        {
+          "key": "E",
+          "text": "Nginx"
+        },
+        {
+          "key": "F",
+          "text": "Redis"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "vLLM 用 PagedAttention 支持连续批处理，llama.cpp 面向 CPU 和边缘设备，TensorRT-LLM 在 NVIDIA GPU 上做图优化；其余是消息、Web 和缓存中间件。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M059",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于多卡并行训练策略的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据并行"
+        },
+        {
+          "key": "B",
+          "text": "流水线并行"
+        },
+        {
+          "key": "C",
+          "text": "张量并行"
+        },
+        {
+          "key": "D",
+          "text": "向量并行"
+        },
+        {
+          "key": "E",
+          "text": "磁盘并行"
+        },
+        {
+          "key": "F",
+          "text": "日志并行"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "常见并行策略有数据并行、模型并行、流水线并行、张量并行；向量并行、磁盘并行、日志并行不是教材所述的并行策略。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M060",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列属于向量数据库或向量检索库的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "Milvus"
+        },
+        {
+          "key": "B",
+          "text": "Chroma"
+        },
+        {
+          "key": "C",
+          "text": "FAISS"
+        },
+        {
+          "key": "D",
+          "text": "Oracle"
+        },
+        {
+          "key": "E",
+          "text": "HDFS"
+        },
+        {
+          "key": "F",
+          "text": "Redis"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "教材列举的常见向量数据库/检索库为 Milvus、Chroma、FAISS；Oracle 是关系数据库，HDFS 是分布式文件系统，Redis 是键值缓存。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M061",
+      "type": "judge",
+      "module": "ai",
+      "stem": "强化学习中，奖励信号替代了监督学习的标签，模型依靠试错后的反馈进行学习。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "强化学习没有现成答案，靠环境交互的反馈与奖励调整策略，奖励信号替代标签，与监督学习形成鲜明对比。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M062",
+      "type": "judge",
+      "module": "ai",
+      "stem": "逻辑回归属于典型的非线性深度网络，其输出概率完全依赖多层隐藏层的堆叠。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "逻辑回归本质仍是线性模型，靠 Sigmoid 非线性激活输出概率，并非深度网络，也不需要多层隐藏层堆叠。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M063",
+      "type": "judge",
+      "module": "ai",
+      "stem": "KNN 在训练阶段会为每个训练样本学习一组权重参数，属于典型的急切学习算法。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "KNN 是惰性算法，训练阶段不学习显式参数，预测时才计算新样本与训练集的距离并多数投票。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M064",
+      "type": "judge",
+      "module": "ai",
+      "stem": "SVM 的最大间隔优化是一个凸二次规划问题，只存在全局最优解，不会陷入局部最优。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "最大化间隔等价于最小化 ‖w‖²，是凸二次规划问题；凸问题只有全局最优解，这是 SVM 相对早期神经网络的经典优势。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M065",
+      "type": "judge",
+      "module": "ai",
+      "stem": "朴素贝叶斯的训练需要数千轮反向传播迭代，训练成本远高于深度神经网络。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "朴素贝叶斯训练只是统计先验与条件概率的频率，训练极快、可增量更新，成本远低于深度网络。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M066",
+      "type": "judge",
+      "module": "ai",
+      "stem": "标准化（z-score）与归一化完全等价，两者只是叫法不同，处理结果没有区别。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "标准化是减均值除以标准差，处理后均值归零方差为 1；归一化是把数值映射到固定区间如 0 到 1，二者并不等价。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M067",
+      "type": "judge",
+      "module": "ai",
+      "stem": "测试集只用于最终评估，不应参与训练或调参过程。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "只有没参与训练的数据才能真实反映泛化，测试集若参与调参就失去了最终评估的意义。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M068",
+      "type": "judge",
+      "module": "ai",
+      "stem": "混淆矩阵列出了预测与真实的各种组合，是精确率和召回率的计算基础。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "混淆矩阵给出预测与真实的所有组合计数，精确率和召回率都由其中的真假正负样本数计算得出。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M069",
+      "type": "judge",
+      "module": "ai",
+      "stem": "反向传播沿计算图从输出层向输入层回传梯度，是深层网络参数更新的基础。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "前向传播逐层计算输出，反向传播沿计算图回传梯度，两者配合完成神经网络的学习。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M070",
+      "type": "judge",
+      "module": "ai",
+      "stem": "卷积神经网络适合图像数据，循环神经网络按序列顺序处理文本和时间序列数据。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "CNN 用卷积核提取局部特征适合图像；RNN 按序列顺序处理，适合文本和时间序列，LSTM 进一步缓解长序列梯度问题。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M071",
+      "type": "judge",
+      "module": "ai",
+      "stem": "过拟合指模型在测试集上表现出色、在训练集上表现差，原因是训练数据过多。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "过拟合恰恰相反：模型在训练集上表现好、在测试集上表现差，原因是记住了训练数据中的噪声，且常由数据过少引发。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M072",
+      "type": "judge",
+      "module": "ai",
+      "stem": "偏差衡量模型预测的平均偏离程度，高偏差通常对应欠拟合。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "高偏差说明预测系统性偏离真实值，对应欠拟合；高方差则对应过拟合，两者是过拟合/欠拟合的两种表现。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M073",
+      "type": "judge",
+      "module": "ai",
+      "stem": "L1 正则化让所有权重整体均匀变小但不会归零，L2 正则化能把权重精确压缩到零。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "结论正好相反：L1 在零点附近梯度恒定，推动权重精确归零（稀疏）；L2 梯度随权重线性缩小，只能压小权重、不能归零。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M074",
+      "type": "judge",
+      "module": "ai",
+      "stem": "Dropout 只在训练时随机丢弃部分神经元，推理时通常不丢弃。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Dropout 在训练时随机丢弃神经元以防止网络过度依赖某些节点，推理阶段使用完整网络。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M075",
+      "type": "judge",
+      "module": "ai",
+      "stem": "数据增强通过增加训练样本的多样性来缓解过拟合。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "数据增强增加训练样本多样性，与正则化、Dropout、早停一样是缓解过拟合的常用手段。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M076",
+      "type": "judge",
+      "module": "ai",
+      "stem": "决策树的可解释性较强，但单棵树容易过拟合，集成方法可以缓解这一问题。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "决策树按特征条件逐层划分、可解释性强，但容易过拟合；随机森林等多树集成通过平均化摊平单棵树的过拟合。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M077",
+      "type": "judge",
+      "module": "ai",
+      "stem": "随机森林虽然精度较高，但通常被视为难以解释的黑盒模型。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "白盒模型如决策树、线性回归能直接看出判断依据；随机森林、深度神经网络等只给结果、说不清理由，属于黑盒模型。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M078",
+      "type": "judge",
+      "module": "ai",
+      "stem": "注意力分数经 softmax 归一化后直接作为权重对各个值向量加权求和，无需其他处理。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "注意力分数经 softmax 归一化为权重 α_ij，再对各值向量 v_j 加权求和，得到融合全序列信息的输出。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M079",
+      "type": "judge",
+      "module": "ai",
+      "stem": "把 MLA 的压缩与展开矩阵合并后，其每一步计算结果与标准 MHA 等价，只是缓存大幅变小。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "合并 Wᵁᴷ·Wᴰᴷⱽ 后，MLA 算出的 k、v 与标准 MHA 完全等价，计算量不变，但缓存的是低维潜向量，缓存显著缩小。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M080",
+      "type": "judge",
+      "module": "ai",
+      "stem": "KV Cache 的大小与序列长度无关，始终是一个固定常数。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "KV Cache 随序列长度近似线性增长，长上下文或长输出时显存占用暴涨，MQA、GQA、MLA 等变体正是为降低它而设计。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M081",
+      "type": "judge",
+      "module": "ai",
+      "stem": "温度采样中，temperature 小于 1 时概率分布更尖锐，输出更确定。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "先对 logits 除以温度再 softmax：低温把差距放大，分布更尖锐、输出更确定；高温把差距抹平，输出更随机。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M082",
+      "type": "judge",
+      "module": "ai",
+      "stem": "采样参数在推理时设置，只控制选词方式，不会改变模型权重。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "模型只产出概率分布，采样参数是控制\"如何从分布中挑出下一个 Token\"的旋钮，推理时设置、不改模型权重。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M083",
+      "type": "judge",
+      "module": "ai",
+      "stem": "同一个模型和同一个 Prompt，仅改变采样参数也可能得到不同的输出。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "窗口、Prompt、模型能力决定\"有哪些候选\"，采样参数决定\"选哪个\"，因此仅改变采样参数，输出就可能不同。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M084",
+      "type": "judge",
+      "module": "ai",
+      "stem": "模型的知识停留在训练截止日期，要回答最新问题通常需要借助 RAG 注入外部知识。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "无论模型多大多快，其知识仍停留在训练截止日期；RAG 的做法是在生成前检索外部知识注入上下文，以补足最新信息。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M085",
+      "type": "judge",
+      "module": "ai",
+      "stem": "LoRA 微调时冻结原始权重，只训练低秩分解矩阵。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "LoRA 冻结原始权重，仅训练低秩分解矩阵，参数量减少到 0.1%~1%，因为微调的权重更新量往往呈低秩。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M086",
+      "type": "judge",
+      "module": "ai",
+      "stem": "INT8 推理相比 FP32 吞吐提升约 4 倍，且通常精度影响较小。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "INT8 推理吞吐相比 FP32 提升约 4 倍、精度影响小；位宽减半使数据搬运量减半，计算单元单位时间可处理更多数据。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M087",
+      "type": "judge",
+      "module": "ai",
+      "stem": "量化把连续浮点值离散到有限整数刻度，位数越少量化误差越大。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "低精度表示把连续浮点值离散到有限整数刻度产生量化误差，位数越少误差越大，所以量化越激进精度损失越大。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M088",
+      "type": "judge",
+      "module": "ai",
+      "stem": "BF16 与 FP16 同为 2 字节，但 BF16 的数值表示范围更大。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "FP32 占 4 字节、FP16 占 2 字节，BF16 同为 2 字节但数值范围更大，因此在大模型训练中广泛使用。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M089",
+      "type": "judge",
+      "module": "ai",
+      "stem": "批处理会让权重被重复读取多次，因此批量越大，吞吐反而越低。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "批处理摊薄的是权重读取成本：权重只读一次、成本分摊给 N 个请求，是最大的吞吐杠杆；但显存随 batch 线性增长，成为上限。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M090",
+      "type": "judge",
+      "module": "ai",
+      "stem": "多模态输入不消耗上下文窗口和显存，图片的 Token 开销与文本完全相同。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "多模态输入同样消耗上下文窗口和显存，且图片、视频的 Token 开销通常大于文本。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M091",
+      "type": "single",
+      "module": "os",
+      "stem": "关于国产操作系统统信 UOS，下列表述准确的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "由统信软件基于 Linux 内核开发，面向国产 CPU 平台"
+        },
+        {
+          "key": "B",
+          "text": "在 Windows 内核基础上二次开发而来"
+        },
+        {
+          "key": "C",
+          "text": "与 Linux 内核完全无关的独立操作系统"
+        },
+        {
+          "key": "D",
+          "text": "仅支持 x86 一种 CPU 架构"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "UOS 是统信软件基于 Linux 内核开发的国产操作系统，内核是对国产 CPU 架构适配的关键层。其余选项与教材对 UOS 的定位不符。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M092",
+      "type": "single",
+      "module": "os",
+      "stem": "运行在用户态的应用需要读写磁盘时，通常的做法是",
+      "options": [
+        {
+          "key": "A",
+          "text": "直接访问硬件设备寄存器"
+        },
+        {
+          "key": "B",
+          "text": "通过系统调用请求内核代办"
+        },
+        {
+          "key": "C",
+          "text": "自行绕过内核加载驱动并操作设备"
+        },
+        {
+          "key": "D",
+          "text": "先暂停内核运行再执行操作"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "应用运行在受限的用户态，读写磁盘、网卡、分配内存都要通过系统调用请内核代办，这也是安全隔离与统一抽象的体现。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M093",
+      "type": "single",
+      "module": "os",
+      "stem": "引入中断机制的主要目的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "让设备主动通知处理器，避免 CPU 反复轮询设备状态"
+        },
+        {
+          "key": "B",
+          "text": "让 CPU 不再响应任何设备请求"
+        },
+        {
+          "key": "C",
+          "text": "完全替代系统调用机制"
+        },
+        {
+          "key": "D",
+          "text": "取消设备与处理器之间的交互"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "若没有中断，CPU 必须不断轮询设备状态，既浪费算力又难以及时响应；中断让设备主动通知处理器，处理完成后返回被中断的程序继续执行。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M094",
+      "type": "single",
+      "module": "os",
+      "stem": "开机后系统进入就绪状态的接力顺序是",
+      "options": [
+        {
+          "key": "A",
+          "text": "固件初始化硬件 → GRUB 加载内核 → 内核初始化并挂载根文件系统 → systemd 启动系统服务"
+        },
+        {
+          "key": "B",
+          "text": "GRUB 加载内核 → 固件初始化 → systemd 启动服务 → 挂载根文件系统"
+        },
+        {
+          "key": "C",
+          "text": "systemd 启动服务 → 固件初始化 → GRUB 加载内核 → 内核初始化硬件"
+        },
+        {
+          "key": "D",
+          "text": "内核初始化硬件 → 固件初始化 → GRUB 加载内核 → systemd 启动服务"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "启动流程是一条接力链：固件初始化硬件、GRUB 加载内核、内核初始化硬件并挂载根文件系统、systemd 以一号进程身份启动系统服务。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M095",
+      "type": "single",
+      "module": "os",
+      "stem": "内核启动完自身后，需要第一个用户态进程来拉起其余服务，该一号进程（PID 1）是",
+      "options": [
+        {
+          "key": "A",
+          "text": "systemd"
+        },
+        {
+          "key": "B",
+          "text": "bash"
+        },
+        {
+          "key": "C",
+          "text": "Xorg"
+        },
+        {
+          "key": "D",
+          "text": "GRUB"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "内核启动完自身后需要第一个用户态进程来拉起其余服务，systemd 接管后成为所有服务的祖先，并管理服务的启动依赖顺序。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M096",
+      "type": "single",
+      "module": "os",
+      "stem": "UOS 系统中默认使用的命令行解释器是",
+      "options": [
+        {
+          "key": "A",
+          "text": "bash"
+        },
+        {
+          "key": "B",
+          "text": "zsh"
+        },
+        {
+          "key": "C",
+          "text": "csh"
+        },
+        {
+          "key": "D",
+          "text": "fish"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Shell 是用户与内核之间的命令行解释器，常见的有 bash、zsh 等，UOS 默认使用 bash，脚本文件以 .sh 结尾。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M097",
+      "type": "single",
+      "module": "os",
+      "stem": "把前一条命令的输出作为后一条命令的输入，实现数据流串联，应使用的符号是",
+      "options": [
+        {
+          "key": "A",
+          "text": "管道符 |"
+        },
+        {
+          "key": "B",
+          "text": "重定向符 >"
+        },
+        {
+          "key": "C",
+          "text": "输入重定向符 <"
+        },
+        {
+          "key": "D",
+          "text": "分号 ;"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "管道符 | 把前一个命令的输出传给后一个命令，如 ps aux | grep nginx；分号用于顺序执行，> 与 < 分别是写出与读入重定向。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M098",
+      "type": "single",
+      "module": "os",
+      "stem": "在 Shell 中输入命令后提示 command not found，最可能的原因是",
+      "options": [
+        {
+          "key": "A",
+          "text": "该命令不在 PATH 环境变量指定的查找路径中"
+        },
+        {
+          "key": "B",
+          "text": "内存空间不足"
+        },
+        {
+          "key": "C",
+          "text": "显示器分辨率设置过低"
+        },
+        {
+          "key": "D",
+          "text": "系统时间未同步"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "输入命令名时 Shell 按 PATH 列出的目录逐个查找可执行文件，找不到则报 command not found，与内存、显示或时间无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M099",
+      "type": "single",
+      "module": "os",
+      "stem": "Shell 脚本中给变量赋值的正确写法是",
+      "options": [
+        {
+          "key": "A",
+          "text": "name=\"uos\""
+        },
+        {
+          "key": "B",
+          "text": "name = \"uos\""
+        },
+        {
+          "key": "C",
+          "text": "\"uos\" = name"
+        },
+        {
+          "key": "D",
+          "text": "$name=\"uos\""
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Shell 变量赋值时等号两侧不能有空格，引用变量时加 $ 符号，例如 echo $name。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M100",
+      "type": "single",
+      "module": "os",
+      "stem": "将某个目录打包并压缩成 gzip 格式的 tar 包，应使用的命令是",
+      "options": [
+        {
+          "key": "A",
+          "text": "tar -czvf 包名.tar.gz 目录名"
+        },
+        {
+          "key": "B",
+          "text": "tar -xzvf 包名.tar.gz"
+        },
+        {
+          "key": "C",
+          "text": "tar -tzvf 包名.tar.gz"
+        },
+        {
+          "key": "D",
+          "text": "tar -xzvf 目录名 包名.tar.gz"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "tar -czvf 用于打包并 gzip 压缩目录；-xzvf 是解压，-tzvf 是列出压缩包内容。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M101",
+      "type": "single",
+      "module": "os",
+      "stem": "touch 命令的典型用途是",
+      "options": [
+        {
+          "key": "A",
+          "text": "创建空文件或更新文件时间戳"
+        },
+        {
+          "key": "B",
+          "text": "删除指定文件"
+        },
+        {
+          "key": "C",
+          "text": "递归复制目录"
+        },
+        {
+          "key": "D",
+          "text": "修改文件的所有者和组"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "touch 用于创建空文件或更新文件时间戳；删除用 rm，递归复制用 cp -r，修改所有者用 chown。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M102",
+      "type": "single",
+      "module": "os",
+      "stem": "UOS 默认使用的文件系统类型是",
+      "options": [
+        {
+          "key": "A",
+          "text": "ext4"
+        },
+        {
+          "key": "B",
+          "text": "NTFS"
+        },
+        {
+          "key": "C",
+          "text": "HFS+"
+        },
+        {
+          "key": "D",
+          "text": "FAT32"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "常见 Linux 文件系统有 ext4、xfs、btrfs 等，UOS 默认使用 ext4。NTFS、HFS+、FAT32 均非教材所述 UOS 默认文件系统。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M103",
+      "type": "single",
+      "module": "os",
+      "stem": "下列关于硬链接的说法，正确的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "多个硬链接共享同一个 inode"
+        },
+        {
+          "key": "B",
+          "text": "硬链接可以跨文件系统建立"
+        },
+        {
+          "key": "C",
+          "text": "硬链接可以指向目录"
+        },
+        {
+          "key": "D",
+          "text": "删除任一硬链接会导致源文件立即丢失"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "硬链接共享同一 inode，删除任一链接不影响其他链接；但硬链接不能跨文件系统、不能指向目录，这两点正是软链接相对的优势。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M104",
+      "type": "single",
+      "module": "os",
+      "stem": "让普通用户能读取但不能修改某个文件，最合适的权限设置是",
+      "options": [
+        {
+          "key": "A",
+          "text": "644"
+        },
+        {
+          "key": "B",
+          "text": "755"
+        },
+        {
+          "key": "C",
+          "text": "777"
+        },
+        {
+          "key": "D",
+          "text": "711"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "644 表示所有者可读写、组和其他用户只可读，既满足读取需求又不授予修改权限，是普通文件的常见默认权限。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M105",
+      "type": "single",
+      "module": "os",
+      "stem": "系统对新建文件的默认基数是 666、对目录是 777；在默认 umask 022 下，新建普通文件与新建目录的最终权限分别是",
+      "options": [
+        {
+          "key": "A",
+          "text": "644 与 755"
+        },
+        {
+          "key": "B",
+          "text": "755 与 644"
+        },
+        {
+          "key": "C",
+          "text": "666 与 777"
+        },
+        {
+          "key": "D",
+          "text": "600 与 700"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "umask 022 屏蔽组和其他人的写位：新文件 666−022=644，新目录 777−022=755。umask 只作用于新建对象。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M106",
+      "type": "single",
+      "module": "os",
+      "stem": "已经退出但仍保留在进程表项中、等待父进程回收的进程称为",
+      "options": [
+        {
+          "key": "A",
+          "text": "僵尸进程"
+        },
+        {
+          "key": "B",
+          "text": "睡眠进程"
+        },
+        {
+          "key": "C",
+          "text": "后台进程"
+        },
+        {
+          "key": "D",
+          "text": "守护进程"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "僵尸进程是已退出但仍占用进程表项的进程，由父进程回收；若父进程不回收，僵尸持续占用 PID 资源，大量堆积会拖垮系统。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M107",
+      "type": "single",
+      "module": "os",
+      "stem": "需要让目标进程在退出前有机会完成资源清理，应向它发送",
+      "options": [
+        {
+          "key": "A",
+          "text": "SIGTERM"
+        },
+        {
+          "key": "B",
+          "text": "SIGKILL"
+        },
+        {
+          "key": "C",
+          "text": "SIGINT"
+        },
+        {
+          "key": "D",
+          "text": "SIGSEGV"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "SIGTERM 是礼貌请求，进程可捕获并做清理后退出；SIGKILL 由内核强制终止，目标进程无法捕获或忽略，只作兜底。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M108",
+      "type": "single",
+      "module": "os",
+      "stem": "与早期 init 按顺序串行启动服务相比，systemd 作为主流服务管理器的主要改进是",
+      "options": [
+        {
+          "key": "A",
+          "text": "支持并行启动与依赖管理"
+        },
+        {
+          "key": "B",
+          "text": "只能串行逐个启动服务"
+        },
+        {
+          "key": "C",
+          "text": "无法管理服务间的依赖关系"
+        },
+        {
+          "key": "D",
+          "text": "要求服务全部由内核直接运行"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "早期 init 串行启动又慢又难管依赖；systemd 支持并行启动与依赖管理，管理服务的启动依赖顺序，保证服务按序拉起。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M109",
+      "type": "single",
+      "module": "os",
+      "stem": "crontab 定时任务的时间配置遵循的顺序是",
+      "options": [
+        {
+          "key": "A",
+          "text": "分、时、日、月、周"
+        },
+        {
+          "key": "B",
+          "text": "时、分、日、月、周"
+        },
+        {
+          "key": "C",
+          "text": "周、月、日、时、分"
+        },
+        {
+          "key": "D",
+          "text": "日、月、时、分、周"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "crontab 按分、时、日、月、周五段配置执行周期，可周期性调用脚本执行命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M110",
+      "type": "single",
+      "module": "os",
+      "stem": "缓存 Cache 之所以能显著降低访存开销，依赖的是程序的",
+      "options": [
+        {
+          "key": "A",
+          "text": "局部性"
+        },
+        {
+          "key": "B",
+          "text": "随机性"
+        },
+        {
+          "key": "C",
+          "text": "并行性"
+        },
+        {
+          "key": "D",
+          "text": "容错性"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "程序倾向于访问近期访问过或相邻的数据，Cache 利用这种局部性把高频数据放在 CPU 附近，命中率高则访存开销大幅下降。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M111",
+      "type": "single",
+      "module": "os",
+      "stem": "df 显示某分区已满，而 du 统计出的目录占用却很小，最可能的原因是",
+      "options": [
+        {
+          "key": "A",
+          "text": "存在被删除但仍被进程打开的文件，空间尚未释放"
+        },
+        {
+          "key": "B",
+          "text": "磁盘没有进行格式化"
+        },
+        {
+          "key": "C",
+          "text": "文件系统类型不受支持"
+        },
+        {
+          "key": "D",
+          "text": "物理内存不足"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "被删除但仍被进程打开的文件，其 inode 仍被引用，空间不会立即释放；du 按目录看不到已删除文件，df 按分区统计才反映真实占用。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M112",
+      "type": "single",
+      "module": "os",
+      "stem": "既要通过多块磁盘获得性能提升，又希望在单块盘损坏时依靠冗余信息重建数据，应选用的 RAID 级别是",
+      "options": [
+        {
+          "key": "A",
+          "text": "RAID5"
+        },
+        {
+          "key": "B",
+          "text": "RAID0"
+        },
+        {
+          "key": "C",
+          "text": "RAID1"
+        },
+        {
+          "key": "D",
+          "text": "JBOD"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "RAID0 条带化提升性能但无冗余，RAID1 镜像提供冗余但容量减半，RAID5 用奇偶校验位记录冗余信息，兼顾性能与冗余。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M113",
+      "type": "single",
+      "module": "os",
+      "stem": "网络连通性依赖多个要素，下列不属于教材所述连通性五要素的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "磁盘分区"
+        },
+        {
+          "key": "B",
+          "text": "子网"
+        },
+        {
+          "key": "C",
+          "text": "网关"
+        },
+        {
+          "key": "D",
+          "text": "DNS"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "连通性依赖子网、网关、路由、DNS 和监听地址五要素，任一环出问题都会导致访问失败，磁盘分区不在其中。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M114",
+      "type": "single",
+      "module": "os",
+      "stem": "ping 某台主机的 IP 地址可以通，但访问其域名页面却报无法解析，应优先怀疑",
+      "options": [
+        {
+          "key": "A",
+          "text": "DNS 解析失败"
+        },
+        {
+          "key": "B",
+          "text": "网线断开"
+        },
+        {
+          "key": "C",
+          "text": "网关故障"
+        },
+        {
+          "key": "D",
+          "text": "CPU 负载过高"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ping 通 IP 说明网络可达，域名打不开多为 DNS 解析失败而非网络不通，两者要区分，这正是排障先查 DNS 的原因。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M115",
+      "type": "single",
+      "module": "os",
+      "stem": "访问 HTTPS 站点时报证书错误，教材建议优先检查",
+      "options": [
+        {
+          "key": "A",
+          "text": "系统时间与证书链"
+        },
+        {
+          "key": "B",
+          "text": "显示器驱动版本"
+        },
+        {
+          "key": "C",
+          "text": "浏览器皮肤主题"
+        },
+        {
+          "key": "D",
+          "text": "声卡采样率"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "证书有有效期，本机时间偏差过大时会被判定已过期或未生效，这是最常见的误报原因，因此报证书错误先查系统时间和证书链。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M116",
+      "type": "single",
+      "module": "os",
+      "stem": "安装软件前先在本地包索引中查询依赖与可用版本，主要目的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "提前确认依赖关系，避免装到一半才发现缺依赖"
+        },
+        {
+          "key": "B",
+          "text": "提高 CPU 的运算速度"
+        },
+        {
+          "key": "C",
+          "text": "扩大磁盘可用容量"
+        },
+        {
+          "key": "D",
+          "text": "自动更新操作系统内核"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "安装前先在本机索引里查该包有哪些依赖、当前源里有哪些版本，避免装到一半才发现缺依赖；包索引记录可用包信息。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M117",
+      "type": "single",
+      "module": "os",
+      "stem": "x86 架构编译的程序在 ARM 机器上通常无法直接运行，根本原因是",
+      "options": [
+        {
+          "key": "A",
+          "text": "指令集不同，需重新编译"
+        },
+        {
+          "key": "B",
+          "text": "文件扩展名不符合要求"
+        },
+        {
+          "key": "C",
+          "text": "屏幕分辨率不兼容"
+        },
+        {
+          "key": "D",
+          "text": "网络协议不一致"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "动态链接程序能否运行受共享库架构和 ABI 兼容性影响，x86 程序在 ARM 机器上因指令集不同不能直接运行，需重新编译。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M118",
+      "type": "single",
+      "module": "os",
+      "stem": "应用启动时报缺少共享库，下列可用于查看缺失库并辅助定位的命令是",
+      "options": [
+        {
+          "key": "A",
+          "text": "ldd"
+        },
+        {
+          "key": "B",
+          "text": "ping"
+        },
+        {
+          "key": "C",
+          "text": "fdisk"
+        },
+        {
+          "key": "D",
+          "text": "date"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "缺少共享库属于运行时依赖适配不完整，可用 ldd 查看缺失库，再补装对应架构的库，其他三个命令与库依赖无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M119",
+      "type": "single",
+      "module": "os",
+      "stem": "程序能否在目标系统运行，取决于指令集、运行库与 ABI 三层是否匹配。下列与这三层无关的是",
+      "options": [
+        {
+          "key": "A",
+          "text": "显示器分辨率"
+        },
+        {
+          "key": "B",
+          "text": "指令集"
+        },
+        {
+          "key": "C",
+          "text": "运行库"
+        },
+        {
+          "key": "D",
+          "text": "ABI"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "程序能否运行取决于指令集、运行库、ABI 三层是否匹配；显示器分辨率属于外设配置，与程序能否运行的三层判断无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M120",
+      "type": "single",
+      "module": "os",
+      "stem": "UOS 桌面所基于的桌面环境是",
+      "options": [
+        {
+          "key": "A",
+          "text": "深度桌面环境 DDE"
+        },
+        {
+          "key": "B",
+          "text": "GNOME"
+        },
+        {
+          "key": "C",
+          "text": "KDE Plasma"
+        },
+        {
+          "key": "D",
+          "text": "LXDE"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "UOS 桌面基于深度桌面环境 DDE，提供图形化的系统管理入口，与命令行管理互为补充。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M121",
+      "type": "multi",
+      "module": "os",
+      "stem": "Linux 内核作为系统的核心程序，负责管理的资源包括",
+      "options": [
+        {
+          "key": "A",
+          "text": "进程的调度与切换"
+        },
+        {
+          "key": "B",
+          "text": "内存的分配回收与 swap"
+        },
+        {
+          "key": "C",
+          "text": "文件系统与 inode 管理"
+        },
+        {
+          "key": "D",
+          "text": "桌面壁纸与主题配色"
+        },
+        {
+          "key": "E",
+          "text": "浏览器收藏夹管理"
+        },
+        {
+          "key": "F",
+          "text": "用户应用源码编写"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "内核管理进程、内存、文件、设备、权限五类核心资源；桌面外观、应用数据等属于用户空间范畴，不归内核管理。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M122",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 Shell 命令组合与重定向，下列说法正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "管道符 | 把前一个命令的输出传给后一个命令"
+        },
+        {
+          "key": "B",
+          "text": "符号 > 把输出写入文件，覆盖原内容"
+        },
+        {
+          "key": "C",
+          "text": "符号 >> 把输出追加写入文件"
+        },
+        {
+          "key": "D",
+          "text": "符号 < 把输出写入指定文件"
+        },
+        {
+          "key": "E",
+          "text": "通配符 * 只匹配单个字符"
+        },
+        {
+          "key": "F",
+          "text": "分号 ; 表示把前一个命令的输出传给后一个命令"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "| 传递输出，> 覆盖写入，>> 追加写入，< 从文件读取输入；* 匹配任意字符，分号只是顺序执行多条命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M123",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 Shell 终端操作，下列说法正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ctrl+Z 可挂起前台任务"
+        },
+        {
+          "key": "B",
+          "text": "jobs 可查看任务列表"
+        },
+        {
+          "key": "C",
+          "text": "fg 可将后台任务恢复到前台"
+        },
+        {
+          "key": "D",
+          "text": "Ctrl+C 无法中断正在执行的命令"
+        },
+        {
+          "key": "E",
+          "text": "nohup 会让程序在终端关闭后立即终止"
+        },
+        {
+          "key": "F",
+          "text": "which 命令用于查看命令的帮助文档"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Ctrl+Z 挂起前台任务，jobs 查看任务列表，fg 恢复前台运行；Ctrl+C 中断当前命令，nohup 让进程在终端关闭后继续运行，which 定位命令路径。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M124",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 Linux 文件权限模型，下列说法正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "权限分为读、写、执行三种"
+        },
+        {
+          "key": "B",
+          "text": "访问者分为所有者、所属组、其他用户三类"
+        },
+        {
+          "key": "C",
+          "text": "数字权限中 4 表示读、2 表示写、1 表示执行"
+        },
+        {
+          "key": "D",
+          "text": "目录的 x 权限与文件的 x 权限语义完全相同"
+        },
+        {
+          "key": "E",
+          "text": "644 表示所有访问者都可读可写"
+        },
+        {
+          "key": "F",
+          "text": "新建普通文件默认带有执行权限"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "权限分 r/w/x 三种，访问者分所有者、组、其他三类，数字权限 4/2/1 分别对应读写执行；目录的 x 决定能否进入或遍历，且新文件默认不带执行位。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M125",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列属于进程常见状态的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "运行"
+        },
+        {
+          "key": "B",
+          "text": "睡眠"
+        },
+        {
+          "key": "C",
+          "text": "僵尸"
+        },
+        {
+          "key": "D",
+          "text": "格式化"
+        },
+        {
+          "key": "E",
+          "text": "编译"
+        },
+        {
+          "key": "F",
+          "text": "渲染"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "进程常见状态包括运行、睡眠、停止、僵尸等；格式化、编译、渲染不是进程状态，属于操作或任务概念。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M126",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 RAID 的说法，正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "RAID0 通过条带化提升性能，但无冗余"
+        },
+        {
+          "key": "B",
+          "text": "RAID1 通过镜像提供冗余"
+        },
+        {
+          "key": "C",
+          "text": "RAID5 借助奇偶校验兼顾性能与冗余"
+        },
+        {
+          "key": "D",
+          "text": "RAID 可以防止文件被误删"
+        },
+        {
+          "key": "E",
+          "text": "RAID 可以完全替代数据备份"
+        },
+        {
+          "key": "F",
+          "text": "RAID0 中单块盘损坏不影响数据完整"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "RAID0 无冗余、RAID1 镜像冗余、RAID5 奇偶校验可重建；RAID 只防硬件故障，不防误删、病毒或逻辑损坏，备份才是兜底。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M127",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列网络排查命令与其用途对应正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "ip 用于查看地址与路由"
+        },
+        {
+          "key": "B",
+          "text": "ss 用于查看端口监听"
+        },
+        {
+          "key": "C",
+          "text": "ping 用于测试连通性"
+        },
+        {
+          "key": "D",
+          "text": "traceroute 用于配置域名解析"
+        },
+        {
+          "key": "E",
+          "text": "curl 用于磁盘分区管理"
+        },
+        {
+          "key": "F",
+          "text": "ssh 用于压缩打包文件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "ip 查看地址与路由、ss 查看端口监听、ping 测试连通、traceroute 追踪路径；curl 发送 HTTP 请求，ssh 用于远程登录。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M128",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于网络服务安全，下列说法正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "远程服务暴露到不可信网络时无需任何防护"
+        },
+        {
+          "key": "B",
+          "text": "关闭不需要的网络服务可以减少系统攻击面"
+        },
+        {
+          "key": "C",
+          "text": "HTTPS 在 HTTP 之上叠加了 TLS 加密"
+        },
+        {
+          "key": "D",
+          "text": "证书只用于验证客户端身份，与服务器无关"
+        },
+        {
+          "key": "E",
+          "text": "站点报证书错误时直接忽略即可继续访问"
+        },
+        {
+          "key": "F",
+          "text": "防火墙工具 firewalld、ufw 可控制访问规则"
+        }
+      ],
+      "answerKeys": [
+        "B",
+        "C",
+        "F"
+      ],
+      "explanation": "网络服务安全遵循最小暴露面加强认证原则：关闭不需要的服务减少攻击面，HTTPS 在 HTTP 之上叠加 TLS，证书用于验证服务器身份，firewalld、ufw 控制访问规则。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M129",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于国产平台生态适配，下列说法正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "程序能否运行取决于指令集、运行库与 ABI 三层是否匹配"
+        },
+        {
+          "key": "B",
+          "text": "设备能被系统识别，不等于全部功能与稳定性已完成兼容验证"
+        },
+        {
+          "key": "C",
+          "text": "x86 架构编译的程序可在 ARM 机器上直接运行"
+        },
+        {
+          "key": "D",
+          "text": "应用缺少共享库时可用 ldd 查看，并补装对应架构的库"
+        },
+        {
+          "key": "E",
+          "text": "新设备不可识别时应优先怀疑显示器问题"
+        },
+        {
+          "key": "F",
+          "text": "硬件兼容只需考虑 CPU 架构，与驱动、固件无关"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "程序能否运行取决于指令集、运行库、ABI 三层是否匹配；识别只说明驱动加载成功，功能、稳定性、性能仍需逐项验证；缺库可用 ldd 查看后补装。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M130",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列系统信息采集命令与其用途的对应，正确的有",
+      "options": [
+        {
+          "key": "A",
+          "text": "whoami 查看当前登录用户名"
+        },
+        {
+          "key": "B",
+          "text": "hostname 查看主机名"
+        },
+        {
+          "key": "C",
+          "text": "uname -m 查看 CPU 架构"
+        },
+        {
+          "key": "D",
+          "text": "df -h 查看内存使用情况"
+        },
+        {
+          "key": "E",
+          "text": "date 查看内核版本"
+        },
+        {
+          "key": "F",
+          "text": "free -h 查看网络接口信息"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "whoami 查用户名、hostname 查主机名、uname -m 查 CPU 架构、df -h 查分区空间、free -h 查内存、date 查日期时间、ip addr 查网络接口。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M131",
+      "type": "judge",
+      "module": "os",
+      "stem": "Linux 系统由内核、用户空间、系统服务、Shell 及图形环境组成。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "教材明确 Linux 系统由内核、用户空间、系统服务、Shell 及图形环境组成，内核负责管理全部资源。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M132",
+      "type": "judge",
+      "module": "os",
+      "stem": "为用户编写应用程序属于内核的主要职责。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "内核负责进程、内存、文件、设备、权限等资源管理，是系统资源的分配者，应用编写不属于内核职责。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M133",
+      "type": "judge",
+      "module": "os",
+      "stem": "硬件中断由设备发起，系统调用由用户程序主动发起。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "中断类型中硬件中断由设备发起、系统调用由程序发起，信号则是内核向进程通知事件，三者发起方不同。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M134",
+      "type": "judge",
+      "module": "os",
+      "stem": "systemd 以一号进程身份接管系统，是所有服务的祖先。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "内核启动完自身后需要第一个用户态进程拉起其余服务，systemd 接管后成为所有服务的祖先，并管理依赖顺序。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M135",
+      "type": "judge",
+      "module": "os",
+      "stem": "图形界面登录与命令行登录进入的是完全相同的目标级别。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "图形界面和命令行登录分别进入不同的目标级别，因此登录方式不同，进入的目标也不同。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M136",
+      "type": "judge",
+      "module": "os",
+      "stem": "内核阶段的启动异常可以通过 dmesg 日志查看。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "启动排障按阶段分工：固件或 GRUB 阶段看引导配置，内核阶段看 dmesg，服务阶段看 journalctl。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M137",
+      "type": "judge",
+      "module": "os",
+      "stem": "Shell 变量赋值时，等号两侧可以随意添加空格。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Shell 变量赋值的写法是 name=\"uos\"，等号两侧不能有空格，否则会被当作命令解析而报错。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M138",
+      "type": "judge",
+      "module": "os",
+      "stem": "重定向符号 >> 会把命令输出覆盖写入文件。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": ">> 是追加写入，> 才是覆盖写入；例如 echo hello > out.txt 覆盖，echo world >> out.txt 追加。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M139",
+      "type": "judge",
+      "module": "os",
+      "stem": "环境变量对子进程继承，脚本中可用 export 导出变量。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "环境变量会随子进程继承，在脚本中先赋值再用 export 导出，子进程即可读取该变量。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M140",
+      "type": "judge",
+      "module": "os",
+      "stem": "tar -tzvf 用于将压缩包解压到当前目录。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "tar -tzvf 是列出压缩包内容，用于检查包含的目标目录与文件；解压到当前目录应使用 tar -xzvf。",
+      "chapter": "/ch06_appendix",
+      "source": "mock"
+    },
+    {
+      "id": "M141",
+      "type": "judge",
+      "module": "os",
+      "stem": "硬链接可以跨文件系统创建。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "硬链接共享同一 inode，因此不能跨文件系统、也不能指向目录；这些限制正是软链接可以弥补的。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M142",
+      "type": "judge",
+      "module": "os",
+      "stem": "目录默认权限为 755，是因为目录需要执行权限才能被进入和遍历。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "目录的 x 权限决定能否进入或遍历该目录路径，因此新目录默认 755；文件默认不带 x 以防被误执行，故默认 644。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M143",
+      "type": "judge",
+      "module": "os",
+      "stem": "进程收到任何信号都必须立即终止，不能自定义处理方式。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "进程可对部分信号设置处理，例如 SIGTERM 可被捕获并做清理；但 SIGKILL 由内核强制终止，进程无法捕获或忽略。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M144",
+      "type": "judge",
+      "module": "os",
+      "stem": "被删除但仍被进程打开的文件，其占用的空间不会立即释放。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "删除的文件若仍被进程打开，inode 仍被引用，空间不会立即释放，需定位占用进程并关闭或重启它，空间才会释放。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M145",
+      "type": "judge",
+      "module": "os",
+      "stem": "配置了 RAID 后就不需要再进行数据备份。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "RAID 只防硬件故障，不防误删、病毒或逻辑损坏；备份才是应对这些场景的兜底，二者互补不可替代。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M146",
+      "type": "judge",
+      "module": "os",
+      "stem": "服务监听 0.0.0.0 表示绑定所有网络接口，其他主机可以连入。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "监听 0.0.0.0 表示绑定所有接口，其他主机才能连入；而监听 127.0.0.1 只代表本机回环接口，仅本机可访问。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M147",
+      "type": "judge",
+      "module": "os",
+      "stem": "本地 DNS 服务器信息配置在 /etc/resolv.conf 文件中。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "本地 DNS 服务器配置在 /etc/resolv.conf，域名解析失败时通常先检查该配置与解析情况。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M148",
+      "type": "judge",
+      "module": "os",
+      "stem": "新设备能被系统识别，就说明其全部功能与稳定性已经完成兼容验证。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "设备能被识别只说明驱动加载成功，功能、稳定性、性能仍需逐项验证，识别不等于兼容完成。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M149",
+      "type": "judge",
+      "module": "os",
+      "stem": "uname -r 用于查看 CPU 架构。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "uname -m 查看 CPU 架构，uname -r 查看 Linux 内核版本，uname -a 查看系统完整信息，三者用途不同。",
+      "chapter": "/ch06_appendix",
+      "source": "mock"
+    },
+    {
+      "id": "M150",
+      "type": "judge",
+      "module": "os",
+      "stem": "sudo 的作用是以普通用户身份执行命令。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "sudo 以管理员权限执行命令，普通权限操作无需 sudo；用户切换用 su，退出登录用 exit。",
+      "chapter": "/ch06_appendix",
+      "source": "mock"
+    },
+    {
+      "id": "M151",
+      "type": "single",
+      "module": "software",
+      "stem": "按数据模型划分，数据库可分为哪两大类别？",
+      "options": [
+        {
+          "key": "A",
+          "text": "关系型与面向对象型"
+        },
+        {
+          "key": "B",
+          "text": "关系型与非关系型（NoSQL）"
+        },
+        {
+          "key": "C",
+          "text": "集中式与分布式"
+        },
+        {
+          "key": "D",
+          "text": "单机版与网络版"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "数据库按数据模型分为关系型与非关系型（NoSQL）两大类，二者是并列关系而非从属关系。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M152",
+      "type": "single",
+      "module": "software",
+      "stem": "关系数据库中，用于唯一标识表中某一条记录的字段是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "主键"
+        },
+        {
+          "key": "B",
+          "text": "外键"
+        },
+        {
+          "key": "C",
+          "text": "排序键"
+        },
+        {
+          "key": "D",
+          "text": "分区键"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "主键唯一标识表中的记录；外键等关联字段用于建立表与表之间的关联关系。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M153",
+      "type": "single",
+      "module": "software",
+      "stem": "事务隔离级别从读未提交到串行化逐级提高，隔离级别越高则？",
+      "options": [
+        {
+          "key": "A",
+          "text": "并发性能越高"
+        },
+        {
+          "key": "B",
+          "text": "并发性能越低"
+        },
+        {
+          "key": "C",
+          "text": "数据冗余越大"
+        },
+        {
+          "key": "D",
+          "text": "存储空间越小"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "高隔离级别需要加更多锁或快照控制，事务相互等待增多，并发度下降，即级别越高并发性能越低。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M154",
+      "type": "single",
+      "module": "software",
+      "stem": "在行、页、磁盘文件的存储组织中，读写磁盘的最小单位\"页\"在 InnoDB 中大约为多大？",
+      "options": [
+        {
+          "key": "A",
+          "text": "4KB"
+        },
+        {
+          "key": "B",
+          "text": "16KB"
+        },
+        {
+          "key": "C",
+          "text": "64KB"
+        },
+        {
+          "key": "D",
+          "text": "1MB"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "页（Page）是读写磁盘的最小单位，约 16KB，一页可放多行记录，页最终落到磁盘文件。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M155",
+      "type": "single",
+      "module": "software",
+      "stem": "关系型数据库中，主键索引（聚簇索引）的叶子节点直接存放的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "完整数据行"
+        },
+        {
+          "key": "B",
+          "text": "主键值"
+        },
+        {
+          "key": "C",
+          "text": "指向数据行的指针"
+        },
+        {
+          "key": "D",
+          "text": "相邻页的地址"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "主键索引是聚簇索引，叶子节点直接存数据行；普通索引叶子存主键值，查询时需要回表。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M156",
+      "type": "single",
+      "module": "software",
+      "stem": "数据库先写日志、再落盘数据的机制通常称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "WAL"
+        },
+        {
+          "key": "B",
+          "text": "OLAP"
+        },
+        {
+          "key": "C",
+          "text": "DDL"
+        },
+        {
+          "key": "D",
+          "text": "ETL"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "WAL（先写日志再落盘）配合 redo/undo 日志，使崩溃可恢复、失败可回滚。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M157",
+      "type": "single",
+      "module": "software",
+      "stem": "图数据库以节点和边组织数据，其底层存储结构是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "邻接结构"
+        },
+        {
+          "key": "B",
+          "text": "内存哈希表"
+        },
+        {
+          "key": "C",
+          "text": "LSM 树"
+        },
+        {
+          "key": "D",
+          "text": "BSON 二进制"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "图数据库把节点与边的邻接关系直接存储，适合关系网络查询；哈希表、LSM 树、BSON 分别是键值、宽列族、文档类型的底层结构。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M158",
+      "type": "single",
+      "module": "software",
+      "stem": "与 NoSQL 相比，关系型数据库最突出的优势是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "海量数据横向扩展容易"
+        },
+        {
+          "key": "B",
+          "text": "强事务（ACID）与灵活查询"
+        },
+        {
+          "key": "C",
+          "text": "字段可变、无需改表结构"
+        },
+        {
+          "key": "D",
+          "text": "键值读写延迟极低"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "关系型强于事务（ACID）和 SQL 灵活查询；海量扩展、高并发、灵活结构是 NoSQL 的优势。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M159",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于数据库索引，下列说法正确的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "索引类似书的目录，让查询直接定位数据"
+        },
+        {
+          "key": "B",
+          "text": "索引需要占用额外存储空间"
+        },
+        {
+          "key": "C",
+          "text": "每次增删改时都要同步维护索引结构"
+        },
+        {
+          "key": "D",
+          "text": "建立索引可以加快写入速度"
+        },
+        {
+          "key": "E",
+          "text": "建立索引可以减少存储空间占用"
+        },
+        {
+          "key": "F",
+          "text": "建立索引不会带来任何维护成本"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "索引用 B 树或哈希结构让查询直接定位数据，但需额外存储，且每次插入、更新、删除都要同步更新索引结构，只加快读取而增加写入维护成本。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M160",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于 NoSQL 数据库的说法，正确的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "与关系数据库并列的非关系型类别"
+        },
+        {
+          "key": "B",
+          "text": "按数据模型分类"
+        },
+        {
+          "key": "C",
+          "text": "不使用 SQL 作为统一标准"
+        },
+        {
+          "key": "D",
+          "text": "是 SQL 的一种扩展方言"
+        },
+        {
+          "key": "E",
+          "text": "分类与存储介质强相关"
+        },
+        {
+          "key": "F",
+          "text": "只能部署在单台机器上"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "NoSQL 是与关系型并列的非关系型类别，按数据模型分类、与存储介质无关，不以 SQL 为统一标准。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M161",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列 ACID 特性与其含义的配对中，正确的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "原子性——操作要么全部成功，要么作为整体失败"
+        },
+        {
+          "key": "B",
+          "text": "一致性——事务前后数据都处于合法状态"
+        },
+        {
+          "key": "C",
+          "text": "隔离性——并发事务互不干扰"
+        },
+        {
+          "key": "D",
+          "text": "原子性——提交后数据不丢失"
+        },
+        {
+          "key": "E",
+          "text": "持久性——并发事务互不干扰"
+        },
+        {
+          "key": "F",
+          "text": "一致性——操作不可分割"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "A、B、C 的配对正确；\"提交后数据不丢失\"是持久性，\"并发互不干扰\"是隔离性，\"操作不可分割\"是原子性。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M162",
+      "type": "judge",
+      "module": "software",
+      "stem": "事务隔离级别越高，加锁或快照控制越多、事务相互等待越多，并发性能反而越低。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "教材明确指出隔离级别越高，需要更多锁或快照控制，事务相互等待增多，并发性能越低。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M163",
+      "type": "judge",
+      "module": "software",
+      "stem": "NoSQL 文档型数据库以 JSON 文档组织数据，底层常用 BSON 二进制存储。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "文档类型以 JSON 文档组织数据，底层用 BSON 二进制存储，搭配 B 树或 LSM 树。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M164",
+      "type": "judge",
+      "module": "software",
+      "stem": "普通（非聚簇）索引的叶子节点直接存放数据行，查询时无需回表。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "普通索引的叶子节点存放主键值，查询时需要根据主键回表；只有聚簇索引（主键索引）的叶子节点直接存数据行。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M165",
+      "type": "single",
+      "module": "software",
+      "stem": "不依赖数据库时，学生信息、配置项这类结构化轻量数据适合用什么方式保存？",
+      "options": [
+        {
+          "key": "A",
+          "text": "JSON 文件"
+        },
+        {
+          "key": "B",
+          "text": "图数据库"
+        },
+        {
+          "key": "C",
+          "text": "对象存储"
+        },
+        {
+          "key": "D",
+          "text": "数据仓库"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "JSON 是轻量级数据交换格式，以键值对和嵌套结构组织数据，适合保存学生信息、配置项等结构化数据。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M166",
+      "type": "single",
+      "module": "software",
+      "stem": "程序启动时从数据文件加载数据、写入时保存到文件，这一机制称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据持久化"
+        },
+        {
+          "key": "B",
+          "text": "数据脱敏"
+        },
+        {
+          "key": "C",
+          "text": "数据分片"
+        },
+        {
+          "key": "D",
+          "text": "数据压缩"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "启动时加载、写入时保存到文件，实现数据持久化，保证程序重启后数据不丢失。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M167",
+      "type": "single",
+      "module": "software",
+      "stem": "数据量小、结构简单时，选择文件加 JSON 而非数据库的主要原因是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "零依赖、易读易改"
+        },
+        {
+          "key": "B",
+          "text": "支持复杂事务"
+        },
+        {
+          "key": "C",
+          "text": "高并发支撑"
+        },
+        {
+          "key": "D",
+          "text": "自动水平扩展"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "数据量小、结构简单用文件加 JSON，零依赖、易读易改；量大、高并发、要事务时才用数据库。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M168",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列属于\"文件 + JSON\"方案适用特征的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据量较小"
+        },
+        {
+          "key": "B",
+          "text": "结构简单"
+        },
+        {
+          "key": "C",
+          "text": "零依赖、易读易改"
+        },
+        {
+          "key": "D",
+          "text": "需要强事务保证"
+        },
+        {
+          "key": "E",
+          "text": "超高并发访问"
+        },
+        {
+          "key": "F",
+          "text": "需要多机分片存储"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "文件加 JSON 适合数据量小、结构简单、零依赖易读易改的场景；数据量大、高并发、要事务时改用数据库。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M169",
+      "type": "judge",
+      "module": "software",
+      "stem": "统计类结果如果写死在程序中，无法反映数据变化，应从数据实时计算得出。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "统计类结果需从数据实时计算得出，写死在程序中的固定结果无法反映数据变化。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M170",
+      "type": "judge",
+      "module": "software",
+      "stem": "数据持久化能够保证程序重启后数据不丢失。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "数据持久化正是保证程序重启后数据不丢失的机制。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M171",
+      "type": "single",
+      "module": "software",
+      "stem": "中间件位于什么位置之间，为分布式应用提供通用能力？",
+      "options": [
+        {
+          "key": "A",
+          "text": "操作系统基础能力与业务应用之间"
+        },
+        {
+          "key": "B",
+          "text": "用户与业务应用之间"
+        },
+        {
+          "key": "C",
+          "text": "硬件与操作系统之间"
+        },
+        {
+          "key": "D",
+          "text": "数据库与数据文件之间"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "中间件位于操作系统基础能力与业务应用之间，提供事务协调、通信、消息传递、服务治理等通用能力。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M172",
+      "type": "single",
+      "module": "software",
+      "stem": "同一个操作执行一次和执行多次，产生的结果完全一样，这一性质称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "幂等"
+        },
+        {
+          "key": "B",
+          "text": "原子性"
+        },
+        {
+          "key": "C",
+          "text": "持久性"
+        },
+        {
+          "key": "D",
+          "text": "隔离性"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "幂等指同一操作执行一次与执行多次结果完全一样，可保证重复消费消息不产生重复业务。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M173",
+      "type": "single",
+      "module": "software",
+      "stem": "消息队列中，处理失败且重试次数超过限定的消息通常被如何处理？",
+      "options": [
+        {
+          "key": "A",
+          "text": "转入死信或异常消息队列"
+        },
+        {
+          "key": "B",
+          "text": "直接丢弃且不做记录"
+        },
+        {
+          "key": "C",
+          "text": "退回给生产者"
+        },
+        {
+          "key": "D",
+          "text": "阻塞所有消费者"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "超过重试次数的消息转入专门的死信或异常消息队列，以便后续人工或系统处理。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M174",
+      "type": "single",
+      "module": "software",
+      "stem": "缓存中间件把热点数据放入什么位置，以实现毫秒级读取？",
+      "options": [
+        {
+          "key": "A",
+          "text": "内存"
+        },
+        {
+          "key": "B",
+          "text": "磁盘文件"
+        },
+        {
+          "key": "C",
+          "text": "网络共享目录"
+        },
+        {
+          "key": "D",
+          "text": "光学介质"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "缓存中间件把热点数据放到内存，加速读取、降低数据源压力，可毫秒级返回。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M175",
+      "type": "single",
+      "module": "software",
+      "stem": "集群中多个节点需要确定\"谁当主\"时，分布式协调中间件提供的机制是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Leader 选举"
+        },
+        {
+          "key": "B",
+          "text": "主键自增"
+        },
+        {
+          "key": "C",
+          "text": "数据序列化"
+        },
+        {
+          "key": "D",
+          "text": "内存回收"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "分布式协调提供分布式锁、配置中心、服务注册发现、Leader 选举，解决选主、共享配置与并发冲突问题。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M176",
+      "type": "single",
+      "module": "software",
+      "stem": "微服务互相调用时，把请求按规则分发到不同服务实例的治理能力是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "负载均衡"
+        },
+        {
+          "key": "B",
+          "text": "代码混淆"
+        },
+        {
+          "key": "C",
+          "text": "日志归档"
+        },
+        {
+          "key": "D",
+          "text": "定时备份"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "服务治理包括服务注册与发现、负载均衡、限流、熔断等能力，负载均衡负责把请求分发到不同实例。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M177",
+      "type": "single",
+      "module": "software",
+      "stem": "面向灵活路由和低延迟的消息中间件代表产品是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "RabbitMQ"
+        },
+        {
+          "key": "B",
+          "text": "HDFS"
+        },
+        {
+          "key": "C",
+          "text": "Nginx"
+        },
+        {
+          "key": "D",
+          "text": "MySQL"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Kafka 面向高吞吐日志和流处理，RabbitMQ 面向灵活路由和低延迟。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M178",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列中间件子类与代表产品的对应中，正确的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "消息中间件——Kafka、RabbitMQ"
+        },
+        {
+          "key": "B",
+          "text": "缓存中间件——Redis"
+        },
+        {
+          "key": "C",
+          "text": "分布式协调——ZooKeeper"
+        },
+        {
+          "key": "D",
+          "text": "缓存中间件——Kafka"
+        },
+        {
+          "key": "E",
+          "text": "分布式协调——Redis"
+        },
+        {
+          "key": "F",
+          "text": "消息中间件——ZooKeeper"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "教材明确消息中间件代表 Kafka、RabbitMQ，缓存中间件代表 Redis，分布式协调代表 ZooKeeper，其余对应颠倒错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M179",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列属于事务协调与服务治理典型场景的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "订单服务调用支付、库存服务"
+        },
+        {
+          "key": "B",
+          "text": "跨应用、跨库的操作保持一致性"
+        },
+        {
+          "key": "C",
+          "text": "大规模微服务集群管理"
+        },
+        {
+          "key": "D",
+          "text": "单机单库的简单读写"
+        },
+        {
+          "key": "E",
+          "text": "单进程内的变量共享"
+        },
+        {
+          "key": "F",
+          "text": "纯前端页面样式调整"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "事务协调保证跨应用、跨库的一致性，服务治理支撑微服务调用与大规模集群管理；D、E、F 属单机内部问题，不在此列。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M180",
+      "type": "judge",
+      "module": "software",
+      "stem": "消息队列的异步处理使生产与消费解耦，双方互不阻塞。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "异步处理让生产和消费解耦、不互相阻塞，这是消息队列的典型特点。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M181",
+      "type": "judge",
+      "module": "software",
+      "stem": "Kafka 面向灵活路由和低延迟，RabbitMQ 面向高吞吐日志和流处理。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "说法正好相反：Kafka 面向高吞吐日志和流处理，RabbitMQ 面向灵活路由和低延迟。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M182",
+      "type": "judge",
+      "module": "software",
+      "stem": "消息队列中，消费者处理成功后才确认，可以避免失败被当作成功。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "确认机制要求消费者处理成功后才确认，避免失败消息被误认为已成功。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M183",
+      "type": "judge",
+      "module": "software",
+      "stem": "缓存读流程是：先查缓存，命中直接返回；未命中再查数据源并回填缓存。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "这是缓存的标准流程：命中直接返回，未命中再查数据源并回填缓存。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M184",
+      "type": "judge",
+      "module": "software",
+      "stem": "使用缓存中间件时，只要命中率足够高，就无需关心缓存与数据源之间的一致性。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "缓存与数据源需保证一致性，且要应对缓存失效瞬间大量请求回源（击穿、雪崩）问题。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M185",
+      "type": "single",
+      "module": "software",
+      "stem": "运行在物理硬件与虚拟机之间、负责资源抽象切分与调度的一层软件是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hypervisor（VMM）"
+        },
+        {
+          "key": "B",
+          "text": "容器运行时"
+        },
+        {
+          "key": "C",
+          "text": "设备驱动程序"
+        },
+        {
+          "key": "D",
+          "text": "系统引导程序"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Hypervisor（虚拟机监控器）运行在物理硬件与虚拟机之间，把物理机资源抽象、切分、调度给多台虚拟机。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M186",
+      "type": "single",
+      "module": "software",
+      "stem": "下列属于裸金属型（Type1）Hypervisor 的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "KVM、VMware ESXi"
+        },
+        {
+          "key": "B",
+          "text": "VirtualBox、VMware Workstation"
+        },
+        {
+          "key": "C",
+          "text": "WSL"
+        },
+        {
+          "key": "D",
+          "text": "Docker Desktop"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "KVM、VMware ESXi 直接运行在硬件上，属 Type1 裸金属型；VirtualBox、VMware Workstation 运行在宿主操作系统之上，属 Type2 寄居型。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M187",
+      "type": "single",
+      "module": "software",
+      "stem": "使每个容器拥有独立的进程、网络、挂载等视图的隔离机制是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "命名空间（Namespace）"
+        },
+        {
+          "key": "B",
+          "text": "cgroup"
+        },
+        {
+          "key": "C",
+          "text": "ACL"
+        },
+        {
+          "key": "D",
+          "text": "SELinux"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Namespace 让每个容器有独立的进程、网络、挂载等视图；cgroup 负责限制 CPU、内存等资源用量。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M188",
+      "type": "single",
+      "module": "software",
+      "stem": "控制组（cgroup）在容器中的作用是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "限制 CPU、内存等资源用量"
+        },
+        {
+          "key": "B",
+          "text": "模拟完整硬件"
+        },
+        {
+          "key": "C",
+          "text": "管理镜像仓库"
+        },
+        {
+          "key": "D",
+          "text": "对外发布端口"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "cgroup 限制 CPU、内存等资源用量；Namespace 提供进程、网络等独立视图，二者共同构成容器的隔离机制。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M189",
+      "type": "single",
+      "module": "software",
+      "stem": "容器镜像由多层只读层堆叠，运行时由联合文件系统额外叠加的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "可写层"
+        },
+        {
+          "key": "B",
+          "text": "引导扇区"
+        },
+        {
+          "key": "C",
+          "text": "交换分区"
+        },
+        {
+          "key": "D",
+          "text": "设备文件"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "镜像由多层只读层堆叠，运行时加一层可写层（UnionFS 联合文件系统），层可复用，镜像更小、构建更快。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M190",
+      "type": "single",
+      "module": "software",
+      "stem": "查看当前正在运行容器的 Docker 命令是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "docker ps"
+        },
+        {
+          "key": "B",
+          "text": "docker pull"
+        },
+        {
+          "key": "C",
+          "text": "docker build"
+        },
+        {
+          "key": "D",
+          "text": "docker images"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "docker ps 查看运行中容器，docker ps -a 查看所有容器（含已停止）。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M191",
+      "type": "single",
+      "module": "software",
+      "stem": "关于镜像与容器关系的说法，正确的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "一个镜像可启动多个容器实例"
+        },
+        {
+          "key": "B",
+          "text": "一个镜像只能启动一个容器"
+        },
+        {
+          "key": "C",
+          "text": "运行时会直接修改镜像本身"
+        },
+        {
+          "key": "D",
+          "text": "容器启动前必须重新构建镜像"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "一个镜像可启动多个容器实例；运行时的改动写进可写层，不影响镜像本身。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M192",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列属于容器特点的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "共享宿主机内核"
+        },
+        {
+          "key": "B",
+          "text": "启动快，直接运行进程"
+        },
+        {
+          "key": "C",
+          "text": "镜像分层、层可复用"
+        },
+        {
+          "key": "D",
+          "text": "每台容器都包含独立操作系统"
+        },
+        {
+          "key": "E",
+          "text": "整机级隔离"
+        },
+        {
+          "key": "F",
+          "text": "依赖 Hypervisor 运行"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "容器共享宿主机内核、直接起进程启动快、镜像分层可复用；独立操作系统与整机级隔离是虚拟机的特点。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M193",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列 Docker 命令与用途匹配正确的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "docker logs——查看容器日志"
+        },
+        {
+          "key": "B",
+          "text": "docker inspect——查看容器详情"
+        },
+        {
+          "key": "C",
+          "text": "docker exec——进入容器交互终端"
+        },
+        {
+          "key": "D",
+          "text": "docker rmi——删除容器"
+        },
+        {
+          "key": "E",
+          "text": "docker stop——删除镜像"
+        },
+        {
+          "key": "F",
+          "text": "docker build——运行容器"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "docker rmi 删除镜像、docker stop 停止容器、docker build 构建镜像，只有 A、B、C 的匹配正确。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M194",
+      "type": "judge",
+      "module": "software",
+      "stem": "Type2 寄居型虚拟机监控器运行在宿主操作系统之上。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Type2 寄居型（VirtualBox、VMware Workstation）运行在宿主操作系统之上；Type1 裸金属型直接运行在硬件上。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M195",
+      "type": "judge",
+      "module": "software",
+      "stem": "容器共享宿主机内核，其安全隔离性强于整机级的虚拟机。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "容器共享内核、隔离较弱，存在逃逸风险；虚拟机是整机级强隔离，安全性更高。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M196",
+      "type": "judge",
+      "module": "software",
+      "stem": "容器运行时的修改只写入可写层，不会影响镜像本身。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "运行时的改动写进可写层，不影响镜像本身，镜像可反复用于启动新容器。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M197",
+      "type": "judge",
+      "module": "software",
+      "stem": "容器环境与宿主机隔离，容器访问宿主机资源需要显式挂载和权限配置。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "容器与宿主机隔离，访问宿主机资源必须显式挂载并配置相应权限。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M198",
+      "type": "single",
+      "module": "software",
+      "stem": "CAP 定理中的 C、A、P 分别代表？",
+      "options": [
+        {
+          "key": "A",
+          "text": "一致性、可用性、分区容错性"
+        },
+        {
+          "key": "B",
+          "text": "缓存、认证、协议"
+        },
+        {
+          "key": "C",
+          "text": "计算、存储、网络"
+        },
+        {
+          "key": "D",
+          "text": "并发、原子、持久"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "CAP 分别指一致性（C）、可用性（A）、网络分区容错性（P），分布式系统需要在这三者之间取舍。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M199",
+      "type": "single",
+      "module": "software",
+      "stem": "分布式系统中的\"网络分区\"指的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "节点间通信链路被切断，集群被割裂成互不能通信的小团体"
+        },
+        {
+          "key": "B",
+          "text": "磁盘空间不足"
+        },
+        {
+          "key": "C",
+          "text": "数据备份失败"
+        },
+        {
+          "key": "D",
+          "text": "单机性能下降"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "网络分区指节点之间的通信链路被切断，集群被割裂成几个互不能通信的小团体，分区容错因此必须被满足。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M200",
+      "type": "single",
+      "module": "software",
+      "stem": "银行转账、分布式锁这类\"数据绝不能错\"的场景，更适合采用哪种取舍策略？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CP（保一致性）"
+        },
+        {
+          "key": "B",
+          "text": "AP（保可用性）"
+        },
+        {
+          "key": "C",
+          "text": "不做任何取舍"
+        },
+        {
+          "key": "D",
+          "text": "放弃分区容错"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "CP 宁可不可用也不给错数据，适合银行转账、配置中心、分布式锁；AP 适合点赞、购物车、会话缓存等场景。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M201",
+      "type": "multi",
+      "module": "software",
+      "stem": "下列属于降低单点故障风险手段的有？",
+      "options": [
+        {
+          "key": "A",
+          "text": "冗余部署"
+        },
+        {
+          "key": "B",
+          "text": "多副本"
+        },
+        {
+          "key": "C",
+          "text": "集群方案"
+        },
+        {
+          "key": "D",
+          "text": "只保留单机单点"
+        },
+        {
+          "key": "E",
+          "text": "关闭节点间网络链路"
+        },
+        {
+          "key": "F",
+          "text": "放弃分区容错能力"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "冗余、多副本与集群让单点故障不再拖垮系统；D、E、F 反而增加单点或分区风险。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M202",
+      "type": "judge",
+      "module": "software",
+      "stem": "分区容错性在分布式系统中必须满足，因为网络故障不可避免。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "网络故障不可避免，系统必须能在分区下继续工作，故分区容错性（P）在分布式系统中必须满足。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M203",
+      "type": "judge",
+      "module": "software",
+      "stem": "CP 与 AP 是分布式系统设计时选定的取舍策略，而不是网络异常时才临时启用的机制。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "因为分区无法避免（P 必选），系统必须在设计时就预先决定保一致性（CP）还是保可用性（AP）。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M204",
+      "type": "judge",
+      "module": "software",
+      "stem": "网络正常时，CP 系统的写请求会立即返回成功，后台再异步复制给其他副本。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "立即返回、后台异步复制是 AP 的做法；CP 的写请求必须同步到多数副本确认后才返回成功。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M205",
+      "type": "single",
+      "module": "software",
+      "stem": "跨架构迁移时，兼容性检查主要涉及哪些层面的问题？",
+      "options": [
+        {
+          "key": "A",
+          "text": "编译、运行库和驱动层面"
+        },
+        {
+          "key": "B",
+          "text": "仅界面显示层面"
+        },
+        {
+          "key": "C",
+          "text": "仅网络协议层面"
+        },
+        {
+          "key": "D",
+          "text": "仅字体渲染层面"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "跨架构迁移涉及编译、运行库和驱动等层面的兼容性检查（详见第 5 章 5.2 兼容性层次）。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M206",
+      "type": "multi",
+      "module": "software",
+      "stem": "数据库迁移过程中，除数据条数外还需要检查或评估的方面包括？",
+      "options": [
+        {
+          "key": "A",
+          "text": "表结构"
+        },
+        {
+          "key": "B",
+          "text": "SQL 兼容性"
+        },
+        {
+          "key": "C",
+          "text": "关键业务功能"
+        },
+        {
+          "key": "D",
+          "text": "只需统计总行数即可"
+        },
+        {
+          "key": "E",
+          "text": "无需关心表结构"
+        },
+        {
+          "key": "F",
+          "text": "无需验证业务功能"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "数据库迁移不能只比较数据条数，需要检查结构、SQL 兼容、数据一致性和关键业务功能，必要时评估性能与高可用方案。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M207",
+      "type": "judge",
+      "module": "software",
+      "stem": "一套完整业务栈通常包括操作系统、数据库、中间件和应用。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "完整业务栈包括操作系统、数据库、中间件和应用，兼容验证应针对实际组合后的完整技术栈。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M208",
+      "type": "judge",
+      "module": "software",
+      "stem": "新系统上线前执行回归测试是标准环节。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "回归测试用于确认迁移没有破坏既有相关功能，新系统上线前执行回归测试是标准环节。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M209",
+      "type": "single",
+      "module": "software",
+      "stem": "下列属于国产数据库产品的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "达梦数据库"
+        },
+        {
+          "key": "B",
+          "text": "Oracle"
+        },
+        {
+          "key": "C",
+          "text": "MySQL"
+        },
+        {
+          "key": "D",
+          "text": "SQL Server"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "国产数据库包括达梦数据库、人大金仓、GaussDB、openGauss、OceanBase；其余三项均为国外产品。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M210",
+      "type": "judge",
+      "module": "software",
+      "stem": "信创环境强调软硬件全栈自主可控，从芯片、操作系统到应用软件形成完整生态。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "信创环境强调软硬件全栈自主可控，国产软件已适配 X86、ARM 等多种架构，从芯片、操作系统到应用软件形成完整生态。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M211",
+      "type": "single",
+      "module": "agent",
+      "stem": "把文本切分成最小处理单元，并通过字节对编码从高频共现片段逐步合并得到的基本单元称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Embedding"
+        },
+        {
+          "key": "B",
+          "text": "Token"
+        },
+        {
+          "key": "C",
+          "text": "注意力分数"
+        },
+        {
+          "key": "D",
+          "text": "位置向量"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "分词器把文本切分为 Token 序列，常用 BPE 从字符开始合并高频共现片段；Token 是模型输入输出的最小处理单元。Embedding 是把 Token 映射成的向量，注意力分数是注意力计算的中间量，均非切分单元。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M212",
+      "type": "single",
+      "module": "agent",
+      "stem": "把 Token 映射为固定维度的稠密向量，使语义相近的词在向量空间中距离更近，这一表示过程称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "分词"
+        },
+        {
+          "key": "B",
+          "text": "量化"
+        },
+        {
+          "key": "C",
+          "text": "Embedding"
+        },
+        {
+          "key": "D",
+          "text": "采样"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "Embedding 把离散的 Token 映射为固定维度的稠密向量，语义相近的词向量距离更近，并可作为向量检索的基础。分词只是切分文本，量化是压缩精度，采样是选择输出 Token 的方式。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M213",
+      "type": "single",
+      "module": "agent",
+      "stem": "注意力计算本身感知不到序列顺序，要让模型区分\"我读书\"与\"书读我\"，必须采取的措施是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "加大学习率"
+        },
+        {
+          "key": "B",
+          "text": "扩充词表大小"
+        },
+        {
+          "key": "C",
+          "text": "提高采样温度"
+        },
+        {
+          "key": "D",
+          "text": "把位置信息显式编码进 Token 向量"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "自注意力对顺序不敏感，位置信息必须显式加入，常用绝对位置编码或旋转位置编码 RoPE。学习率、词表、温度都与顺序感知无关。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M214",
+      "type": "single",
+      "module": "agent",
+      "stem": "通过人类反馈的强化学习，使模型输出符合有益、无害、诚实等人类偏好，这属于模型训练流程中的哪一阶段？",
+      "options": [
+        {
+          "key": "A",
+          "text": "预训练"
+        },
+        {
+          "key": "B",
+          "text": "对齐（RLHF）"
+        },
+        {
+          "key": "C",
+          "text": "监督微调（SFT）"
+        },
+        {
+          "key": "D",
+          "text": "分词"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "训练三阶段为预训练、微调（SFT）、对齐（RLHF）；对齐阶段通过人类反馈的强化学习让输出符合人类偏好。预训练学通用语言能力，SFT 学会按指令行事，分词不属于训练阶段。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M215",
+      "type": "single",
+      "module": "agent",
+      "stem": "KV Cache 能显著提升自回归推理速度，其基本原理是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "缓存已生成 Token 的 K、V 矩阵，每步只需计算新 Token 的 Q"
+        },
+        {
+          "key": "B",
+          "text": "把整个模型一次性加载到显存"
+        },
+        {
+          "key": "C",
+          "text": "压缩词表以减小输出空间"
+        },
+        {
+          "key": "D",
+          "text": "跳过部分注意力层不计算"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "KV Cache 把已生成 Token 的 K、V 缓存下来，每步只计算新 Token 的 Q，避免重算前 n−1 个 Token 的注意力，计算量由二次增长降为线性。它不是压缩词表或跳过层，加载模型也并非其目的。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M216",
+      "type": "single",
+      "module": "agent",
+      "stem": "一次生成过程中，落在上下文窗口之外的历史内容会？",
+      "options": [
+        {
+          "key": "A",
+          "text": "自动转入长期记忆并随时参与生成"
+        },
+        {
+          "key": "B",
+          "text": "降低本次采样的温度"
+        },
+        {
+          "key": "C",
+          "text": "无法参与本次生成，相当于不存在"
+        },
+        {
+          "key": "D",
+          "text": "触发模型重新预训练"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "上下文窗口限制一次推理可直接使用的 Token 数量，窗口外的内容模型\"看不见\"、等于不存在。这正是记忆与 RAG 作为外挂方案存在的根本原因。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M217",
+      "type": "single",
+      "module": "agent",
+      "stem": "在 Agent 五环节中，负责检查执行结果、修正后续策略的环节是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "感知"
+        },
+        {
+          "key": "B",
+          "text": "反思"
+        },
+        {
+          "key": "C",
+          "text": "规划"
+        },
+        {
+          "key": "D",
+          "text": "记忆"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "反思环节负责检查结果、修正策略；感知负责接收输入，规划负责拆解任务，记忆负责保存历史信息供后续决策使用。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M218",
+      "type": "single",
+      "module": "agent",
+      "stem": "执行闭环中的\"判断\"步骤主要负责？",
+      "options": [
+        {
+          "key": "A",
+          "text": "把目标拆解为可执行步骤"
+        },
+        {
+          "key": "B",
+          "text": "调用工具执行操作"
+        },
+        {
+          "key": "C",
+          "text": "保存对话历史"
+        },
+        {
+          "key": "D",
+          "text": "依据结果决定继续、调整或结束"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "闭环顺序为目标、计划、行动、观察、判断，判断依据观察结果决定继续、调整或结束，对应五环节中的规划与反思。拆解任务是计划步骤，调用工具是行动步骤。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M219",
+      "type": "single",
+      "module": "agent",
+      "stem": "关于任务拆解（Planning），下列说法中错误的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "每个子任务应具有明确的完成条件"
+        },
+        {
+          "key": "B",
+          "text": "计划生成后可随执行结果动态调整"
+        },
+        {
+          "key": "C",
+          "text": "规划能保证所有子任务并行完成"
+        },
+        {
+          "key": "D",
+          "text": "粒度小的子任务便于在局部发现并纠正错误"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "子任务之间存在依赖时必须按序执行，只有相互独立的部分才能并行，\"规划保证所有子任务并行完成\"是常见误区。其余选项均符合 Planning 的原则。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M220",
+      "type": "single",
+      "module": "agent",
+      "stem": "模型输出函数名与 JSON 格式参数的结构化调用请求，由外部执行层真正调用并把结果回传模型，这一机制称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Function Calling（函数调用）"
+        },
+        {
+          "key": "B",
+          "text": "模型蒸馏"
+        },
+        {
+          "key": "C",
+          "text": "联邦学习"
+        },
+        {
+          "key": "D",
+          "text": "梯度裁剪"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "Function Calling 是模型与工具之间的调用协议：模型生成函数名加 JSON 参数的调用请求，外部执行层执行并回传结果，是\"决策者与执行者分工\"的技术实现。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M221",
+      "type": "single",
+      "module": "agent",
+      "stem": "模型对工具的认知全部来自描述文本，如果工具描述含糊不清，最可能出现的情况是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "执行层自动补全正确的参数"
+        },
+        {
+          "key": "B",
+          "text": "工具被永久禁用"
+        },
+        {
+          "key": "C",
+          "text": "模型自动修复描述内容"
+        },
+        {
+          "key": "D",
+          "text": "模型盲猜参数导致调用出错"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "工具描述就是\"给模型看的 API 文档\"，描述模糊等于让模型盲猜参数；Schema 与描述越清晰，参数越可能合法。执行层不会自动补全参数。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M222",
+      "type": "single",
+      "module": "agent",
+      "stem": "没有统一协议时，5 个 AI 应用要接入 3 个外部工具，总共需要的适配次数是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "8 次"
+        },
+        {
+          "key": "B",
+          "text": "15 次"
+        },
+        {
+          "key": "C",
+          "text": "3 次"
+        },
+        {
+          "key": "D",
+          "text": "5 次"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "无统一协议时，M 个应用接 N 个工具需要 M×N 次适配，即 5×3=15 次；采用 MCP 统一协议后各自实现一次，可降为 M+N=8 次。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M223",
+      "type": "single",
+      "module": "agent",
+      "stem": "当外部工具的数量较少时，更简单直接的做法是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "必须部署一套 MCP 服务器"
+        },
+        {
+          "key": "B",
+          "text": "放弃所有工具改用纯文本回答"
+        },
+        {
+          "key": "C",
+          "text": "直接调用 API"
+        },
+        {
+          "key": "D",
+          "text": "全部改为人工操作"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "工具数量较多时 MCP 的价值明显，工具较少时直接调用 API 更简单；MCP 是为避免大量重复适配而引入的统一协议。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M224",
+      "type": "single",
+      "module": "agent",
+      "stem": "Skill 把一组工具与业务流程封装为可复用能力之后，其智能主要来自？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模型参数的在线更新"
+        },
+        {
+          "key": "B",
+          "text": "工具的选择与组合"
+        },
+        {
+          "key": "C",
+          "text": "对专用数据集重新微调"
+        },
+        {
+          "key": "D",
+          "text": "服务器的负载均衡"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "大部分 Skill 本质是封装好的函数调用，智能来自工具的选择和组合，不应把 Skill 神秘化；它封装的是专家工作流程，而非参数更新。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M225",
+      "type": "single",
+      "module": "agent",
+      "stem": "设计 Agent 记忆模块时，衡量其价值的关键标准是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "需要时找得到"
+        },
+        {
+          "key": "B",
+          "text": "存储容量尽量大"
+        },
+        {
+          "key": "C",
+          "text": "把全部历史都存下来"
+        },
+        {
+          "key": "D",
+          "text": "写入速度最快"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "记忆的价值在于\"需要时找得到\"而非\"什么都存\"，存得越多检索噪声越大、成本越高；该保存什么、是否过期、授权与相关性都需要设计。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M226",
+      "type": "single",
+      "module": "agent",
+      "stem": "把长文档拆成适合检索的文本片段，是 RAG 流程中的哪一步？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模型对齐"
+        },
+        {
+          "key": "B",
+          "text": "参数压缩"
+        },
+        {
+          "key": "C",
+          "text": "输出排序"
+        },
+        {
+          "key": "D",
+          "text": "文档切块"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "RAG 流程第一步是文档切块，把长文档拆成适合检索的片段；块大小是语义完整性与命中精度的折中，可设置重叠防止语义被切断。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M227",
+      "type": "single",
+      "module": "agent",
+      "stem": "两个文本片段在向量库中相似度很高，据此可以得出的结论是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "二者在当前向量表示下语义更接近"
+        },
+        {
+          "key": "B",
+          "text": "二者的事实内容必然一致"
+        },
+        {
+          "key": "C",
+          "text": "二者来源必然相同"
+        },
+        {
+          "key": "D",
+          "text": "二者长度必然相同"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "高向量相似度只说明两个文本在当前表示中更接近，不能单独证明事实内容一致；检索结果只是\"候选资料\"，不是\"已验证事实\"。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M228",
+      "type": "single",
+      "module": "agent",
+      "stem": "先用向量检索从大量文本块中快速捞回候选，再用更重的模型对少量候选做精排，后面的精排环节称为？",
+      "options": [
+        {
+          "key": "A",
+          "text": "切块"
+        },
+        {
+          "key": "B",
+          "text": "分词"
+        },
+        {
+          "key": "C",
+          "text": "重排（Rerank）"
+        },
+        {
+          "key": "D",
+          "text": "采样"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "向量检索负责从百万块中快速捞回候选（快但粗），Rerank 用更重的模型对几十个候选精排（慢但准），二者是粗排加精排的分工。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M229",
+      "type": "single",
+      "module": "agent",
+      "stem": "ReAct 与 CoT 的根本区别在于？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CoT 的思考一定会触发外部工具调用"
+        },
+        {
+          "key": "B",
+          "text": "ReAct 把思考与工具行动交织，而 CoT 的思考不一定会触发外部工具调用"
+        },
+        {
+          "key": "C",
+          "text": "二者是完全相同的提示技术"
+        },
+        {
+          "key": "D",
+          "text": "ReAct 不需要模型参与推理"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "ReAct 让推理与行动交替进行（思考、行动、观察循环），而 CoT 只是引导分步推理，其\"思考\"不一定会调用外部工具，这是两者的高频区别考点。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M230",
+      "type": "single",
+      "module": "agent",
+      "stem": "让模型对同一问题多次独立推理，再对多个答案投票取多数以提升正确率，这种方法属于？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Few-shot 提示"
+        },
+        {
+          "key": "B",
+          "text": "知识蒸馏"
+        },
+        {
+          "key": "C",
+          "text": "模型剪枝"
+        },
+        {
+          "key": "D",
+          "text": "CoT-SC（自洽性）"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "CoT-SC（Self-Consistency）让模型多次独立推理，对多个答案投票取多数；Few-shot 是通过示例模仿，蒸馏与剪枝是模型压缩手段。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M231",
+      "type": "single",
+      "module": "agent",
+      "stem": "下列问题中，最适合使用思维链（CoT）的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "简单事实问答"
+        },
+        {
+          "key": "B",
+          "text": "日常寒暄"
+        },
+        {
+          "key": "C",
+          "text": "需要多步计算的数学应用题"
+        },
+        {
+          "key": "D",
+          "text": "抄写固定格式文本"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "CoT 适合需要多步计算、链条式推理或逐步拆解的规划类任务；简单事实问答直接回答更快、更省 Token，不适合使用 CoT。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M232",
+      "type": "single",
+      "module": "agent",
+      "stem": "RAG 检索回来的外部内容在注入提示词之前，正确的处理方式是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "与系统指令隔离，不直接获得指令权限"
+        },
+        {
+          "key": "B",
+          "text": "直接拼接在系统提示词之后"
+        },
+        {
+          "key": "C",
+          "text": "先删除再做检索"
+        },
+        {
+          "key": "D",
+          "text": "复制多份以增强其影响力"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "外部检索内容也是\"不可信文本\"，注入前应与系统指令隔离，否则可能被当作指令执行；隔离不能消除注入，但能降低其权限。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M233",
+      "type": "single",
+      "module": "agent",
+      "stem": "任务开放多变、需要根据执行结果动态调整路径时，更合适的方案是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "固定路径的 Workflow"
+        },
+        {
+          "key": "B",
+          "text": "基于动态决策的 Agent"
+        },
+        {
+          "key": "C",
+          "text": "离线批处理脚本"
+        },
+        {
+          "key": "D",
+          "text": "纯规则配置文件"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Workflow 执行路径预设，适合确定性任务；Agent 根据执行结果动态决策、调整路径，适合开放多变的任务，但灵活的同时需要护栏。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M234",
+      "type": "single",
+      "module": "agent",
+      "stem": "让不同 Agent 各专注一个角色能提升整体效果，其机制原因是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "多 Agent 能自动扩大每个 Agent 的上下文窗口"
+        },
+        {
+          "key": "B",
+          "text": "角色分工能减少推理所需的显存"
+        },
+        {
+          "key": "C",
+          "text": "专用 Agent 不需要模型参与"
+        },
+        {
+          "key": "D",
+          "text": "每个 Agent 上下文窗口有限，专注单一角色可减少无关信息稀释"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "每个 Agent 的上下文窗口有限，专注单一角色意味着上下文只装该角色的指令、工具与经验，减少无关信息稀释，这是专业化有效的机制解释。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M235",
+      "type": "single",
+      "module": "agent",
+      "stem": "在 UOS 环境中为项目创建 Python 虚拟环境，主要目的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "隔离项目依赖，避免污染系统 Python"
+        },
+        {
+          "key": "B",
+          "text": "提升 CPU 主频"
+        },
+        {
+          "key": "C",
+          "text": "加快依赖包下载速度"
+        },
+        {
+          "key": "D",
+          "text": "自动修复代码逻辑 bug"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "虚拟环境隔离项目依赖，避免污染系统 Python；比赛环境为 UOS 桌面系统，Python 3.10 及以上，通过 python3 -m venv 创建。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M236",
+      "type": "single",
+      "module": "agent",
+      "stem": "stdio 传输模式下，MCP 服务器的日志应写入？",
+      "options": [
+        {
+          "key": "A",
+          "text": "stdout"
+        },
+        {
+          "key": "B",
+          "text": "系统剪贴板"
+        },
+        {
+          "key": "C",
+          "text": "stderr 或文件"
+        },
+        {
+          "key": "D",
+          "text": "协议消息体"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "stdio 模式下服务器通过 stdout 输出协议消息，日志必须写到 stderr 或文件，否则会污染协议流导致通信异常，调试时用 2> 重定向保存日志。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M237",
+      "type": "single",
+      "module": "agent",
+      "stem": "用 json.dumps 把含中文的成绩数据写入文件时，要保证中文以原文保存，应设置？",
+      "options": [
+        {
+          "key": "A",
+          "text": "ensure_ascii=False"
+        },
+        {
+          "key": "B",
+          "text": "indent=None"
+        },
+        {
+          "key": "C",
+          "text": "sort_keys=True"
+        },
+        {
+          "key": "D",
+          "text": "allow_nan=True"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ensure_ascii=False 保证中文以原文写入文件，indent=2 便于人工检查；两者配合 encoding=\"utf-8\" 可避免中文乱码。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M238",
+      "type": "single",
+      "module": "agent",
+      "stem": "FastMCP 中把普通函数一行注册为工具、参数 Schema 由函数签名自动生成，使用的装饰器是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "@property"
+        },
+        {
+          "key": "B",
+          "text": "@app.route()"
+        },
+        {
+          "key": "C",
+          "text": "@wraps()"
+        },
+        {
+          "key": "D",
+          "text": "@mcp.tool()"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "MCP 官方 SDK 提供 FastMCP 类，用 @mcp.tool() 装饰器即可注册工具，参数类型注解和默认值会反映到自动生成的参数定义中。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M239",
+      "type": "single",
+      "module": "agent",
+      "stem": "客户端接入 MCP 服务器后，第一步应确认的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "删除客户端配置文件"
+        },
+        {
+          "key": "B",
+          "text": "在客户端列出工具并确认均已注册"
+        },
+        {
+          "key": "C",
+          "text": "重启操作系统"
+        },
+        {
+          "key": "D",
+          "text": "卸载虚拟环境"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "接入后先在客户端列出工具，确认全部工具均已注册；若配置修改则需重启客户端，让客户端重新发现工具。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M240",
+      "type": "single",
+      "module": "agent",
+      "stem": "MCP 服务关闭并重启后，再次调用查询工具确认数据仍在，重点验证的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据持久化是否正确"
+        },
+        {
+          "key": "B",
+          "text": "模型推理速度"
+        },
+        {
+          "key": "C",
+          "text": "网络带宽"
+        },
+        {
+          "key": "D",
+          "text": "终端编码格式"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "重启验证是持久化检查的核心步骤：数据必须写到本地文件，服务重启后重新加载；同时统计结果必须实时计算，写入固定数值会随数据变化失效。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M241",
+      "type": "multi",
+      "module": "agent",
+      "stem": "自注意力计算中，Token 向量分别乘以三组权重矩阵后得到的三类量是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "查询 Q：当前 Token 想关注谁"
+        },
+        {
+          "key": "B",
+          "text": "键 K：供匹配的标签"
+        },
+        {
+          "key": "C",
+          "text": "值 V：被取走的内容"
+        },
+        {
+          "key": "D",
+          "text": "因果掩码：只关注未来信息"
+        },
+        {
+          "key": "E",
+          "text": "梯度：损失对参数的变化率"
+        },
+        {
+          "key": "F",
+          "text": "学习率：每次参数更新的步长"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "自注意力中每个 Token 的向量乘以三组权重矩阵得到 Q、K、V：Q 是查询、K 是键、V 是值，用 Q 与 K 算分数、对 V 加权求和。因果掩码、梯度、学习率都不是注意力计算的三矩阵产物。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M242",
+      "type": "multi",
+      "module": "agent",
+      "stem": "大语言模型的训练通常经历哪几个阶段？",
+      "options": [
+        {
+          "key": "A",
+          "text": "预训练：在无标注语料上学习通用语言能力"
+        },
+        {
+          "key": "B",
+          "text": "监督微调（SFT）：用带指令或示例的数据学会按指令行事"
+        },
+        {
+          "key": "C",
+          "text": "对齐（RLHF）：通过人类反馈的强化学习让输出符合偏好"
+        },
+        {
+          "key": "D",
+          "text": "分词：把文本切分为 Token"
+        },
+        {
+          "key": "E",
+          "text": "量化：压缩模型权重的数值精度"
+        },
+        {
+          "key": "F",
+          "text": "剪枝：删除冗余网络参数"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "训练三阶段为预训练、微调（SFT）、对齐（RLHF），分别解决通用能力、按指令行事、符合人类偏好三个问题；分词是使用前处理，量化与剪枝是部署优化手段，都不属于训练阶段。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M243",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于五环节与执行闭环的关系，下列哪些说法正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "五环节是静态的零件清单，执行闭环是动态的主循环"
+        },
+        {
+          "key": "B",
+          "text": "目标对应感知，计划对应规划，观察对应感知（读反馈）"
+        },
+        {
+          "key": "C",
+          "text": "判断对应规划与反思，记忆贯穿全程但不在主循环序列"
+        },
+        {
+          "key": "D",
+          "text": "五环节与执行闭环是同一维度的两种叫法"
+        },
+        {
+          "key": "E",
+          "text": "观察步骤的输入可以由模型想象产生"
+        },
+        {
+          "key": "F",
+          "text": "行动环节不需要调用任何工具"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "五环节讲\"结构\"、执行闭环讲\"流程\"，不是同一维度：目标对应感知、计划对应规划、观察对应感知（读反馈）、判断对应规划加反思，记忆贯穿全程。观察输入必须来自环境或工具的实际结果，行动要调用工具。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M244",
+      "type": "multi",
+      "module": "agent",
+      "stem": "构建并使用 RAG 的完整流程包括哪些环节？",
+      "options": [
+        {
+          "key": "A",
+          "text": "把长文档切块，拆成适合检索的文本片段"
+        },
+        {
+          "key": "B",
+          "text": "用 Embedding 模型把片段编码为向量并存入向量库"
+        },
+        {
+          "key": "C",
+          "text": "用户提问时把问题编码为向量，检索相似片段拼入 Prompt"
+        },
+        {
+          "key": "D",
+          "text": "对基础模型重新微调以吸收新知识"
+        },
+        {
+          "key": "E",
+          "text": "把全部文档原文一次性塞进上下文窗口"
+        },
+        {
+          "key": "F",
+          "text": "为每个问题手工编写标准答案"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "RAG 流程为切块、向量化入库、检索相似片段并拼入 Prompt 四个环节；它不改基础模型参数，知识更新只需更新知识库，成本远低于重新微调。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M245",
+      "type": "multi",
+      "module": "agent",
+      "stem": "下列哪些做法有助于提升知识库的检索效果？",
+      "options": [
+        {
+          "key": "A",
+          "text": "切块时设置重叠，防止语义被边界切断"
+        },
+        {
+          "key": "B",
+          "text": "检索后用重排（Rerank）对候选结果二次排序"
+        },
+        {
+          "key": "C",
+          "text": "混合检索结合向量相似度与关键词匹配"
+        },
+        {
+          "key": "D",
+          "text": "关闭向量库，改为全量线性扫描"
+        },
+        {
+          "key": "E",
+          "text": "知识库建立后永不更新"
+        },
+        {
+          "key": "F",
+          "text": "禁止使用查询改写"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "重叠切块防止语义被切断，Rerank 对候选精排，混合检索兼顾语义与精确词命中，查询改写提升相关性，知识库需定期更新，这些都是提升检索质量的手段。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M246",
+      "type": "multi",
+      "module": "agent",
+      "stem": "思维链（CoT）的常用形式包括哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Few-shot CoT：在示例中展示\"推理步骤 + 答案\"让模型模仿"
+        },
+        {
+          "key": "B",
+          "text": "Zero-shot CoT：不加示例，加一句\"让我们一步一步地思考\"触发"
+        },
+        {
+          "key": "C",
+          "text": "CoT-SC：多次独立推理后对答案投票取多数"
+        },
+        {
+          "key": "D",
+          "text": "掩码语言建模：随机遮盖 Token 让其重建"
+        },
+        {
+          "key": "E",
+          "text": "贪心解码：每步取概率最大的 Token"
+        },
+        {
+          "key": "F",
+          "text": "随机打乱训练集顺序"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "CoT 的三种常用形式是 Few-shot CoT、Zero-shot CoT 和 CoT-SC（自洽性）；掩码语言建模是 BERT 的预训练任务，贪心解码是生成策略，均不属于 CoT 形式。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M247",
+      "type": "multi",
+      "module": "agent",
+      "stem": "Agent 出现上下文溢出、死循环等故障时，下列哪些是有效的处理手段？",
+      "options": [
+        {
+          "key": "A",
+          "text": "上下文溢出时压缩历史或清理无关内容"
+        },
+        {
+          "key": "B",
+          "text": "死循环时设置最大迭代次数和 Token 预算限制"
+        },
+        {
+          "key": "C",
+          "text": "逐步执行，观察每一步的输入输出以定位出错环节"
+        },
+        {
+          "key": "D",
+          "text": "把上下文窗口无限扩大以容纳所有内容"
+        },
+        {
+          "key": "E",
+          "text": "关闭日志记录以提升运行性能"
+        },
+        {
+          "key": "F",
+          "text": "检索不到答案时直接放弃检索"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "上下文溢出需压缩历史或清理无关内容，死循环需设置最大迭代次数和 Token 预算兜底止损，调试时逐步执行观察每步输入输出；日志是定位故障的主要手段，不应关闭。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M248",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于模型调用方式与推理服务，下列哪些说法正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "API 调用与本地调用的区别在于模型运行位置，调用逻辑一致"
+        },
+        {
+          "key": "B",
+          "text": "Ollama 提供简单易用的本地模型部署和 API 接口"
+        },
+        {
+          "key": "C",
+          "text": "vLLM 提供高性能推理服务，支持高并发和连续批处理"
+        },
+        {
+          "key": "D",
+          "text": "本地模型部署无需考虑显存容量和量化级别"
+        },
+        {
+          "key": "E",
+          "text": "切换推理后端必须重写全部应用代码"
+        },
+        {
+          "key": "F",
+          "text": "模型推理参数只有温度一项"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "API 与本地调用只是模型运行位置不同；推理服务暴露 OpenAI 兼容接口，切换后端不用改代码；本地部署需考虑显存容量、量化级别与并发数，推理参数还包括最大生成长度、Top-p 等。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M249",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 MCP 的 stdio 传输模式，下列哪些说法正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "客户端启动服务器进程，通过标准输入输出通信"
+        },
+        {
+          "key": "B",
+          "text": "适合本地工具，符合比赛场景"
+        },
+        {
+          "key": "C",
+          "text": "服务器通过 stdout 输出协议消息，日志写到 stderr 或文件"
+        },
+        {
+          "key": "D",
+          "text": "服务器独立运行，客户端通过网络访问"
+        },
+        {
+          "key": "E",
+          "text": "日志输出到 stdout 不会产生任何影响"
+        },
+        {
+          "key": "F",
+          "text": "只能用于公网远程服务"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "stdio 模式下客户端拉起服务器进程并经标准输入输出通信，适合本地工具和比赛场景；stdout 专用于协议消息，日志必须走 stderr 或文件。服务器独立运行、网络访问是 HTTP/SSE 模式的特点。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M250",
+      "type": "multi",
+      "module": "agent",
+      "stem": "手工实现的 Agent 循环中，下列哪些做法属于合理的安全与预算控制？",
+      "options": [
+        {
+          "key": "A",
+          "text": "设置最大迭代次数和 Token 上限，防止死循环浪费资源"
+        },
+        {
+          "key": "B",
+          "text": "删除、覆盖类高风险工具调用前请求确认"
+        },
+        {
+          "key": "C",
+          "text": "记录每一步的工具调用和结果，便于回放定位问题"
+        },
+        {
+          "key": "D",
+          "text": "循环次数不设上限以保证任务必然完成"
+        },
+        {
+          "key": "E",
+          "text": "给模型提供写入类工具时不加任何限制"
+        },
+        {
+          "key": "F",
+          "text": "模型返回 tool_calls 时直接忽略"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "安全与预算控制包括：设最大迭代次数与 Token 上限、高风险操作前人工确认、记录每步调用便于回放；只读工具场景禁止写入类能力，忽略 tool_calls 会中断循环。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M251",
+      "type": "judge",
+      "module": "agent",
+      "stem": "Agent 对文件读写、命令执行、服务管理等操作系统能力的调用，都需要封装为工具。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "LLM 只是文本生成器，无法直接操作文件、执行命令或控制软件；智能体调用操作系统能力都通过工具完成，模型是决策者、执行层是执行者。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M252",
+      "type": "judge",
+      "module": "agent",
+      "stem": "多 Agent 系统中每个 Agent 专注单一角色，其上下文只装该角色的指令、工具与经验，可减少无关信息稀释。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "每个 Agent 的上下文窗口有限，专注单一角色意味着上下文只装该角色的指令、工具与经验，减少无关信息稀释，这是角色分工专业化有效的机制原因。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M253",
+      "type": "judge",
+      "module": "agent",
+      "stem": "KV Cache 的显存占用随序列长度线性增长，是推理显存占用的重要组成部分。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "KV Cache 缓存已生成 Token 的 K、V，随序列长度线性增长，是推理显存占用的大头，决定本地部署成本。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M254",
+      "type": "judge",
+      "module": "agent",
+      "stem": "计划一旦生成就必须严格执行到底，不允许随执行结果变更。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "计划生成后保持可变更，执行中发现前置条件不成立时应根据新信息调整计划或重新规划；一次性规划到底依赖所有假设都成立。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M255",
+      "type": "judge",
+      "module": "agent",
+      "stem": "ReAct 的循环流程是\"思考 → 行动 → 观察 → 再思考\"，信息充足后停止循环并输出最终结果。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ReAct 把推理与行动交织进行：思考确定下一步做什么，行动调用工具，观察读取工具返回结果，直到信息充足后停止循环输出最终结果。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M256",
+      "type": "judge",
+      "module": "agent",
+      "stem": "只要使用了思维链（CoT），模型的推理结果就必然正确。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "CoT 只是降低出错概率，推理步骤本身也可能出错，并不保证结果正确；它适合多步计算、链条式推理类问题。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M257",
+      "type": "judge",
+      "module": "agent",
+      "stem": "幻觉的产生源于模型对知识的模糊记忆和概率采样，模型本质是按概率续写而非查询数据库。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "模型不是在\"查库\"，而是按概率续写，对知识记忆模糊或没有依据时就编造，因此会产生看似合理但事实错误的内容，即幻觉。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M258",
+      "type": "judge",
+      "module": "agent",
+      "stem": "五环节与执行闭环是同一结构的两种叫法，属于同一维度。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "五环节（零件清单）讲\"结构\"，执行闭环（主循环）讲\"流程\"，不是同一维度；两者存在一一对应关系，但含义不同。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M259",
+      "type": "judge",
+      "module": "agent",
+      "stem": "采用 MCP 统一协议后，M 个 AI 应用接入 N 个工具的适配次数可降为 M+N。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "没有统一协议时需要 M×N 次适配，采用 MCP 后每个工具厂商与应用各自实现一次协议，降为 M+N，工具和应用越多收益越大。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M260",
+      "type": "judge",
+      "module": "agent",
+      "stem": "MCP 服务器处理异常输入时应返回明确结果，而不能让异常导致服务进程退出。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "服务崩溃会连带该 Server 上全部工具不可用，因此工具处理异常输入应返回明确结果，让服务进程继续运行。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M261",
+      "type": "judge",
+      "module": "agent",
+      "stem": "记忆模块保存的历史信息越多越好，Agent 应把所有对话与操作历史全部长期保存。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "存得越多检索噪声越大、成本越高，记忆的价值在\"需要时找得到\"而非\"什么都存\"；写入与检索还都需要访问控制。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M262",
+      "type": "judge",
+      "module": "agent",
+      "stem": "将外部内容与系统指令隔离后，提示注入风险可以被完全消除。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "模型无法从原理上区分指令与数据，所有进入上下文的文本话语权相同；隔离不能消除注入，但能降低外部内容的权限。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M263",
+      "type": "judge",
+      "module": "agent",
+      "stem": "Agent 评测需要覆盖不同难度的任务集合，以保证结果稳定可靠。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "评测需要覆盖不同难度的任务集合，保证结果稳定；稳定性指标要求同一任务多次执行结果一致。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M264",
+      "type": "judge",
+      "module": "agent",
+      "stem": "日志记录每一步的思考、工具调用和结果，是定位 Agent 故障的主要手段。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "日志相当于把闭环的每一轮显式落盘，记录思考、工具调用和结果，是定位故障的主要手段，结合逐步执行可定位出错环节。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M265",
+      "type": "judge",
+      "module": "agent",
+      "stem": "本地 Agent 在受控边界内使用本地数据和工具，数据不出域、权限受控是本地化部署的核心价值。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "数据不出域加权限受控，是本地化部署的核心价值；数据敏感或离线场景选择本地调用，快速起步或弹性伸缩选择 API。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M266",
+      "type": "judge",
+      "module": "agent",
+      "stem": "推理服务暴露 OpenAI 兼容接口后，应用切换不同的后端模型无需修改代码。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "推理服务暴露 OpenAI 兼容接口，应用通过标准接口切换不同后端，换模型不用改代码。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M267",
+      "type": "judge",
+      "module": "agent",
+      "stem": "学生成绩数据只需保存在内存中，MCP 服务重启后丢失也没有关系。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "数据必须持久化到本地 JSON 文件，服务重启后重新加载，否则数据会丢失；重启验证是持久化检查的核心步骤。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M268",
+      "type": "judge",
+      "module": "agent",
+      "stem": "客户端配置文件修改后无需重启客户端，客户端会自动发现新的工具。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "配置修改后必须重启客户端，让客户端重新发现工具；接入后还需先在客户端列出工具确认注册情况。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M269",
+      "type": "judge",
+      "module": "agent",
+      "stem": "stdio 模式下把日志输出到 stdout，不会影响 MCP 协议通信。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "stdio 模式下服务器通过 stdout 输出协议消息，日志必须写到 stderr 或文件；日志污染 stdout 是常见问题，会造成协议解析异常。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M270",
+      "type": "judge",
+      "module": "agent",
+      "stem": "手工 Agent 循环中，模型返回 tool_calls 时执行工具并以 role=tool 追加结果；没有 tool_calls 时，模型的输出即为最终答案。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "messages 列表同时承载历史、模型回复和工具结果；模型返回 tool_calls 就执行对应工具并回填结果，没有 tool_calls 则直接返回模型内容作为最终答案，达到 MAX_STEPS 则提示任务未完成。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M271",
+      "type": "single",
+      "module": "hardware",
+      "stem": "以下国产 CPU 厂商中，产品采用 x86 指令集架构的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "龙芯与申威"
+        },
+        {
+          "key": "B",
+          "text": "飞腾与华为"
+        },
+        {
+          "key": "C",
+          "text": "兆芯与海光"
+        },
+        {
+          "key": "D",
+          "text": "昇腾与寒武纪"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "兆芯（开先、开胜系列）与海光系列均基于 x86；龙芯用 LoongArch，飞腾与华为鲲鹏基于 ARM，申威用 SW64，昇腾与寒武纪则是 AI 加速芯片厂商。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M272",
+      "type": "single",
+      "module": "hardware",
+      "stem": "国产 CPU 同时存在多种指令集路线，其根本原因是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "各厂商技术水平差距悬殊，无法统一"
+        },
+        {
+          "key": "B",
+          "text": "需要在兼容主流生态与完全自主可控之间做取舍"
+        },
+        {
+          "key": "C",
+          "text": "政策要求每家厂商必须研发独立指令集"
+        },
+        {
+          "key": "D",
+          "text": "单一指令集无法承载任何运算需求"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "教材明确这是兼容主流生态（x86/ARM，迁移成本低）与完全自主（LoongArch/SW64）两条路线的取舍，兼顾生态可用性与自主可控。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M273",
+      "type": "single",
+      "module": "hardware",
+      "stem": "关于 ABI（应用二进制接口）的准确描述是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "源码层面的函数调用约定，决定源码能否重新编译通过"
+        },
+        {
+          "key": "B",
+          "text": "已编译二进制与运行库、系统接口之间的约定，决定其能否直接运行"
+        },
+        {
+          "key": "C",
+          "text": "处理器能识别的全部机器指令集合，即指令集"
+        },
+        {
+          "key": "D",
+          "text": "操作系统对外提供的命令行工具集合"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "ABI 位于软硬交界，约束的是已编译二进制，决定其能否直接运行；API 才对应源码编译层，ISA 才是机器指令集合。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M274",
+      "type": "single",
+      "module": "hardware",
+      "stem": "在兼容性分层模型中，服务如何被拉起、启动方式变化需一并验证的\"启动机制\"属于：",
+      "options": [
+        {
+          "key": "A",
+          "text": "硬件层"
+        },
+        {
+          "key": "B",
+          "text": "软硬交界层"
+        },
+        {
+          "key": "C",
+          "text": "系统层"
+        },
+        {
+          "key": "D",
+          "text": "软件层"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "教材将启动机制归为系统层：服务如何被拉起、依赖服务变化都需要在迁移时一并验证。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M275",
+      "type": "single",
+      "module": "hardware",
+      "stem": "在异构计算系统中，CPU 通常承担的角色是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "只负责图形渲染输出"
+        },
+        {
+          "key": "B",
+          "text": "负责调度与串行逻辑部分，并协调各加速单元协同工作"
+        },
+        {
+          "key": "C",
+          "text": "替代 GPU 完成全部大规模并行计算"
+        },
+        {
+          "key": "D",
+          "text": "仅作为电源与散热管理控制器"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "异构协同中 CPU 负责调度与串行部分，GPU/NPU 负责并行计算，两者经 PCIe/NVLink 等互连通信；CPU 并行计算效率有限，不能替代 GPU。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M276",
+      "type": "single",
+      "module": "hardware",
+      "stem": "算力指标 TFLOPS 表示：",
+      "options": [
+        {
+          "key": "A",
+          "text": "每秒百万次浮点运算"
+        },
+        {
+          "key": "B",
+          "text": "每秒十亿次整数运算"
+        },
+        {
+          "key": "C",
+          "text": "每秒万亿次浮点运算"
+        },
+        {
+          "key": "D",
+          "text": "每秒十万亿次布尔运算"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "TFLOPS 中的 T 指 Tera（万亿），即每秒一万亿次浮点运算，常用于衡量 GPU 等加速器的算力水平。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M277",
+      "type": "single",
+      "module": "hardware",
+      "stem": "GPU 中 Warp 线程束的固定大小是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "16 个线程"
+        },
+        {
+          "key": "B",
+          "text": "32 个线程"
+        },
+        {
+          "key": "C",
+          "text": "64 个线程"
+        },
+        {
+          "key": "D",
+          "text": "128 个线程"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "warp 固定为 32 个线程：控制电路摊销要大而分支发散惩罚要小，32 是折中；且 32 线程×4 字节恰为 128 字节访存事务，还是 2 的幂便于位图标记。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M278",
+      "type": "single",
+      "module": "hardware",
+      "stem": "Tensor Core 在 GPU 中存在的意义是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "代替 CPU 执行操作系统任务调度"
+        },
+        {
+          "key": "B",
+          "text": "用专用硬件电路直接完成矩阵乘加，省去通用核逐条指令拼算的开销"
+        },
+        {
+          "key": "C",
+          "text": "管理 GPU 的供电与功耗平衡"
+        },
+        {
+          "key": "D",
+          "text": "为通用核提供分支预测能力"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Tensor Core 一条指令即驱动乘加器阵列完成 D=A×B+C，以专用换算力密度，是深度学习训练的关键硬件。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M279",
+      "type": "single",
+      "module": "hardware",
+      "stem": "相比 GDDR，HBM 获得高带宽的核心手段是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "单纯依靠拉高工作频率硬顶带宽"
+        },
+        {
+          "key": "B",
+          "text": "多层 DRAM 堆叠配合 TSV 垂直互连，并以 2.5D 封装与 GPU 直连"
+        },
+        {
+          "key": "C",
+          "text": "改用更宽的 PCIe 通道传输数据"
+        },
+        {
+          "key": "D",
+          "text": "用普通 PCB 走线替代硅中介层互连"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "HBM 通过堆叠缩短互连距离、TSV 提供大量并行短通道、2.5D 封装与 GPU 直连，三个手段都在提高单位时间搬进芯片的数据量；GDDR 不堆叠、靠拉频率硬顶。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M280",
+      "type": "single",
+      "module": "hardware",
+      "stem": "CUDA 中用 __global__ 关键字声明的函数，其执行方式是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "只由 CPU 单独执行，GPU 不参与"
+        },
+        {
+          "key": "B",
+          "text": "作为 Kernel 由 CPU 端调用启动，在 GPU 上被海量线程并行执行"
+        },
+        {
+          "key": "C",
+          "text": "由 GPU 调用后回传 CPU 串行执行"
+        },
+        {
+          "key": "D",
+          "text": "由显卡固件自动执行，与程序代码无关"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "__global__ 标记的函数即 Kernel，由 CPU 端以 <<<>>> 发起调用、在 GPU 上并行执行；其余 main 与辅助函数归 CPU 执行。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M281",
+      "type": "single",
+      "module": "hardware",
+      "stem": "天数智芯产品线中，面向推理场景的产品系列是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "天垓系列"
+        },
+        {
+          "key": "B",
+          "text": "智铠系列"
+        },
+        {
+          "key": "C",
+          "text": "彤央系列"
+        },
+        {
+          "key": "D",
+          "text": "思元系列"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "天垓系列是训练产品、智铠系列是推理产品、彤央系列面向边端；思元系列属于寒武纪而非天数智芯。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M282",
+      "type": "single",
+      "module": "hardware",
+      "stem": "华为昇腾加速芯片配套的自研软件栈是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "CANN"
+        },
+        {
+          "key": "B",
+          "text": "cuDNN"
+        },
+        {
+          "key": "C",
+          "text": "NCCL"
+        },
+        {
+          "key": "D",
+          "text": "TensorRT"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "昇腾采用自研达芬奇架构，配套 CANN 软件栈；cuDNN、NCCL、TensorRT 均属 NVIDIA 生态库。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M283",
+      "type": "single",
+      "module": "hardware",
+      "stem": "把单层模型参数切分到多张 GPU 上、通信频率极高的并行策略是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据并行"
+        },
+        {
+          "key": "B",
+          "text": "流水线并行"
+        },
+        {
+          "key": "C",
+          "text": "张量并行"
+        },
+        {
+          "key": "D",
+          "text": "模型并行"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "张量并行把单层参数切分到多卡，每次计算都要交换中间结果，通信频率极高，常见于大模型与 MoE；按层切分则是模型并行。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M284",
+      "type": "single",
+      "module": "hardware",
+      "stem": "大模型训练集群追求高性能互联时，教材推荐的首选方案是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "400G 以上的 InfiniBand"
+        },
+        {
+          "key": "B",
+          "text": "100G 普通以太网"
+        },
+        {
+          "key": "C",
+          "text": "WiFi 7 无线互联"
+        },
+        {
+          "key": "D",
+          "text": "USB4 总线直连"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "InfiniBand 400G 以上是高性能首选，RoCE 100G/200G 是性价比方案；GPU 间通信依赖高速互联网络，WiFi/USB 无法胜任。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M285",
+      "type": "single",
+      "module": "hardware",
+      "stem": "功耗达 500W 以上的高功耗芯片必须采用液冷的原因是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "风冷散热能力存在物理极限（约数百瓦），难以压制过高功耗"
+        },
+        {
+          "key": "B",
+          "text": "液冷可以显著降低芯片制造成本"
+        },
+        {
+          "key": "C",
+          "text": "风冷无法适配任何型号的 GPU"
+        },
+        {
+          "key": "D",
+          "text": "液冷能直接提高 GPU 的主频上限"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "风冷散热能力有物理极限（约数百瓦），GPU 功耗 500W 以上时风冷压不住，必须靠液冷带走热量，保证持续算力释放。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M286",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "下列国产 CPU 厂商与指令集架构的对应关系中，正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "龙芯采用自研 LoongArch"
+        },
+        {
+          "key": "B",
+          "text": "飞腾基于 ARM 架构"
+        },
+        {
+          "key": "C",
+          "text": "兆芯采用 LoongArch 指令集"
+        },
+        {
+          "key": "D",
+          "text": "华为鲲鹏基于 RISC-V"
+        },
+        {
+          "key": "E",
+          "text": "申威采用自研 SW64"
+        },
+        {
+          "key": "F",
+          "text": "海光采用 LoongArch 指令集"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "E"
+      ],
+      "explanation": "龙芯对应 LoongArch、飞腾与华为鲲鹏对应 ARM、申威对应 SW64；兆芯与海光均基于 x86，故 C、D、F 对应错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M287",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于异构计算中各类计算单元的定位，下列说法正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "CPU 擅长复杂逻辑与任务调度，灵活但并行计算效率有限"
+        },
+        {
+          "key": "B",
+          "text": "GPU 适合大规模并行计算，并行能力强且生态成熟"
+        },
+        {
+          "key": "C",
+          "text": "NPU 面向神经网络做专用加速，功耗低，适合本地运行"
+        },
+        {
+          "key": "D",
+          "text": "FPGA 一经配置完成便不可再重新配置"
+        },
+        {
+          "key": "E",
+          "text": "ASIC 成本低且极其灵活，适合快速迭代"
+        },
+        {
+          "key": "F",
+          "text": "TPU 是通用图形处理器"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "FPGA 可重新配置但开发复杂；ASIC 效率高但成本高且不灵活；TPU 是 Google 针对 AI 与 Google 体系优化的专用处理器，并非通用图形处理器。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M288",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "编写高性能 CUDA 程序时，下列做法或认知正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "尽量避免同一 warp 内线程走不同分支，防止发散串行化"
+        },
+        {
+          "key": "B",
+          "text": "块内多次复用的数据放入 shared memory，减少访问显存"
+        },
+        {
+          "key": "C",
+          "text": "让相邻线程访问相邻内存地址，有利于合并访问提升带宽利用率"
+        },
+        {
+          "key": "D",
+          "text": "合并访问会增加访存事务数量，降低带宽利用率"
+        },
+        {
+          "key": "E",
+          "text": "不同 Stream 中的操作必定严格串行执行"
+        },
+        {
+          "key": "F",
+          "text": "原子操作可避免多线程并发写同一地址时出现数据竞争"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "F"
+      ],
+      "explanation": "warp 发散需串行、shared memory 就近供数、合并访问把相邻访问合并为少量事务提升带宽、原子操作保障并发写安全；D 与 E 均与教材相反。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M289",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于 GPU 内部存储层级，下列说法正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "寄存器每线程私有，访问速度最快"
+        },
+        {
+          "key": "B",
+          "text": "shared memory 位于 SM 内部，供块内线程共享"
+        },
+        {
+          "key": "C",
+          "text": "L2 缓存为全卡共享，兜底热点数据"
+        },
+        {
+          "key": "D",
+          "text": "显存相当于 GPU 体系中的缓存"
+        },
+        {
+          "key": "E",
+          "text": "shared memory 的容量通常大于显存"
+        },
+        {
+          "key": "F",
+          "text": "主机内存通过 PCIe 与 GPU 相连，带宽高于显存"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "显存是 GPU 体系里的\"主存\"而非缓存；shared memory 每 SM 仅几十 KB，远小于显存；PCIe 带宽比显存带宽低几十倍。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M290",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于冷板液冷系统，下列说法正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "系统分为外部冷源、CDU 冷却液分配单元、冷板三层"
+        },
+        {
+          "key": "B",
+          "text": "CDU 内含循环泵、板式换热器、过滤器、膨胀罐等部件"
+        },
+        {
+          "key": "C",
+          "text": "快速接头支持在线维护，要求无滴漏"
+        },
+        {
+          "key": "D",
+          "text": "冷板出现堵塞时无需处理，靠自然散热即可"
+        },
+        {
+          "key": "E",
+          "text": "直接接触式液冷使用常规冷却液即可，无需绝缘"
+        },
+        {
+          "key": "F",
+          "text": "乙二醇溶液的导热系数高于纯水"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "冷板液冷属间接接触式，三层结构为外部冷源、CDU、冷板；堵塞应反向冲洗或更换冷板，直接接触式要求冷却液必须绝缘，乙二醇导热系数低于纯水。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M291",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "RISC-V 指令集开源免费，但其生态仍在发展之中。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "教材指出 RISC-V 开源免费，生态仍在发展；这也是国产 CPU 多种指令集路线并存的原因之一。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M292",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "在指令集与微架构的关系中，微架构是接口规范，指令集是具体实现方式。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "关系恰好颠倒：指令集是接口规范（规定指令长什么样），微架构是具体实现（如何执行），同一指令集可以有多种微架构实现。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M293",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "CUDA 中 Block 之间可以任意同步，跨块数据交换无需经过显存。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "CUDA 没有 Block 间通信原语，块间交换数据的唯一路径是经显存（A store → 显存 → B load）；Kernel 边界才是天然的全局同步点。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M294",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "GDDR 与 HBM 一样，都依靠多层堆叠和 TSV 互连来提升带宽。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "GDDR 是传统平面布线的 DRAM 颗粒，靠 PCB 走线并拉高频率硬顶，带宽天花板低、功耗高；只有 HBM 采用堆叠 + TSV + 2.5D 封装。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M295",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "CUDA 中 Kernel 启动是异步的，<<<>>> 调用发出后 CPU 端代码会继续往下执行。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "启动即异步：CPU 发出启动命令后继续运行，Kernel 在 GPU 上后台执行，这也让 Stream 重叠搬运与计算成为可能。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M296",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "大模型训练中，通信带宽不足会拖慢所有并行策略的整体性能。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "各并行策略都要频繁交换梯度或中间结果，通信慢了整体就被拖住，因此需要 InfiniBand、RoCE 等高速互联网络支撑。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M297",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "天垓100 是 2021 年发布的国内第一款全自研 GPU 架构云端训练芯片。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "教材记载天垓100（BI-V100）为 2021 年发布的国内第一款全自研 GPU 架构云端训练芯片，系统架构、指令集、核心算子、软件栈均自主研发。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M298",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "智铠系列兼容 CUDA 生态，其平均迁移时间较主流产品下降 50% 以上。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "教材明确智铠兼容 CUDA 生态，平均迁移时间较主流产品下降 50% 以上，体现软件生态对迁移成本的决定作用。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M299",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "液冷系统部署完成后可长期免维护，无需定期检查。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "液冷系统仍需定期检查维护：长停机或首次启动先查液位、管路密封性并充分排气，长停机还要排空冷却液并干燥管路。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M300",
+      "type": "judge",
+      "module": "hardware",
+      "stem": "冷板液冷属于直接接触式液冷，冷却液直接与芯片接触。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "冷板液冷是间接接触式：冷却液流经冷板内部、经冷板导热，不直接接触芯片；直接接触式才要求冷却液必须绝缘。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    }
+  ]
+}
