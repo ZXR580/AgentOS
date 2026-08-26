@@ -24,6 +24,7 @@
 - [第 5 章 国产硬件技术基础](/ch05_hardware) 国产 CPU 与指令集、兼容层次、异构计算、GPU 与 CUDA、国产生态、训练集群与液冷
 - [第 6 章 附录](/ch06_appendix) 高频考点、判断题陷阱、易混对照、命令速查、排障速查
 - [第 7 章 MCP 与 Agent 落地实践](/ch07_mcp_agent_practice) 可运行的 MCP 服务与 Agent 代码
+- [第 8 章 智能平台](/ch08_intelligent_platform) 基于统信智能平台的 UOS AI 智能办公生态：智能写作、智能办公、智能生态（MCP/Skills/SDK）、智能协同 Uclaw、Agent OS 分层架构
 - [知识网络图](/graph) 全部知识点的关系图谱，点击跳转对应章节
 
 ## 使用说明

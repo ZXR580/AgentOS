@@ -19,6 +19,7 @@ const files = [
   'ch05_hardware.md',
   'ch06_appendix.md',
   'ch07_mcp_agent_practice.md',
+  'ch08_intelligent_platform.md',
 ]
 
 mkdirSync(dstDir, { recursive: true })

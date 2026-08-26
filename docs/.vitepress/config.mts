@@ -25,6 +25,7 @@ export default defineConfig({
       { text: '第 5 章', link: '/ch05_hardware' },
       { text: '第 6 章', link: '/ch06_appendix' },
       { text: '第 7 章', link: '/ch07_mcp_agent_practice' },
+      { text: '第 8 章', link: '/ch08_intelligent_platform' },
     ],
 
     sidebar: [
@@ -46,6 +47,7 @@ export default defineConfig({
           { text: '第 5 章 国产硬件技术基础', link: '/ch05_hardware' },
           { text: '第 6 章 附录', link: '/ch06_appendix' },
           { text: '第 7 章 MCP 与 Agent 落地实践', link: '/ch07_mcp_agent_practice' },
+          { text: '第 8 章 智能平台', link: '/ch08_intelligent_platform' },
         ],
       },
     ],

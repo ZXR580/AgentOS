@@ -258,21 +258,162 @@ SYSTEM_PROMPT = """你是一个成绩查询助手，负责回答学生成绩相�
 - 提示词明确工具使用边界和回答约束
 - 需要更新的知识通过 RAG 检索注入上下文
 
-### 接入 RAG
+### 把流程封装成 Skill
 
-RAG 作为普通工具接入即可，模型按需调用：
+前面把单个工具直接暴露给模型；当"查某学生成绩 + 汇总班级统计"这类**固定流程**要反复做时，与其让模型每轮自己组合多次调用，不如**用一个 Skill 把流程装成"一个入口"**（对应 ch04 §4.7 的"整机"）——模型只决定"要不要报告"，内部步骤交给 Skill。
+
+底层仍是 §7.3 的两个工具（原子操作）：
 
 ```python
-@mcp.tool()
-def search_knowledge(query: str) -> str:
-    """检索知识库，返回相关文档片段。"""
-    vector = embed(query)
-    results = vector_store.search(vector, top_k=3)
-    return "\n".join(r["text"] for r in results)
+def query_student(name: str) -> str: ...       # 查单个学生（返回字符串）
+def score_statistics() -> str: ...             # 全班统计（返回字符串）
 ```
 
-- 检索函数返回文本片段，模型自行判断引用
-- 检索结果与系统提示词分开，避免指令注入
+Skill 把它们按固定流程编排成"一个入口"：
+
+```python
+def student_report(name: str) -> str:
+    """生成某学生的成绩分析报告：个人成绩 + 班级统计。"""
+    score = query_student(name)        # 步骤1：查该生
+    stats = score_statistics()         # 步骤2：查统计
+    return f"{name} 的成绩：{score}\n班级统计：{stats}"   # 步骤3：按口径组装
+```
+
+与"直接暴露两个底层工具"的区别：模型在 `TOOLS` 里**只看到 Skill 一个入口**，内部自动编排多次调用：
+
+```python
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "student_report",
+            "description": "生成某学生的成绩分析报告（个人成绩 + 班级统计）",
+            "parameters": {
+                "type": "object",
+                "properties": {"name": {"type": "string"}},
+                "required": ["name"],
+            },
+        },
+    },
+]
+
+def execute_tool(name: str, args: dict) -> str:
+    if name == "student_report":
+        return student_report(args["name"])   # 内部按剧本编排两个底层工具
+    return f"未知工具 {name}"
+```
+
+- **入口与 Tool 一致**：模型看到的是 `student_report`，只需传 `name`，感知不到内部要调两个工具
+- **流程在"设计时"写死**：固定剧本替代"模型每轮临场组合多次调用"——更快、更稳、更省 Token（对应 ch04 §4.7 三层成本账）
+- **幻觉面变小**：顺序、参数映射、产出口径都定了，模型只需决定"要不要出报告"
+- **循环不变**：思考 → 调用 → 读结果 → 再思考 与核心循环完全一致——Skill 只是"打包了调用"，并不改变循环本身
+- 兜底技巧：可在 `TOOLS` 里**同时保留底层工具**（如 `add_student`）——Skill 是"速装入口"，底层工具是"可自由组合的小零件"
+
+### 接入 RAG：给 Agent 补"知识"
+
+前面的例子都是查**结构化表格数据**（学生成绩）。但 Agent 还要能回答"训练时没见过"的文档型知识，比如学校制度。这类知识模型没学过，需要在生成前从知识库**检索注入上下文**——这就是 RAG（对应 ch04 §4.10）。
+
+**第一步 · 准备知识库并切块**
+
+把几篇制度文档写入字典，再按固定大小切成块（这里以字符数近似 Token 数）：
+
+```python
+KB_DOCS = {
+    "请假制度": "学生请假需提前一天向辅导员提交申请，病假须附医院证明，事假须说明原因；请假超过三天需由系主任审批。",
+    "考试规则": "考试不得携带手机或任何电子设备，迟到十五分钟以上不得进入考场，作弊按违纪处理并记入档案。",
+    "成绩复议": "成绩公布后一周内可向教务处申请复核，逾期不再受理；复核仅核对累分是否准确，不重新评阅。",
+}
+
+def chunk_docs(docs: dict[str, str], size: int = 60, overlap: int = 10) -> list[dict]:
+    """把每篇文档切成若干带 overlap 的文本块，返回 [{doc, text}]。"""
+    chunks = []
+    for doc, content in docs.items():
+        for start in range(0, len(content), size - overlap):
+            chunk = content[start:start + size]
+            if len(chunk) >= 10:                 # 丢弃过短碎片
+                chunks.append({"doc": doc, "text": chunk})
+    return chunks
+```
+
+**第二步 · 向量化入库**
+
+用 Ollama 的 embedding 接口把每个块编码为向量：
+
+```python
+EMBED_URL = "http://127.0.0.1:11434/api/embed"
+
+def embed(text: str) -> list[float]:
+    resp = requests.post(EMBED_URL, json={"model": "qwen2.5:7b", "input": text}).json()
+    return resp["embeddings"][0]
+
+def build_index(chunks: list[dict]) -> list[dict]:
+    for c in chunks:
+        c["vec"] = embed(c["text"])              # 逐块向量化，可离线提前算好
+    return chunks
+
+INDEX = build_index(chunk_docs(KB_DOCS))
+```
+
+**第三步 · 余弦相似度检索**
+
+```python
+import math
+
+def cosine(a: list[float], b: list[float]) -> float:
+    dot = sum(x * y for x, y in zip(a, b))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(y * y for y in b))
+    return dot / (na * nb + 1e-9)
+
+def search_knowledge(query: str, top_k: int = 2) -> str:
+    """检索制度知识库，返回最相关的条文片段。"""
+    qvec = embed(query)
+    scored = sorted(INDEX, key=lambda c: cosine(qvec, c["vec"]), reverse=True)
+    return "\n".join(f"[{c['doc']}] {c['text']}" for c in scored[:top_k])
+```
+
+**第四步 · 完全离线的降级检索（无 Embedding 模型时）**
+
+比赛环境若无法运行 Embedding，可用"查询与切块的关键词重合数"粗打分，得到一个最小可用的 RAG（缺点：吃不进同义词，语义能力弱）：
+
+```python
+def search_knowledge_local(query: str, top_k: int = 2) -> str:
+    q_words = set(query.split())                         # 中文可改用字符 n-gram 或更细分词
+    def hit(c: dict) -> int:
+        return len(q_words & set(c["text"]))
+    scored = sorted(INDEX, key=hit, reverse=True)
+    return "\n".join(f"[{c['doc']}] {c['text']}" for c in scored[:top_k] if hit(c) > 0)
+```
+
+**第五步 · 作为工具接入 Agent 循环**
+
+把检索当作普通工具暴露给模型，模型自行决定要不要查、查几次：
+
+```python
+def execute_tool(name: str, args: dict) -> str:
+    if name == "query_student":
+        return query_student(args["name"])
+    if name == "search_knowledge":
+        return search_knowledge(args["query"])   # 离线时换成 search_knowledge_local
+    return f"未知工具 {name}"
+
+# TOOLS 里对应新增即可：
+# {
+#   "type": "function",
+#   "function": {
+#     "name": "search_knowledge",
+#     "description": "检索学校制度知识库，返回相关制度条文",
+#     "parameters": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]},
+#   },
+# }
+```
+
+**关键点**
+
+- 检索结果与系统提示词分开存放，避免外部文本被当成新指令（指令注入，见 ch04 §4.15）
+- 块文本带文档名前缀 `[请假制度]` 等，便于模型引用与溯源，回答时也能注明出处
+- 检索质量取决于：切块大小、是否用 Rerank / 混合检索、知识库是否最新（详见 ch04 §4.10）
+- 这里是"普通 RAG"（每问检索一次）；若把"要不要再查一次"交给模型自行判断，就进阶为"Agent 型 RAG"（见 ch04 §4.10）
 
 ### 安全与预算控制
 

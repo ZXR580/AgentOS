@@ -1,67 +1,67 @@
 {
-  "hash": "08ef8240",
+  "hash": "6197261d",
   "configHash": "2d889a12",
-  "lockfileHash": "7546693f",
-  "browserHash": "797bce4b",
+  "lockfileHash": "471fd96b",
+  "browserHash": "c6a36515",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "dbfcd3ae",
+      "fileHash": "b48f2c80",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "bc646ce5",
+      "fileHash": "551adaec",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "d848ada0",
+      "fileHash": "e175f515",
       "needsInterop": false
     },
     "echarts/core": {
       "src": "../../../../node_modules/echarts/core.js",
       "file": "echarts_core.js",
-      "fileHash": "d09af1a1",
+      "fileHash": "f297f2d3",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "bf5d5ce5",
+      "fileHash": "fcbca952",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "1bd275e9",
+      "fileHash": "3f7026ce",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "4e57946f",
+      "fileHash": "a6d2349b",
       "needsInterop": false
     },
     "echarts/charts": {
       "src": "../../../../node_modules/echarts/charts.js",
       "file": "echarts_charts.js",
-      "fileHash": "4e4d9efc",
+      "fileHash": "a343b988",
       "needsInterop": false
     },
     "echarts/components": {
       "src": "../../../../node_modules/echarts/components.js",
       "file": "echarts_components.js",
-      "fileHash": "b0d881e3",
+      "fileHash": "b6bad592",
       "needsInterop": false
     },
     "echarts/renderers": {
       "src": "../../../../node_modules/echarts/renderers.js",
       "file": "echarts_renderers.js",
-      "fileHash": "69747721",
+      "fileHash": "bf04afd1",
       "needsInterop": false
     }
   },

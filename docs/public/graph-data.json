@@ -1,150 +1,1008 @@
 {
   "nodes": [
-    { "id": "llm", "name": "大语言模型", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "_1-2-大语言模型原理", "desc": "基于 Transformer 的生成式模型，预训练加微调范式，是 Agent 的智能底座。" },
-    { "id": "transformer", "name": "Transformer", "module": "ai", "chapter": "/ch04_agent", "anchor": "transformer-架构", "desc": "Google 2017 年提出的基础架构，自注意力加前馈网络，配残差连接和层归一化。" },
-    { "id": "attention", "name": "自注意力", "module": "ai", "chapter": "/ch04_agent", "anchor": "transformer-架构", "desc": "计算序列元素间的关联权重，捕获长距离依赖，是多头注意力的基础。" },
-    { "id": "mha", "name": "多头注意力 MHA", "module": "ai", "chapter": "/ch04_agent", "anchor": "注意力变体与-kv-cache", "desc": "标准多头注意力，每头独立 QKV 在多个子空间并行计算，能力强但 KV 缓存和计算开销大。矩阵级细节见 1.2。" },
-    { "id": "mla", "name": "MLA 多头潜在注意力", "module": "ai", "chapter": "/ch04_agent", "anchor": "注意力变体与-kv-cache", "desc": "DeepSeek 提出的低秩 KV 压缩注意力，缓存低维潜变量、推理时展开，KV Cache 大幅降低。投影级细节见 1.2。" },
-    { "id": "kv-cache", "name": "KV Cache", "module": "ai", "chapter": "/ch04_agent", "anchor": "注意力变体与-kv-cache", "desc": "缓存已生成 Token 的 Key/Value 矩阵，避免重复计算，显著提升推理速度。" },
-    { "id": "token", "name": "Token", "module": "ai", "chapter": "/ch04_agent", "anchor": "token-与分词", "desc": "文本切分后的最小处理单元，一个中文词通常对应 1 个 Token。" },
-    { "id": "embedding", "name": "Embedding", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "embedding-模型", "desc": "把文本映射为向量，语义相近的文本向量距离更近，是 RAG 检索的基础。" },
-    { "id": "quant", "name": "量化", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "量化", "desc": "把浮点权重映射为低精度整数，降低存储和推理资源需求，可能带来精度损失。" },
-    { "id": "vram", "name": "显存", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "精度与显存", "desc": "决定能装载的模型参数和数据量，推理显存由权重、KV Cache 和激活值组成。" },
-    { "id": "moe", "name": "MoE", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "moe-混合专家", "desc": "混合专家，每次推理只激活部分专家网络，总参数量大但计算量小。" },
-    { "id": "grad", "name": "梯度下降", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "梯度下降与学习率", "desc": "依据梯度和学习率更新参数，学习率过大会震荡发散。" },
-    { "id": "supervised", "name": "监督学习", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "学习范式", "desc": "使用带标签样本学习输入到目标的映射，与无监督、强化学习并列。" },
-    { "id": "svm", "name": "SVM 支持向量机", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "支持向量机与朴素贝叶斯", "desc": "寻找最大间隔分类超平面，由少数支持向量决定，配合核技巧处理非线性，适合高维小样本。" },
-    { "id": "naive-bayes", "name": "朴素贝叶斯", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "支持向量机与朴素贝叶斯", "desc": "基于特征条件独立假设，用贝叶斯定理计算类别后验概率，取最大者作为预测，常用于文本分类。" },
-    { "id": "top-p", "name": "Top-p 采样", "module": "ai", "chapter": "/ch01_ai_foundation", "anchor": "解码策略", "desc": "按累计概率阈值动态选取候选 Token 集合，候选数随分布变化。" },
-    { "id": "agent", "name": "Agent", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-3-agent-架构双视角-五环节与执行闭环", "desc": "静态由五环节构成（感知/规划/行动/反思/记忆），动态按目标→计划→行动→观察→判断的闭环运转。" },
-    { "id": "react", "name": "ReAct", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-10-react", "desc": "推理与行动交织，思考行动观察循环，Observation 承接工具返回结果。" },
-    { "id": "planning", "name": "Planning", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-4-planning-规划", "desc": "把复杂目标拆成可验证子任务，随执行结果动态调整。" },
-    { "id": "tool", "name": "工具调用", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-5-工具调用与-function-calling", "desc": "模型依据工具描述和 Schema 生成函数名与 JSON 参数（Function Calling），由外部执行层真正调用。" },
-    { "id": "memory", "name": "记忆", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-8-记忆", "desc": "短期记忆在上下文窗口内，长期记忆依赖外部持久化存储。" },
-    { "id": "rag", "name": "RAG", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-9-rag-与向量检索", "desc": "检索增强生成，推理时检索外部知识注入上下文，解决知识有限问题。" },
-    { "id": "mcp", "name": "MCP", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-6-mcp", "desc": "模型上下文协议，统一工具接口标准，Server 提供 Tool，Client 负责连接。" },
-    { "id": "skill", "name": "Skill", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-7-skill", "desc": "封装可复用的高层任务能力，抽象层级高于单个底层 Tool。" },
-    { "id": "multi-agent", "name": "多智能体", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-14-多智能体协作", "desc": "多 Agent 角色分工协作，会引入通信和协调开销。" },
-    { "id": "prompt", "name": "Prompt 工程", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-12-prompt-工程", "desc": "系统提示词设定角色规则，Few-shot 示例和思维链提升效果。" },
-    { "id": "agent-safety", "name": "Agent 安全", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-15-安全", "desc": "应对提示注入、越权工具调用和不可逆操作，高风险动作前人工确认。" },
-    { "id": "cot", "name": "CoT 思维链", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-11-cot-思维链", "desc": "引导模型逐步推理再作答的提示技术，Few-shot 与 Zero-shot 形式可提升复杂推理表现。" },
-    { "id": "llm-principle", "name": "LLM 原理与能力边界", "module": "ai", "chapter": "/ch04_agent", "anchor": "_4-2-llm-原理与-agent-能力边界", "desc": "Transformer 注意力与 Decoder-only 结构；Token、上下文窗口、KV Cache 划定 Agent 的能力边界。" },
-    { "id": "agent-framework", "name": "开发框架与工作流", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-13-开发框架与工作流", "desc": "LangChain、LangGraph、Dify 等框架，Workflow 与 Agent 的分界，提供工具集成、记忆与编排能力。" },
-    { "id": "agent-eval", "name": "Agent 评测", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-16-agent-评测", "desc": "任务成功率、工具选择准确率、调用成本、安全违规率、执行稳定性；自动评测与人工评测配合。" },
-    { "id": "inference", "name": "推理服务", "module": "agent", "chapter": "/ch04_agent", "anchor": "_4-18-模型调用与推理服务", "desc": "API 与本地调用逻辑一致；Ollama 易用、vLLM 高并发，OpenAI 兼容接口可切换后端。" },
-    { "id": "uos", "name": "UOS", "module": "os", "chapter": "/ch02_os_linux", "anchor": "linux-与-uos", "desc": "统信基于 Linux 内核的国产操作系统，面向国产 CPU 平台。" },
-    { "id": "kernel", "name": "Linux 内核", "module": "os", "chapter": "/ch02_os_linux", "anchor": "内核", "desc": "运行在特权模式的核心程序，管理进程、内存、文件、设备与权限，系统调用是其入口。" },
-    { "id": "process", "name": "进程与线程", "module": "os", "chapter": "/ch02_os_linux", "anchor": "进程与线程", "desc": "进程是资源分配单位，线程共享地址空间，服务由进程实现。" },
-    { "id": "perm", "name": "文件权限", "module": "os", "chapter": "/ch02_os_linux", "anchor": "_2-5-文件系统与权限", "desc": "读读写执行三种权限，umask 影响新建文件默认权限。" },
-    { "id": "systemd", "name": "systemd", "module": "os", "chapter": "/ch02_os_linux", "anchor": "systemd-与服务管理", "desc": "服务管理器，status 查看状态，enable 配置开机自启。" },
-    { "id": "network", "name": "网络", "module": "os", "chapter": "/ch02_os_linux", "anchor": "_2-8-网络", "desc": "连通性依赖子网、网关、路由、DNS 和监听地址。" },
-    { "id": "pkg", "name": "软件包管理", "module": "os", "chapter": "/ch02_os_linux", "anchor": "_2-9-软件包管理与生态适配", "desc": "依赖软件源、包索引、依赖版本，依赖冲突先查一致性。" },
-    { "id": "swap", "name": "swap", "module": "os", "chapter": "/ch02_os_linux", "anchor": "swap", "desc": "磁盘上的交换空间，内存压力下提供辅助虚拟内存。" },
-    { "id": "shell", "name": "Shell", "module": "os", "chapter": "/ch02_os_linux", "anchor": "_2-3-shell-与命令基础", "desc": "命令行解释器，管道重定向和脚本是系统操作基础。" },
-    { "id": "boot", "name": "Linux 启动流程", "module": "os", "chapter": "/ch02_os_linux", "anchor": "_2-2-linux-启动流程", "desc": "固件→GRUB→内核→systemd 一号进程的接力启动，排障看 dmesg/journalctl。" },
-    { "id": "signal", "name": "信号", "module": "os", "chapter": "/ch02_os_linux", "anchor": "信号机制", "desc": "SIGTERM 可捕获清理，SIGKILL 内核强制终止不可捕获。" },
-    { "id": "dns", "name": "DNS", "module": "os", "chapter": "/ch02_os_linux", "anchor": "dns-解析", "desc": "域名解析为 IP，配置在 /etc/resolv.conf。" },
-    { "id": "raid", "name": "RAID", "module": "os", "chapter": "/ch02_os_linux", "anchor": "raid-与数据备份", "desc": "磁盘组合成逻辑卷，RAID0/1/5，防硬件故障不防误删。" },
-    { "id": "db", "name": "数据库", "module": "software", "chapter": "/ch03_software", "anchor": "_3-1-数据库基础", "desc": "用表组织数据，主键唯一标识，外键建立表间关联。" },
-    { "id": "nosql", "name": "NoSQL", "module": "software", "chapter": "/ch03_software", "anchor": "nosql-数据库", "desc": "键值、文档、宽列族、图四类，键值适合快速读写简单状态。" },
-    { "id": "txn", "name": "事务", "module": "software", "chapter": "/ch03_software", "anchor": "_1-事务", "desc": "ACID 原子性要求操作要么全部成功要么整体失败。" },
-    { "id": "index", "name": "索引", "module": "software", "chapter": "/ch03_software", "anchor": "_2-索引", "desc": "加速特定查询，但会增加写入和维护成本。" },
-    { "id": "middleware", "name": "中间件", "module": "software", "chapter": "/ch03_software", "anchor": "_3-3-中间件", "desc": "位于操作系统与业务应用之间，提供通信、事务、消息、服务治理。" },
-    { "id": "mq", "name": "消息队列", "module": "software", "chapter": "/ch03_software", "anchor": "消息队列", "desc": "异步解耦和削峰缓冲，可靠处理靠确认、重试、幂等、死信。" },
-    { "id": "docker", "name": "容器", "module": "software", "chapter": "/ch03_software", "anchor": "_3-4-虚拟机与容器", "desc": "共享宿主机内核，打包应用与依赖，实现环境一致。" },
-    { "id": "gpu", "name": "GPU", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "_5-4-gpu-架构与-cuda-编程", "desc": "用数量换强度：海量简单核心 + SIMT，堆出高吞吐并行算力。" },
-    { "id": "npu", "name": "NPU", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "计算单元定位", "desc": "神经网络专用加速器，低功耗，面向特定负载。" },
-    { "id": "cuda", "name": "CUDA", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "cuda-编程模型", "desc": "GPU 编程事实标准，Grid-Block-Thread 线程组织。" },
-    { "id": "hetero", "name": "异构计算", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "_5-3-异构计算", "desc": "CPU 与不同加速单元按任务特点协同配合。" },
-    { "id": "liquid", "name": "液冷", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "_5-7-液冷与散热技术", "desc": "冷板液冷属间接接触式，支持高功耗芯片，CDU 负责分配与换热。" },
-    { "id": "iluvatar", "name": "天数智芯", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "天数智芯", "desc": "国产通用 GPU 供应商，天垓训练、智铠推理、彤央边端。" },
-    { "id": "isa", "name": "ISA/ABI", "module": "hardware", "chapter": "/ch05_hardware", "anchor": "_5-2-兼容性层次", "desc": "指令集架构定义机器指令，跨架构二进制需重新编译。" }
+    {
+      "id": "llm",
+      "name": "大语言模型",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "_1-2-大语言模型原理",
+      "desc": "基于 Transformer 的生成式模型，预训练加微调范式，是 Agent 的智能底座。"
+    },
+    {
+      "id": "transformer",
+      "name": "Transformer",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "transformer-架构",
+      "desc": "Google 2017 年提出的基础架构，自注意力加前馈网络，配残差连接和层归一化。"
+    },
+    {
+      "id": "attention",
+      "name": "自注意力",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "transformer-架构",
+      "desc": "计算序列元素间的关联权重，捕获长距离依赖，是多头注意力的基础。"
+    },
+    {
+      "id": "mha",
+      "name": "多头注意力 MHA",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "注意力变体与-kv-cache",
+      "desc": "标准多头注意力，每头独立 QKV 在多个子空间并行计算，能力强但 KV 缓存和计算开销大。矩阵级细节见 1.2。"
+    },
+    {
+      "id": "mla",
+      "name": "MLA 多头潜在注意力",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "注意力变体与-kv-cache",
+      "desc": "DeepSeek 提出的低秩 KV 压缩注意力，缓存低维潜变量、推理时展开，KV Cache 大幅降低。投影级细节见 1.2。"
+    },
+    {
+      "id": "kv-cache",
+      "name": "KV Cache",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "注意力变体与-kv-cache",
+      "desc": "缓存已生成 Token 的 Key/Value 矩阵，避免重复计算，显著提升推理速度。"
+    },
+    {
+      "id": "token",
+      "name": "Token",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "token-与分词",
+      "desc": "文本切分后的最小处理单元，一个中文词通常对应 1 个 Token。"
+    },
+    {
+      "id": "embedding",
+      "name": "Embedding",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "embedding-模型",
+      "desc": "把文本映射为向量，语义相近的文本向量距离更近，是 RAG 检索的基础。"
+    },
+    {
+      "id": "quant",
+      "name": "量化",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "量化",
+      "desc": "把浮点权重映射为低精度整数，降低存储和推理资源需求，可能带来精度损失。"
+    },
+    {
+      "id": "vram",
+      "name": "显存",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "精度与显存",
+      "desc": "决定能装载的模型参数和数据量，推理显存由权重、KV Cache 和激活值组成。"
+    },
+    {
+      "id": "moe",
+      "name": "MoE",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "moe-混合专家",
+      "desc": "混合专家，每次推理只激活部分专家网络，总参数量大但计算量小。"
+    },
+    {
+      "id": "grad",
+      "name": "梯度下降",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "梯度下降与学习率",
+      "desc": "依据梯度和学习率更新参数，学习率过大会震荡发散。"
+    },
+    {
+      "id": "supervised",
+      "name": "监督学习",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "学习范式",
+      "desc": "使用带标签样本学习输入到目标的映射，与无监督、强化学习并列。"
+    },
+    {
+      "id": "svm",
+      "name": "SVM 支持向量机",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "支持向量机与朴素贝叶斯",
+      "desc": "寻找最大间隔分类超平面，由少数支持向量决定，配合核技巧处理非线性，适合高维小样本。"
+    },
+    {
+      "id": "naive-bayes",
+      "name": "朴素贝叶斯",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "支持向量机与朴素贝叶斯",
+      "desc": "基于特征条件独立假设，用贝叶斯定理计算类别后验概率，取最大者作为预测，常用于文本分类。"
+    },
+    {
+      "id": "top-p",
+      "name": "Top-p 采样",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "解码策略",
+      "desc": "按累计概率阈值动态选取候选 Token 集合，候选数随分布变化。"
+    },
+    {
+      "id": "agent",
+      "name": "Agent",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-3-agent-认知架构-结构维与行为维",
+      "desc": "上位概念为 Agent 认知架构：结构维（五环节：感知/规划/行动/反思/记忆）+ 行为维（目标→计划→行动→观察→判断主循环），两者正交。对应 LangGraph 的 nodes 与 edges。"
+    },
+    {
+      "id": "react",
+      "name": "ReAct",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-11-react",
+      "desc": "推理与行动交织，思考行动观察循环，Observation 承接工具返回结果。"
+    },
+    {
+      "id": "planning",
+      "name": "Planning",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-4-planning-规划",
+      "desc": "把复杂目标拆成可验证子任务，随执行结果动态调整。"
+    },
+    {
+      "id": "tool",
+      "name": "工具调用",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-5-工具调用与-function-calling",
+      "desc": "模型依据工具描述和 Schema 生成函数名与 JSON 参数（Function Calling），由外部执行层真正调用。"
+    },
+    {
+      "id": "memory",
+      "name": "记忆",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-9-记忆",
+      "desc": "短期记忆在上下文窗口内，长期记忆依赖外部持久化存储。"
+    },
+    {
+      "id": "rag",
+      "name": "RAG",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-10-rag-与向量检索",
+      "desc": "检索增强生成，推理时检索外部知识注入上下文，解决知识有限问题；普通 RAG 固定检索一次，Agent 型 RAG 把检索决策化，但本质仍是 RAG 的架构变体。"
+    },
+    {
+      "id": "mcp",
+      "name": "MCP",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-6-mcp",
+      "desc": "模型上下文协议，本质是把'要能力的一方'与'给能力的一方'解耦；Host/Client/Server 三角色、Tools/Resources/Prompts 三大原语、stdio/HTTP 双传输，'生成→执行→回传'闭环的接口标准。工具越多、应用越多，收益越大。"
+    },
+    {
+      "id": "skill",
+      "name": "Skill",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-7-skill",
+      "desc": "封装可复用的高层任务能力，抽象层级高于单个底层 Tool。"
+    },
+    {
+      "id": "multi-agent",
+      "name": "多智能体",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-14-多智能体协作",
+      "desc": "多 Agent 角色分工协作，会引入通信和协调开销。"
+    },
+    {
+      "id": "prompt",
+      "name": "Prompt 工程",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-8-prompt-工程",
+      "desc": "系统提示词设定角色规则，Few-shot 示例和思维链提升效果。"
+    },
+    {
+      "id": "agent-safety",
+      "name": "Agent 安全",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-15-安全",
+      "desc": "应对提示注入、越权工具调用和不可逆操作，高风险动作前人工确认。"
+    },
+    {
+      "id": "cot",
+      "name": "CoT 思维链",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-12-cot-思维链",
+      "desc": "引导模型逐步推理再作答的提示技术，Few-shot 与 Zero-shot 形式可提升复杂推理表现。"
+    },
+    {
+      "id": "llm-principle",
+      "name": "LLM 原理与能力边界",
+      "module": "ai",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-2-llm-原理与-agent-能力边界",
+      "desc": "Transformer 注意力与 Decoder-only 结构；Token、上下文窗口、KV Cache 划定 Agent 的能力边界。"
+    },
+    {
+      "id": "agent-framework",
+      "name": "开发框架与工作流",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-13-开发框架与工作流",
+      "desc": "LangChain、LangGraph、Dify 等框架，Workflow 与 Agent 的分界，提供工具集成、记忆与编排能力。"
+    },
+    {
+      "id": "agent-eval",
+      "name": "Agent 评测",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-16-agent-评测",
+      "desc": "任务成功率、工具选择准确率、调用成本、安全违规率、执行稳定性；自动评测与人工评测配合。"
+    },
+    {
+      "id": "inference",
+      "name": "推理服务",
+      "module": "agent",
+      "chapter": "/ch04_agent",
+      "anchor": "_4-18-模型调用与推理服务",
+      "desc": "API 与本地调用逻辑一致；Ollama 易用、vLLM 高并发，OpenAI 兼容接口可切换后端。"
+    },
+    {
+      "id": "uos",
+      "name": "UOS",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "linux-与-uos",
+      "desc": "统信基于 Linux 内核的国产操作系统，面向国产 CPU 平台。"
+    },
+    {
+      "id": "kernel",
+      "name": "Linux 内核",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "内核",
+      "desc": "运行在特权模式的核心程序，管理进程、内存、文件、设备与权限，系统调用是其入口。"
+    },
+    {
+      "id": "process",
+      "name": "进程与线程",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "进程与线程",
+      "desc": "进程是资源分配单位，线程共享地址空间，服务由进程实现。"
+    },
+    {
+      "id": "perm",
+      "name": "文件权限",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "_2-5-文件系统与权限",
+      "desc": "读读写执行三种权限，umask 影响新建文件默认权限。"
+    },
+    {
+      "id": "systemd",
+      "name": "systemd",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "systemd-与服务管理",
+      "desc": "服务管理器，status 查看状态，enable 配置开机自启。"
+    },
+    {
+      "id": "network",
+      "name": "网络",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "_2-8-网络",
+      "desc": "连通性依赖子网、网关、路由、DNS 和监听地址。"
+    },
+    {
+      "id": "pkg",
+      "name": "软件包管理",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "_2-9-软件包管理与生态适配",
+      "desc": "依赖软件源、包索引、依赖版本，依赖冲突先查一致性。"
+    },
+    {
+      "id": "swap",
+      "name": "swap",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "swap",
+      "desc": "磁盘上的交换空间，内存压力下提供辅助虚拟内存。"
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "_2-3-shell-与命令基础",
+      "desc": "命令行解释器，管道重定向和脚本是系统操作基础。"
+    },
+    {
+      "id": "boot",
+      "name": "Linux 启动流程",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "_2-2-linux-启动流程",
+      "desc": "固件→GRUB→内核→systemd 一号进程的接力启动，排障看 dmesg/journalctl。"
+    },
+    {
+      "id": "signal",
+      "name": "信号",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "信号机制",
+      "desc": "SIGTERM 可捕获清理，SIGKILL 内核强制终止不可捕获。"
+    },
+    {
+      "id": "dns",
+      "name": "DNS",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "dns-解析",
+      "desc": "域名解析为 IP，配置在 /etc/resolv.conf。"
+    },
+    {
+      "id": "raid",
+      "name": "RAID",
+      "module": "os",
+      "chapter": "/ch02_os_linux",
+      "anchor": "raid-独立磁盘冗余阵列-与数据备份",
+      "desc": "磁盘组合成逻辑卷，RAID0/1/5，防硬件故障不防误删。"
+    },
+    {
+      "id": "db",
+      "name": "数据库",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "_3-1-数据库基础",
+      "desc": "用表组织数据，主键唯一标识，外键建立表间关联。"
+    },
+    {
+      "id": "nosql",
+      "name": "NoSQL",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "nosql-数据库",
+      "desc": "键值、文档、宽列族、图四类，键值适合快速读写简单状态。"
+    },
+    {
+      "id": "txn",
+      "name": "事务",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "_1-事务",
+      "desc": "ACID 原子性要求操作要么全部成功要么整体失败。"
+    },
+    {
+      "id": "index",
+      "name": "索引",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "_2-索引",
+      "desc": "加速特定查询，但会增加写入和维护成本。"
+    },
+    {
+      "id": "middleware",
+      "name": "中间件",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "_3-3-中间件",
+      "desc": "位于操作系统与业务应用之间，提供通信、事务、消息、服务治理。"
+    },
+    {
+      "id": "mq",
+      "name": "消息队列",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "消息队列",
+      "desc": "异步解耦和削峰缓冲，可靠处理靠确认、重试、幂等、死信。"
+    },
+    {
+      "id": "docker",
+      "name": "容器",
+      "module": "software",
+      "chapter": "/ch03_software",
+      "anchor": "_3-4-虚拟机与容器",
+      "desc": "共享宿主机内核，打包应用与依赖，实现环境一致。"
+    },
+    {
+      "id": "gpu",
+      "name": "GPU",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "_5-4-gpu-架构与-cuda-编程",
+      "desc": "用数量换强度：海量简单核心 + SIMT，堆出高吞吐并行算力。"
+    },
+    {
+      "id": "npu",
+      "name": "NPU",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "计算单元定位",
+      "desc": "神经网络专用加速器，低功耗，面向特定负载。"
+    },
+    {
+      "id": "cuda",
+      "name": "CUDA",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "cuda-编程模型",
+      "desc": "GPU 编程事实标准，Grid-Block-Thread 线程组织。"
+    },
+    {
+      "id": "hetero",
+      "name": "异构计算",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "_5-3-异构计算",
+      "desc": "CPU 与不同加速单元按任务特点协同配合。"
+    },
+    {
+      "id": "liquid",
+      "name": "液冷",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "_5-7-液冷与散热技术",
+      "desc": "冷板液冷属间接接触式，支持高功耗芯片，CDU 负责分配与换热。"
+    },
+    {
+      "id": "iluvatar",
+      "name": "天数智芯",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "天数智芯",
+      "desc": "国产通用 GPU 供应商，天垓训练、智铠推理、彤央边端。"
+    },
+    {
+      "id": "isa",
+      "name": "ISA/ABI",
+      "module": "hardware",
+      "chapter": "/ch05_hardware",
+      "anchor": "_5-2-兼容性层次",
+      "desc": "指令集架构定义机器指令，跨架构二进制需重新编译。"
+    },
+    {
+      "id": "agent-os",
+      "name": "Agent OS",
+      "module": "os",
+      "chapter": "/ch08_intelligent_platform",
+      "anchor": "_8-5-agent-os-平台架构",
+      "desc": "UOS AI 智能平台分层架构，自下而上模型调度/系统能力/AI SDK/智能体服务/应用能力五层，AI SDK 横向贯穿。"
+    },
+    {
+      "id": "smart-write",
+      "name": "智能写作",
+      "module": "os",
+      "chapter": "/ch08_intelligent_platform",
+      "anchor": "_8-1-智能写作",
+      "desc": "基于本地素材权威成文：检索增强加本地模型，数据不出门、内容有据可查。"
+    },
+    {
+      "id": "smart-office",
+      "name": "智能办公",
+      "module": "os",
+      "chapter": "/ch08_intelligent_platform",
+      "anchor": "_8-2-智能办公",
+      "desc": "一句话完成跨应用任务：任务拆解加 MCP/Skills 协同调用系统工具。"
+    },
+    {
+      "id": "smart-eco",
+      "name": "智能生态",
+      "module": "os",
+      "chapter": "/ch08_intelligent_platform",
+      "anchor": "_8-3-智能生态-mcp-skills-sdk",
+      "desc": "MCP/Skills/SDK 三件套：连通、技能、构建，灵活接入生态能力。"
+    },
+    {
+      "id": "uclaw",
+      "name": "智能协同 Uclaw",
+      "module": "os",
+      "chapter": "/ch08_intelligent_platform",
+      "anchor": "_8-4-智能协同-uclaw",
+      "desc": "跨端无界：手机指令远程操控，工具直达免冗余推理，USEC 安全管控。"
+    }
   ],
   "edges": [
-    { "source": "llm", "target": "transformer", "relation": "架构" },
-    { "source": "transformer", "target": "attention", "relation": "核心机制" },
-    { "source": "llm", "target": "token", "relation": "处理" },
-    { "source": "transformer", "target": "kv-cache", "relation": "推理依赖" },
-    { "source": "attention", "target": "kv-cache", "relation": "加速" },
-    { "source": "mha", "target": "attention", "relation": "扩展" },
-    { "source": "mha", "target": "kv-cache", "relation": "产生开销" },
-    { "source": "mla", "target": "attention", "relation": "变体" },
-    { "source": "mla", "target": "kv-cache", "relation": "降低" },
-    { "source": "mla", "target": "mha", "relation": "演进" },
-    { "source": "llm", "target": "top-p", "relation": "生成采用" },
-    { "source": "llm", "target": "embedding", "relation": "输入表示" },
-    { "source": "llm", "target": "quant", "relation": "压缩" },
-    { "source": "llm", "target": "vram", "relation": "占用" },
-    { "source": "quant", "target": "vram", "relation": "降低" },
-    { "source": "quant", "target": "gpu", "relation": "支持" },
-    { "source": "vram", "target": "gpu", "relation": "属性" },
-    { "source": "moe", "target": "transformer", "relation": "架构变体" },
-    { "source": "grad", "target": "supervised", "relation": "优化方式" },
-    { "source": "svm", "target": "supervised", "relation": "属于" },
-    { "source": "naive-bayes", "target": "supervised", "relation": "属于" },
-    { "source": "svm", "target": "naive-bayes", "relation": "对比" },
-    { "source": "agent", "target": "llm", "relation": "基于" },
-    { "source": "agent", "target": "react", "relation": "可采用" },
-    { "source": "agent", "target": "planning", "relation": "包含" },
-    { "source": "agent", "target": "tool", "relation": "调用" },
-    { "source": "agent", "target": "memory", "relation": "使用" },
-    { "source": "agent", "target": "prompt", "relation": "驱动" },
-    { "source": "agent", "target": "agent-safety", "relation": "面临风险" },
-    { "source": "agent", "target": "multi-agent", "relation": "协作" },
-    { "source": "skill", "target": "agent", "relation": "赋能" },
-    { "source": "rag", "target": "agent", "relation": "能力" },
-    { "source": "tool", "target": "mcp", "relation": "标准化" },
-    { "source": "tool", "target": "uos", "relation": "调用系统能力" },
-    { "source": "skill", "target": "tool", "relation": "组合" },
-    { "source": "rag", "target": "embedding", "relation": "依赖" },
-    { "source": "memory", "target": "llm", "relation": "上下文关联" },
-    { "source": "prompt", "target": "llm", "relation": "输入" },
-    { "source": "react", "target": "tool", "relation": "循环调用" },
-    { "source": "planning", "target": "tool", "relation": "编排" },
-    { "source": "mcp", "target": "middleware", "relation": "类比" },
-    { "source": "uos", "target": "kernel", "relation": "基于" },
-    { "source": "kernel", "target": "process", "relation": "管理" },
-    { "source": "kernel", "target": "perm", "relation": "实施" },
-    { "source": "kernel", "target": "swap", "relation": "辅助" },
-    { "source": "process", "target": "systemd", "relation": "服务管理" },
-    { "source": "process", "target": "swap", "relation": "内存换出" },
-    { "source": "shell", "target": "uos", "relation": "交互接口" },
-    { "source": "pkg", "target": "uos", "relation": "安装软件" },
-    { "source": "network", "target": "kernel", "relation": "支持" },
-    { "source": "perm", "target": "tool", "relation": "最小权限约束" },
-    { "source": "kernel", "target": "boot", "relation": "启动" },
-    { "source": "boot", "target": "systemd", "relation": "拉起" },
-    { "source": "process", "target": "signal", "relation": "接收" },
-    { "source": "network", "target": "dns", "relation": "依赖" },
-    { "source": "pkg", "target": "isa", "relation": "兼容影响" },
-    { "source": "db", "target": "txn", "relation": "支持" },
-    { "source": "db", "target": "index", "relation": "使用" },
-    { "source": "db", "target": "nosql", "relation": "分类" },
-    { "source": "middleware", "target": "mq", "relation": "提供" },
-    { "source": "docker", "target": "middleware", "relation": "部署" },
-    { "source": "docker", "target": "gpu", "relation": "推理部署" },
-    { "source": "gpu", "target": "cuda", "relation": "编程" },
-    { "source": "gpu", "target": "hetero", "relation": "组成" },
-    { "source": "npu", "target": "hetero", "relation": "组成" },
-    { "source": "hetero", "target": "llm", "relation": "算力支撑" },
-    { "source": "iluvatar", "target": "gpu", "relation": "产品" },
-    { "source": "iluvatar", "target": "isa", "relation": "自主定义" },
-    { "source": "liquid", "target": "gpu", "relation": "散热" },
-    { "source": "isa", "target": "kernel", "relation": "适配" },
-    { "source": "cot", "target": "prompt", "relation": "提示技术" },
-    { "source": "cot", "target": "react", "relation": "推理演进" },
-    { "source": "cot", "target": "llm", "relation": "提升推理" },
-    { "source": "llm", "target": "llm-principle", "relation": "基于原理" },
-    { "source": "llm-principle", "target": "attention", "relation": "核心机制" },
-    { "source": "llm-principle", "target": "token", "relation": "输入单元" },
-    { "source": "llm-principle", "target": "kv-cache", "relation": "推理涉及" },
-    { "source": "agent-framework", "target": "agent", "relation": "构建" },
-    { "source": "agent-framework", "target": "react", "relation": "实现" },
-    { "source": "agent-framework", "target": "tool", "relation": "封装" },
-    { "source": "agent-framework", "target": "mcp", "relation": "集成" },
-    { "source": "agent", "target": "agent-eval", "relation": "质量评估" },
-    { "source": "agent-eval", "target": "agent-safety", "relation": "检查违规" },
-    { "source": "agent", "target": "inference", "relation": "运行依赖" },
-    { "source": "inference", "target": "llm", "relation": "部署运行" }
+    {
+      "source": "llm",
+      "target": "transformer",
+      "relation": "架构"
+    },
+    {
+      "source": "transformer",
+      "target": "attention",
+      "relation": "核心机制"
+    },
+    {
+      "source": "llm",
+      "target": "token",
+      "relation": "处理"
+    },
+    {
+      "source": "transformer",
+      "target": "kv-cache",
+      "relation": "推理依赖"
+    },
+    {
+      "source": "attention",
+      "target": "kv-cache",
+      "relation": "加速"
+    },
+    {
+      "source": "mha",
+      "target": "attention",
+      "relation": "扩展"
+    },
+    {
+      "source": "mha",
+      "target": "kv-cache",
+      "relation": "产生开销"
+    },
+    {
+      "source": "mla",
+      "target": "attention",
+      "relation": "变体"
+    },
+    {
+      "source": "mla",
+      "target": "kv-cache",
+      "relation": "降低"
+    },
+    {
+      "source": "mla",
+      "target": "mha",
+      "relation": "演进"
+    },
+    {
+      "source": "llm",
+      "target": "top-p",
+      "relation": "生成采用"
+    },
+    {
+      "source": "llm",
+      "target": "embedding",
+      "relation": "输入表示"
+    },
+    {
+      "source": "llm",
+      "target": "quant",
+      "relation": "压缩"
+    },
+    {
+      "source": "llm",
+      "target": "vram",
+      "relation": "占用"
+    },
+    {
+      "source": "quant",
+      "target": "vram",
+      "relation": "降低"
+    },
+    {
+      "source": "quant",
+      "target": "gpu",
+      "relation": "支持"
+    },
+    {
+      "source": "vram",
+      "target": "gpu",
+      "relation": "属性"
+    },
+    {
+      "source": "moe",
+      "target": "transformer",
+      "relation": "架构变体"
+    },
+    {
+      "source": "grad",
+      "target": "supervised",
+      "relation": "优化方式"
+    },
+    {
+      "source": "svm",
+      "target": "supervised",
+      "relation": "属于"
+    },
+    {
+      "source": "naive-bayes",
+      "target": "supervised",
+      "relation": "属于"
+    },
+    {
+      "source": "svm",
+      "target": "naive-bayes",
+      "relation": "对比"
+    },
+    {
+      "source": "agent",
+      "target": "llm",
+      "relation": "基于"
+    },
+    {
+      "source": "agent",
+      "target": "react",
+      "relation": "可采用"
+    },
+    {
+      "source": "agent",
+      "target": "planning",
+      "relation": "包含"
+    },
+    {
+      "source": "agent",
+      "target": "tool",
+      "relation": "调用"
+    },
+    {
+      "source": "agent",
+      "target": "memory",
+      "relation": "使用"
+    },
+    {
+      "source": "agent",
+      "target": "prompt",
+      "relation": "驱动"
+    },
+    {
+      "source": "agent",
+      "target": "agent-safety",
+      "relation": "面临风险"
+    },
+    {
+      "source": "agent",
+      "target": "multi-agent",
+      "relation": "协作"
+    },
+    {
+      "source": "skill",
+      "target": "agent",
+      "relation": "赋能"
+    },
+    {
+      "source": "rag",
+      "target": "agent",
+      "relation": "能力"
+    },
+    {
+      "source": "tool",
+      "target": "mcp",
+      "relation": "标准化"
+    },
+    {
+      "source": "tool",
+      "target": "uos",
+      "relation": "调用系统能力"
+    },
+    {
+      "source": "skill",
+      "target": "tool",
+      "relation": "组合"
+    },
+    {
+      "source": "rag",
+      "target": "embedding",
+      "relation": "依赖"
+    },
+    {
+      "source": "memory",
+      "target": "llm",
+      "relation": "上下文关联"
+    },
+    {
+      "source": "prompt",
+      "target": "llm",
+      "relation": "输入"
+    },
+    {
+      "source": "react",
+      "target": "tool",
+      "relation": "循环调用"
+    },
+    {
+      "source": "planning",
+      "target": "tool",
+      "relation": "编排"
+    },
+    {
+      "source": "mcp",
+      "target": "middleware",
+      "relation": "类比"
+    },
+    {
+      "source": "uos",
+      "target": "kernel",
+      "relation": "基于"
+    },
+    {
+      "source": "kernel",
+      "target": "process",
+      "relation": "管理"
+    },
+    {
+      "source": "kernel",
+      "target": "perm",
+      "relation": "实施"
+    },
+    {
+      "source": "kernel",
+      "target": "swap",
+      "relation": "辅助"
+    },
+    {
+      "source": "process",
+      "target": "systemd",
+      "relation": "服务管理"
+    },
+    {
+      "source": "process",
+      "target": "swap",
+      "relation": "内存换出"
+    },
+    {
+      "source": "shell",
+      "target": "uos",
+      "relation": "交互接口"
+    },
+    {
+      "source": "pkg",
+      "target": "uos",
+      "relation": "安装软件"
+    },
+    {
+      "source": "network",
+      "target": "kernel",
+      "relation": "支持"
+    },
+    {
+      "source": "perm",
+      "target": "tool",
+      "relation": "最小权限约束"
+    },
+    {
+      "source": "kernel",
+      "target": "boot",
+      "relation": "启动"
+    },
+    {
+      "source": "boot",
+      "target": "systemd",
+      "relation": "拉起"
+    },
+    {
+      "source": "process",
+      "target": "signal",
+      "relation": "接收"
+    },
+    {
+      "source": "network",
+      "target": "dns",
+      "relation": "依赖"
+    },
+    {
+      "source": "pkg",
+      "target": "isa",
+      "relation": "兼容影响"
+    },
+    {
+      "source": "db",
+      "target": "txn",
+      "relation": "支持"
+    },
+    {
+      "source": "db",
+      "target": "index",
+      "relation": "使用"
+    },
+    {
+      "source": "db",
+      "target": "nosql",
+      "relation": "分类"
+    },
+    {
+      "source": "middleware",
+      "target": "mq",
+      "relation": "提供"
+    },
+    {
+      "source": "docker",
+      "target": "middleware",
+      "relation": "部署"
+    },
+    {
+      "source": "docker",
+      "target": "gpu",
+      "relation": "推理部署"
+    },
+    {
+      "source": "gpu",
+      "target": "cuda",
+      "relation": "编程"
+    },
+    {
+      "source": "gpu",
+      "target": "hetero",
+      "relation": "组成"
+    },
+    {
+      "source": "npu",
+      "target": "hetero",
+      "relation": "组成"
+    },
+    {
+      "source": "hetero",
+      "target": "llm",
+      "relation": "算力支撑"
+    },
+    {
+      "source": "iluvatar",
+      "target": "gpu",
+      "relation": "产品"
+    },
+    {
+      "source": "iluvatar",
+      "target": "isa",
+      "relation": "自主定义"
+    },
+    {
+      "source": "liquid",
+      "target": "gpu",
+      "relation": "散热"
+    },
+    {
+      "source": "isa",
+      "target": "kernel",
+      "relation": "适配"
+    },
+    {
+      "source": "cot",
+      "target": "prompt",
+      "relation": "提示技术"
+    },
+    {
+      "source": "cot",
+      "target": "react",
+      "relation": "推理演进"
+    },
+    {
+      "source": "cot",
+      "target": "llm",
+      "relation": "提升推理"
+    },
+    {
+      "source": "llm",
+      "target": "llm-principle",
+      "relation": "基于原理"
+    },
+    {
+      "source": "llm-principle",
+      "target": "attention",
+      "relation": "核心机制"
+    },
+    {
+      "source": "llm-principle",
+      "target": "token",
+      "relation": "输入单元"
+    },
+    {
+      "source": "llm-principle",
+      "target": "kv-cache",
+      "relation": "推理涉及"
+    },
+    {
+      "source": "agent-framework",
+      "target": "agent",
+      "relation": "构建"
+    },
+    {
+      "source": "agent-framework",
+      "target": "react",
+      "relation": "实现"
+    },
+    {
+      "source": "agent-framework",
+      "target": "tool",
+      "relation": "封装"
+    },
+    {
+      "source": "agent-framework",
+      "target": "mcp",
+      "relation": "集成"
+    },
+    {
+      "source": "agent",
+      "target": "agent-eval",
+      "relation": "质量评估"
+    },
+    {
+      "source": "agent-eval",
+      "target": "agent-safety",
+      "relation": "检查违规"
+    },
+    {
+      "source": "agent",
+      "target": "inference",
+      "relation": "运行依赖"
+    },
+    {
+      "source": "inference",
+      "target": "llm",
+      "relation": "部署运行"
+    },
+    {
+      "source": "agent-os",
+      "target": "uos",
+      "relation": "承载于"
+    },
+    {
+      "source": "agent-os",
+      "target": "agent",
+      "relation": "组织"
+    },
+    {
+      "source": "agent-os",
+      "target": "mcp",
+      "relation": "集成"
+    },
+    {
+      "source": "agent-os",
+      "target": "skill",
+      "relation": "集成"
+    },
+    {
+      "source": "smart-office",
+      "target": "agent",
+      "relation": "任务拆解"
+    },
+    {
+      "source": "smart-office",
+      "target": "mcp",
+      "relation": "调用"
+    },
+    {
+      "source": "smart-office",
+      "target": "skill",
+      "relation": "调用"
+    },
+    {
+      "source": "smart-eco",
+      "target": "mcp",
+      "relation": "涵盖"
+    },
+    {
+      "source": "smart-eco",
+      "target": "skill",
+      "relation": "涵盖"
+    },
+    {
+      "source": "smart-eco",
+      "target": "agent-os",
+      "relation": "生态接入"
+    },
+    {
+      "source": "smart-write",
+      "target": "rag",
+      "relation": "检索增强"
+    },
+    {
+      "source": "uclaw",
+      "target": "agent-safety",
+      "relation": "安全依赖"
+    },
+    {
+      "source": "uclaw",
+      "target": "agent-os",
+      "relation": "平台承载"
+    }
   ]
 }
