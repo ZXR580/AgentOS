@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "exam": {
+      "type": "local",
+      "command": ["py", "-3", "mcp/exam/server.py"],
+      "enabled": true
+    },
+    "manual": {
+      "type": "local",
+      "command": ["py", "-3", "mcp/manual/server.py"],
+      "enabled": true
+    },
+    "graph": {
+      "type": "local",
+      "command": ["py", "-3", "mcp/graph/server.py"],
+      "enabled": true
+    }
+  }
+}

@@ -13,8 +13,7 @@
 # 1. 安装依赖
 npm install
 
-# 2. 启动本地预览（自动同步知识库内容） 要在对应文件夹下执行
-conda activate agent_learn  
+# 2. 启动本地预览（自动同步知识库内容） 要在对应文件夹下执行 
 npm run dev
 # 浏览器打开 http://localhost:5173 
 

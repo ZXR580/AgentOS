@@ -1,0 +1,2 @@
+# 官方 MCP SDK 1.x（与 mcp-exam / mcp-manual 一致）
+mcp>=1.0.0,<2

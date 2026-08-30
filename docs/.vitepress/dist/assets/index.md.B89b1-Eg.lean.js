@@ -1,0 +1,1 @@
+import{_ as t,o as e,a as r,a7 as i}from"./chunks/framework.B-LquxkF.js";const s=JSON.parse('{"title":"智能体应用开发实践赛 · 知识手册","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),l={name:"index.md"};function d(h,a,n,o,_,c){return e(),r("div",null,[...a[0]||(a[0]=[i("",9)])])}const p=t(l,[["render",d]]);export{s as __pageData,p as default};

@@ -1,4 +1,12 @@
 import {
+  createSeriesData_default,
+  getLabelLineStatesModels,
+  limitSurfaceAngle,
+  limitTurnAngle,
+  prepareSeriesDataSchema,
+  setLabelLineStyle
+} from "./chunk-ABM5IX2K.js";
+import {
   LineDraw_default,
   Line_default as Line_default2,
   MapDraw_default,
@@ -27,15 +35,7 @@ import {
   updateViewOnPan,
   updateViewOnZoom,
   warnDeprecated
-} from "./chunk-NQTCEHU3.js";
-import {
-  createSeriesData_default,
-  getLabelLineStatesModels,
-  limitSurfaceAngle,
-  limitTurnAngle,
-  prepareSeriesDataSchema,
-  setLabelLineStyle
-} from "./chunk-6MF4FS5C.js";
+} from "./chunk-MTU7FW2C.js";
 import {
   BezierCurve_default,
   Chart_default,
@@ -135,7 +135,7 @@ import {
   use,
   warn,
   windowOpen
-} from "./chunk-IJA5LTNP.js";
+} from "./chunk-MUVFSPJA.js";
 import {
   BoundingRect_default,
   Displayable_default,
@@ -208,8 +208,8 @@ import {
   set,
   sub,
   translate
-} from "./chunk-NP2PVYAT.js";
-import "./chunk-PZ5AY32C.js";
+} from "./chunk-ZFN7VUKZ.js";
+import "./chunk-DC5AMYBS.js";
 
 // node_modules/echarts/lib/chart/line/LineSeries.js
 var LineSeriesModel = (

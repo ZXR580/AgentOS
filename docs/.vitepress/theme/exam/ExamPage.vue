@@ -69,6 +69,29 @@ function removeCurrentWrong() {
   exam.startReview()
   exam.reviewIndex.value = 0
 }
+
+const MODULE_LABEL = { ai: 'AI', os: 'OS', software: '软件', agent: 'Agent', hardware: '硬件' }
+function previewClass(i) {
+  const r = exam.results.value[i]
+  if (!r) return ''
+  if (r.correct) return 'ex-correct'
+  return 'ex-wrong'
+}
+const moduleStat = computed(() => {
+  const stat = {}
+  for (const r of exam.results.value) {
+    const md = (r.q && r.q.module) || '未知'
+    if (!stat[md]) stat[md] = { total: 0, wrong: 0 }
+    stat[md].total++
+    if (!r.correct) stat[md].wrong++
+  }
+  return Object.keys(stat).map((md) => ({
+    md,
+    total: stat[md].total,
+    wrong: stat[md].wrong,
+    pct: stat[md].total ? Math.round((stat[md].wrong / stat[md].total) * 100) : 0,
+  }))
+})
 </script>
 
 <template>
@@ -167,6 +190,37 @@ function removeCurrentWrong() {
           错题重练（{{ wrongTotal }}）
         </button>
         <button class="eq-btn" @click="exam.restart()">返回</button>
+      </div>
+
+      <div class="exam-preview">
+        <div class="exam-preview-title">答题预览（点击题号查看完整题目）</div>
+        <div class="exam-preview-grid">
+          <button
+            v-for="(r, i) in exam.results.value"
+            :key="i"
+            class="ex-cell"
+            :class="previewClass(i)"
+            :title="'第 ' + (i + 1) + ' 题'"
+            @click="exam.gotoReview(i)"
+          >{{ i + 1 }}</button>
+        </div>
+        <div class="exam-preview-legend">
+          <span><i class="ex-dot ex-dot-right"></i>正确</span>
+          <span><i class="ex-dot ex-dot-wrong"></i>错误</span>
+          <span><i class="ex-dot"></i>未答/空</span>
+        </div>
+      </div>
+
+      <div class="exam-weak">
+        <div class="exam-weak-title">错题模块分布</div>
+        <div v-if="moduleStat.length" class="exam-weak-rows">
+          <div v-for="s in moduleStat" :key="s.md" class="exam-weak-row">
+            <span class="exam-weak-mod">{{ MODULE_LABEL[s.md] || s.md }}</span>
+            <div class="exam-weak-bar"><span class="exam-weak-fill" :style="{ width: s.pct + '%' }"></span></div>
+            <span class="exam-weak-num">{{ s.wrong }} / {{ s.total }}</span>
+          </div>
+        </div>
+        <p v-else class="exam-weak-empty">满分通过，暂无错题 🎉</p>
       </div>
     </div>
 
@@ -531,5 +585,127 @@ function removeCurrentWrong() {
     width: 100%;
     position: static;
   }
+}
+.exam-preview {
+  margin-top: 28px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.exam-preview-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 10px;
+}
+.exam-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 8px;
+}
+.ex-cell {
+  height: 36px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ex-cell:hover {
+  border-color: var(--vp-c-brand);
+}
+.ex-correct {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: #22c55e;
+  color: #16a34a;
+  font-weight: 600;
+}
+.ex-wrong {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: #dc2626;
+  font-weight: 600;
+}
+.exam-preview-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+.ex-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-divider);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.ex-dot-right {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+.ex-dot-wrong {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+.exam-weak {
+  margin-top: 24px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.exam-weak-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 12px;
+}
+.exam-weak-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.exam-weak-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.exam-weak-mod {
+  width: 64px;
+  font-size: 13px;
+  color: var(--vp-c-text-1);
+  flex-shrink: 0;
+}
+.exam-weak-bar {
+  flex: 1;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--vp-c-bg-alt);
+  overflow: hidden;
+}
+.exam-weak-fill {
+  display: block;
+  height: 100%;
+  background: #ef4444;
+  border-radius: 7px;
+  transition: width 0.3s;
+}
+.exam-weak-num {
+  width: 64px;
+  text-align: right;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  flex-shrink: 0;
+}
+.exam-weak-empty {
+  color: #22c55e;
+  font-size: 13px;
 }
 </style>

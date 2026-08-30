@@ -154,7 +154,10 @@ export function useExam(realRef, mockRef) {
     })
   }
 
+  let isWrongRetry = false
+
   function start(source) {
+    isWrongRetry = source === 'wrong'
     let pool
     if (source === 'wrong') {
       pool = wrongList().map((x) => x.q)
@@ -179,11 +182,11 @@ export function useExam(realRef, mockRef) {
   function startReview() {
     const list = wrongList()
     if (list.length === 0) return false
-    paper.value = list.map((x) => ({
-      ...x.q,
-      myAnswerTexts: x.myAnswer || [],
-      source: x.source,
-    }))
+    // 错题回顾也需打乱选项并算出 answerIdx（数字下标），供 reviewItem 与模板判分/显示
+    paper.value = list.map((x) => {
+      const { options, answerIdx } = shuffleOptions(x.q)
+      return { ...x.q, options, answerIdx, myAnswerTexts: x.myAnswer || [], source: x.source }
+    })
     answers.value = paper.value.map(() => [])
     current.value = 0
     results.value = []
@@ -223,6 +226,12 @@ export function useExam(realRef, mockRef) {
     }))
     results.value = result
     recordWrongs(result)
+    // 错题重练：交卷后把"做对"的题从错题本移除（做错的保留在错题本）
+    if (isWrongRetry) {
+      result.forEach((r) => {
+        if (r.correct) removeWrong(r.q.id, r.q.source || 'real')
+      })
+    }
     phase.value = 'result'
   }
 

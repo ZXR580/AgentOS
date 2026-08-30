@@ -1,0 +1,2 @@
+# 官方 MCP SDK 1.x（提供 mcp.server.fastmcp.FastMCP，与 mcp-exam / 仓库 ch07 写法一致）
+mcp>=1.0.0,<2
