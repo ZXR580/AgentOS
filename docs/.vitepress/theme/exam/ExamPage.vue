@@ -261,7 +261,7 @@ const moduleStat = computed(() => {
         >
           下一题
         </button>
-        <button class="eq-btn eq-btn-primary" @click="exam.restart()">返回</button>
+        <button class="eq-btn eq-btn-primary" @click="exam.gotoResult()">返回预览</button>
       </div>
     </div>
 

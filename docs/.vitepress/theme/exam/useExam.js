@@ -247,10 +247,15 @@ export function useExam(realRef, mockRef) {
     phase.value = 'start'
   }
 
+  // 交卷后的解析页 -> 返回"正误预览"（result 页）
+  function gotoResult() {
+    phase.value = 'result'
+  }
+
   return {
     phase, paper, answers, current, results, confirmVisible, reviewIndex, examSeq,
     currentQuestion, total, structureLabel, answeredCount, score, wrongCountInExam,
     wrongCount, wrongList, removeWrong, clearWrongs,
-    start, startReview, toggleOption, isAnswered, submit, gotoReview, restart,
+    start, startReview, toggleOption, isAnswered, submit, gotoReview, restart, gotoResult,
   }
 }

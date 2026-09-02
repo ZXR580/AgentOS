@@ -294,9 +294,11 @@ MCP 用 Host / Client / Server 描述"谁决定要、谁去连、谁提供"：
 
 ```
 Host（AI 应用）─── 按 mcpServers 清单自动实例化 ───► 内含 N 个 Client
-   ├─ Client#1 ──协议连接──► Server A（stdio / HTTP）───►Tool 1 
-   |                                               |───►Tool 2
-   |                                               |....(封装多个tool)
+   ├─ Client#1 ──协议连接──► Server A（stdio / HTTP）───►Promitive1 |───►Tool1
+   |                                               |               |───►Resource1
+   |                                               |               |───►Prompt1
+   |                                               |───►Promitive2
+   |                                               |....(封装多个Promitive)
    ├─ Client#2 ──协议连接──► Server B
    └─ Client#3 ──协议连接──► Server C
 ```
@@ -317,13 +319,17 @@ Host（AI 应用）─── 按 mcpServers 清单自动实例化 ───► �
 
 ### 三大原语（Primitive）：不只工具
 
-"行动"不止工具一种，MCP 抽象出三类可接入能力：
+"行动"不止工具一种，MCP 抽象出三类可接入能力——**这三类都由 Server 暴露**；接入一个 Server = 接入它暴露的全部原语。
 
-- **Tools（工具）**：模型调用去执行、有副作用的动作（查成绩、下单、写文件）
-- **Resources（资源）**：供应用读取的数据 / 上下文（文件内容、数据库记录）
-- **Prompts（提示词模板）**：预置的可复用交互模板（固定话术模板）
+**三类原语分别"由谁暴露、谁取用、怎么取用"**：
 
-Tools 由模型按需选、去执行；Resources 由应用直接读；Prompts 是给用户侧的模板——三者都无需改上层应用即可接入
+| 原语 | 谁暴露 | 功能 | 谁取用 | 协议方法 | 有无副作用 |
+|---|---|---|---|---|---|
+| Tools | Server | 模型调用去执行、有副作用的动作（查成绩、下单、写文件） | 模型按需选、去执行 | `tools/list` 发现、`tools/call` 调用 | 有（执行动作） |
+| Resources | Server | 供应用读取的数据 / 上下文（文件内容、数据库记录） | 应用直接读取 | `resources/list`、`resources/read` | 无（只读） |
+| Prompts | Server | 预置的可复用交互模板（固定话术模板） | 用户 / 客户端复用 | `prompts/list`、`prompts/get` | 无（模板） |
+
+- 三者都无需改上层应用即可接入；区别在"给谁用、怎么用"——**Tool 让模型干活、Resource 给应用喂数据、Prompt 给用户/客户端固定话术**。
 
 
 ### 传输方式：本地与远程
