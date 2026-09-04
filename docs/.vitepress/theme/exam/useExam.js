@@ -1,13 +1,14 @@
 import { ref, computed } from 'vue'
 
+// 最新正式命题规则：正式比赛每卷 120 题 = 单选 60 + 多选 40 + 判断 20
 const EXAM_STRUCTURE = [
-  { type: 'single', label: '单项选择题', count: 30 },
-  { type: 'multi', label: '多项选择题', count: 10 },
+  { type: 'single', label: '单项选择题', count: 60 },
+  { type: 'multi', label: '多项选择题', count: 40 },
   { type: 'judge', label: '判断题', count: 20 },
 ]
 
-const MODULE_ORDER = ['ai', 'os', 'software', 'agent', 'hardware']
-const MODULE_RATIO = { ai: 0.3, os: 0.2, software: 0.2, agent: 0.2, hardware: 0.1 }
+// 组卷时按题型归类的先后顺序（决定卷面分段顺序）
+const TYPE_ORDER = { single: 0, multi: 1, judge: 2 }
 
 const WRONGS_KEY = 'exam-wrongs'
 
@@ -20,38 +21,20 @@ function shuffle(arr) {
   return a
 }
 
-function draw(questions, count, ratioMap) {
-  const byModule = {}
-  for (const q of questions) {
-    if (!byModule[q.module]) byModule[q.module] = []
-    byModule[q.module].push(q)
-  }
-  const drawn = []
-  const rest = [...questions]
-  const expected = {}
-  let assigned = 0
-  MODULE_ORDER.forEach((m, i) => {
-    if (i === MODULE_ORDER.length - 1) {
-      expected[m] = count - assigned
-    } else {
-      expected[m] = Math.round(count * (ratioMap[m] || 0))
-      assigned += expected[m]
+// 把一组题目（含预先按题型+模块配比选好的题目）组装成一卷：
+// 先按题型归类（单选 -> 多选 -> 判断），选项顺序随机并换算答案下标。
+function buildPaper(questions) {
+  const sorted = [...questions].sort(
+    (a, b) => (TYPE_ORDER[a.type] ?? 9) - (TYPE_ORDER[b.type] ?? 9),
+  )
+  return sorted.map((q) => {
+    const { options, answerIdx } = shuffleOptions(q)
+    return {
+      id: q.id, type: q.type, module: q.module, stem: q.stem,
+      options, answerIdx, explanation: q.explanation, chapter: q.chapter,
+      source: q.source || 'real',
     }
   })
-  for (const m of MODULE_ORDER) {
-    const pool = byModule[m] || []
-    const take = Math.min(expected[m] || 0, pool.length)
-    const picked = shuffle(pool).slice(0, take)
-    drawn.push(...picked)
-    picked.forEach((q) => {
-      const idx = rest.findIndex((r) => r.id === q.id)
-      if (idx >= 0) rest.splice(idx, 1)
-    })
-  }
-  if (drawn.length < count) {
-    drawn.push(...shuffle(rest).slice(0, count - drawn.length))
-  }
-  return drawn
 }
 
 function shuffleOptions(q) {
@@ -65,7 +48,7 @@ function shuffleOptions(q) {
   return { options: newOptions, answerIdx }
 }
 
-export function useExam(realRef, mockRef) {
+export function useExam(realRef, mockRef, mockPapersRef) {
   const phase = ref('start')
   const paper = ref([])
   const answers = ref([])
@@ -111,6 +94,8 @@ export function useExam(realRef, mockRef) {
     const wrongs = loadWrongsRaw()
     for (const r of result) {
       if (r.correct) continue
+      // 未作答的题不算"做错"，不入错题本（否则提交未答题会误入错题本）
+      if (!r.answer || r.answer.length === 0) continue
       const myTexts = (r.answer || []).map((i) => r.q.options[i].text)
       const existing = wrongs.find((w) => w.id === r.q.id && w.source === (r.q.source || 'real'))
       if (existing) {
@@ -143,40 +128,38 @@ export function useExam(realRef, mockRef) {
     saveWrongs([])
   }
 
-  function buildPaper(pool) {
-    return pool.map((q) => {
-      const { options, answerIdx } = shuffleOptions(q)
-      return {
-        id: q.id, type: q.type, module: q.module, stem: q.stem,
-        options, answerIdx, explanation: q.explanation, chapter: q.chapter,
-        source: q.source || 'real',
-      }
-    })
-  }
-
-  let isWrongRetry = false
-
-  function start(source) {
-    isWrongRetry = source === 'wrong'
-    let pool
-    if (source === 'wrong') {
-      pool = wrongList().map((x) => x.q)
-      if (pool.length === 0) return false
-    } else {
-      pool = (source === 'mock' ? mockRef.value : realRef.value) || []
-    }
-    const picked = []
-    for (const s of EXAM_STRUCTURE) {
-      const typePool = pool.filter((q) => q.type === s.type)
-      picked.push(...draw(typePool, s.count, MODULE_RATIO))
-    }
-    paper.value = buildPaper(picked)
+  // 把一组题目（已按题型+模块配比选好）组装成一卷并进入考试态
+  function startWithQuestions(questions) {
+    const qs = questions.filter(Boolean)
+    if (qs.length === 0) return false
+    paper.value = buildPaper(qs)
     answers.value = paper.value.map(() => [])
     current.value = 0
     results.value = []
     examSeq.value++
     phase.value = 'exam'
     return true
+  }
+
+  // source: 'real' | 'wrong' | 'mock'（纸卷由 paperId 指定，取自 mockPapersRef）
+  function start(source, paperId) {
+    if (source === 'wrong') {
+      const list = wrongList().map((x) => x.q)
+      return startWithQuestions(list)
+    }
+    if (source === 'real') {
+      // 真题：官方 120 题原样呈现为一卷（单选 60 + 多选 20 + 判断 40）
+      return startWithQuestions(realRef.value || [])
+    }
+    if (source === 'mock') {
+      const papers = mockPapersRef.value || []
+      const paper = papers.find((p) => p.id === paperId) || papers[0]
+      if (!paper) return false
+      const byId = new Map((mockRef.value || []).map((q) => [q.id, q]))
+      const questions = paper.questionIds.map((id) => byId.get(id))
+      return startWithQuestions(questions)
+    }
+    return false
   }
 
   function startReview() {
@@ -226,12 +209,10 @@ export function useExam(realRef, mockRef) {
     }))
     results.value = result
     recordWrongs(result)
-    // 错题重练：交卷后把"做对"的题从错题本移除（做错的保留在错题本）
-    if (isWrongRetry) {
-      result.forEach((r) => {
-        if (r.correct) removeWrong(r.q.id, r.q.source || 'real')
-      })
-    }
+    // 交卷后把本次"做对"的题从错题本移除：已答对说明不再是错题，避免错题本残留旧记录
+    result.forEach((r) => {
+      if (r.correct) removeWrong(r.q.id, r.q.source || 'real')
+    })
     phase.value = 'result'
   }
 

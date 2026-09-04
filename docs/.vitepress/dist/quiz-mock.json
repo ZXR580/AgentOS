@@ -2618,1753 +2618,6 @@
       "source": "mock"
     },
     {
-      "id": "M091",
-      "type": "single",
-      "module": "os",
-      "stem": "统信 UOS 操作系统基于哪个内核开发？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Linux"
-        },
-        {
-          "key": "B",
-          "text": "Windows NT"
-        },
-        {
-          "key": "C",
-          "text": "FreeBSD"
-        },
-        {
-          "key": "D",
-          "text": "macOS Darwin"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "UOS 是统信软件基于 Linux 内核开发的国产操作系统，面向国产 CPU 平台。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M092",
-      "type": "single",
-      "module": "os",
-      "stem": "操作系统中，唯一能直接操作硬件的软件是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "内核"
-        },
-        {
-          "key": "B",
-          "text": "浏览器"
-        },
-        {
-          "key": "C",
-          "text": "Shell"
-        },
-        {
-          "key": "D",
-          "text": "文本编辑器"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "内核运行在 CPU 特权模式（内核态），是唯一能直接操作硬件的软件；应用运行在受限用户态。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M093",
-      "type": "single",
-      "module": "os",
-      "stem": "用户程序读写磁盘、分配内存等操作必须通过什么进入内核？",
-      "options": [
-        {
-          "key": "A",
-          "text": "系统调用"
-        },
-        {
-          "key": "B",
-          "text": "编译器"
-        },
-        {
-          "key": "C",
-          "text": "Shell 脚本"
-        },
-        {
-          "key": "D",
-          "text": "终端"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "应用运行在受限用户态，访问硬件资源要通过系统调用请内核代办。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M094",
-      "type": "single",
-      "module": "os",
-      "stem": "Linux 的架构特点是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "单体内核"
-        },
-        {
-          "key": "B",
-          "text": "微内核"
-        },
-        {
-          "key": "C",
-          "text": "混合内核"
-        },
-        {
-          "key": "D",
-          "text": "无内核"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "Linux 是单体内核，进程、内存、文件系统、驱动等核心能力都位于同一内核空间。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M095",
-      "type": "single",
-      "module": "os",
-      "stem": "硬件设备主动通知处理器的一种异步机制是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "中断"
-        },
-        {
-          "key": "B",
-          "text": "信号"
-        },
-        {
-          "key": "C",
-          "text": "管道"
-        },
-        {
-          "key": "D",
-          "text": "重定向"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "中断让设备主动“通知”处理器，避免 CPU 轮询浪费算力。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M096",
-      "type": "single",
-      "module": "os",
-      "stem": "关于中断、系统调用、信号，下列说法正确的是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "系统调用是用户程序主动请求内核服务"
-        },
-        {
-          "key": "B",
-          "text": "中断是进程级事件通知"
-        },
-        {
-          "key": "C",
-          "text": "信号由硬件设备发起"
-        },
-        {
-          "key": "D",
-          "text": "三者本质相同"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "系统调用是用户程序主动向下请求内核；中断由硬件设备发起；信号是内核向进程通知事件——三者不同。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M097",
-      "type": "single",
-      "module": "os",
-      "stem": "Linux 开机启动流程的正确顺序是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "固件初始化硬件→GRUB 加载内核→内核初始化并挂载根文件系统→systemd 启动服务"
-        },
-        {
-          "key": "B",
-          "text": "内核→固件→systemd→GRUB"
-        },
-        {
-          "key": "C",
-          "text": "systemd→内核→固件→GRUB"
-        },
-        {
-          "key": "D",
-          "text": "GRUB→内核→systemd→固件"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "启动是接力链：固件→GRUB→内核→systemd(PID 1)，每阶段依赖前一阶段的最小能力。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M098",
-      "type": "single",
-      "module": "os",
-      "stem": "Linux 启动后第一个用户态进程、所有服务的祖先通常是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "systemd"
-        },
-        {
-          "key": "B",
-          "text": "grub"
-        },
-        {
-          "key": "C",
-          "text": "bash"
-        },
-        {
-          "key": "D",
-          "text": "init.d"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "systemd 成为一号进程（PID 1），接管后成为所有服务的祖先，管理依赖启动顺序。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M099",
-      "type": "single",
-      "module": "os",
-      "stem": "查看内核启动日志，通常使用的命令是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "dmesg"
-        },
-        {
-          "key": "B",
-          "text": "whoami"
-        },
-        {
-          "key": "C",
-          "text": "chmod"
-        },
-        {
-          "key": "D",
-          "text": "mkdir"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "内核阶段故障看 dmesg，服务阶段看 journalctl。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M100",
-      "type": "single",
-      "module": "os",
-      "stem": "管道符 | 的作用是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "把前一个命令的输出作为后一个命令的输入"
-        },
-        {
-          "key": "B",
-          "text": "把输出写入文件"
-        },
-        {
-          "key": "C",
-          "text": "切换目录"
-        },
-        {
-          "key": "D",
-          "text": "创建文件"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "管道把前命令输出传给后命令，形成“小而专、可组合”的数据流串联。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M101",
-      "type": "single",
-      "module": "os",
-      "stem": "`echo world >> out.txt` 中 `>>` 表示：",
-      "options": [
-        {
-          "key": "A",
-          "text": "追加写入文件"
-        },
-        {
-          "key": "B",
-          "text": "覆盖写入文件"
-        },
-        {
-          "key": "C",
-          "text": "从文件读取输入"
-        },
-        {
-          "key": "D",
-          "text": "匹配任意字符"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "`>` 覆盖写入，`>>` 追加写入，`<` 从文件读入。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M102",
-      "type": "single",
-      "module": "os",
-      "stem": "Shell 中，输入命令名时决定“到哪些目录找可执行文件”的环境变量是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "PATH"
-        },
-        {
-          "key": "B",
-          "text": "HOME"
-        },
-        {
-          "key": "C",
-          "text": "USER"
-        },
-        {
-          "key": "D",
-          "text": "SHELL"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "Shell 按 PATH 列出的目录逐个查找可执行文件，找不到则报 command not found。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M103",
-      "type": "single",
-      "module": "os",
-      "stem": "Shell 脚本首行写 `#!/bin/bash` 的作用是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "告诉内核用哪个解释器执行该文件"
-        },
-        {
-          "key": "B",
-          "text": "给脚本加密"
-        },
-        {
-          "key": "C",
-          "text": "设置脚本执行权限"
-        },
-        {
-          "key": "D",
-          "text": "声明脚本的输入参数"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "首行指定解释器，不写则按当前 Shell 默认方式解析，行为易不一致。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M104",
-      "type": "single",
-      "module": "os",
-      "stem": "普通文件的常见默认权限 644 表示：",
-      "options": [
-        {
-          "key": "A",
-          "text": "所有者可读写，组和其他用户只可读"
-        },
-        {
-          "key": "B",
-          "text": "所有者可读，组和其他用户可写"
-        },
-        {
-          "key": "C",
-          "text": "所有人可读写执行"
-        },
-        {
-          "key": "D",
-          "text": "只有所有者可访问"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "644 = rw- r-- r--，即属主读写、组和其他只读。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M105",
-      "type": "single",
-      "module": "os",
-      "stem": "权限数字 755 对应符号表示是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "rwxr-xr-x"
-        },
-        {
-          "key": "B",
-          "text": "rw-r--r--"
-        },
-        {
-          "key": "C",
-          "text": "rwxrwxrwx"
-        },
-        {
-          "key": "D",
-          "text": "r--r--r--"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "7=rwx(属主)、5=r-x(组)、5=r-x(其他)，故为 rwxr-xr-x。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M106",
-      "type": "single",
-      "module": "os",
-      "stem": "目录的 x（执行）权限与文件 x 权限的语义不同，目录的 x 表示：",
-      "options": [
-        {
-          "key": "A",
-          "text": "决定能否进入或遍历该目录路径"
-        },
-        {
-          "key": "B",
-          "text": "决定能否读取目录里的文件名"
-        },
-        {
-          "key": "C",
-          "text": "决定目录能否被重命名"
-        },
-        {
-          "key": "D",
-          "text": "没有任何意义"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "目录的 x 决定能否进入/遍历目录路径、访问目录内条目；文件的 x 才表示可执行。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M107",
-      "type": "single",
-      "module": "os",
-      "stem": "默认 umask 为 022 时，新建普通文件的默认权限是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "644"
-        },
-        {
-          "key": "B",
-          "text": "755"
-        },
-        {
-          "key": "C",
-          "text": "664"
-        },
-        {
-          "key": "D",
-          "text": "777"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "文件默认基数666减去umask 022=644；目录默认基数777−022=755。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M108",
-      "type": "single",
-      "module": "os",
-      "stem": "修改文件所有者和所属组，使用的命令是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "chown"
-        },
-        {
-          "key": "B",
-          "text": "chmod"
-        },
-        {
-          "key": "C",
-          "text": "chgrp"
-        },
-        {
-          "key": "D",
-          "text": "chroot"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "chmod 改权限，chown 改所有者和组；chmod 通常只改权限位。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M109",
-      "type": "single",
-      "module": "os",
-      "stem": "已退出但仍占用进程表项的进程称为：",
-      "options": [
-        {
-          "key": "A",
-          "text": "僵尸进程"
-        },
-        {
-          "key": "B",
-          "text": "孤儿进程"
-        },
-        {
-          "key": "C",
-          "text": "守护进程"
-        },
-        {
-          "key": "D",
-          "text": "前台进程"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "僵尸进程已退出但仍占进程表项，需父进程回收；大量堆积会拖垮系统。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M110",
-      "type": "single",
-      "module": "os",
-      "stem": "由内核强制终止、目标进程无法捕获或忽略的信号是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "SIGKILL"
-        },
-        {
-          "key": "B",
-          "text": "SIGTERM"
-        },
-        {
-          "key": "C",
-          "text": "SIGINT"
-        },
-        {
-          "key": "D",
-          "text": "SIGHUP"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "SIGKILL 由内核强制终止，不可捕获/忽略；SIGTERM 是礼貌请求，可被捕获做清理。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M111",
-      "type": "single",
-      "module": "os",
-      "stem": "`systemctl enable 服务` 与 `systemctl start 服务` 的区别是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "enable 配置开机自启，start 立即启动"
-        },
-        {
-          "key": "B",
-          "text": "start 配置开机自启，enable 立即启动"
-        },
-        {
-          "key": "C",
-          "text": "两者作用完全相同"
-        },
-        {
-          "key": "D",
-          "text": "两者都只查看状态"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "enable 只把服务加入开机启动清单（创建符号链接），不等于当前已运行；start 才是立即启动。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M112",
-      "type": "single",
-      "module": "os",
-      "stem": "服务修改配置后，优先用 reload 而非 restart，原因是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "reload 不中断服务、只在运行中重读配置"
-        },
-        {
-          "key": "B",
-          "text": "reload 一定会重启进程"
-        },
-        {
-          "key": "C",
-          "text": "restart 更省资源"
-        },
-        {
-          "key": "D",
-          "text": "reload 对所有服务都可用"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "reload 不中断连接、重读配置；restart 会中断服务，仅当服务不支持 reload 或需重置状态时使用。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M113",
-      "type": "single",
-      "module": "os",
-      "stem": "查看 systemd 服务的日志，使用的命令是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "journalctl"
-        },
-        {
-          "key": "B",
-          "text": "dmesg"
-        },
-        {
-          "key": "C",
-          "text": "whoami"
-        },
-        {
-          "key": "D",
-          "text": "ps"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "journalctl 查看 systemd 日志；dmesg 看内核日志；tail -f 实时跟踪日志文件。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M114",
-      "type": "single",
-      "module": "os",
-      "stem": "内存不足时，系统把不活跃页面暂存到磁盘的机制是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "swap"
-        },
-        {
-          "key": "B",
-          "text": "cache"
-        },
-        {
-          "key": "C",
-          "text": "RAID"
-        },
-        {
-          "key": "D",
-          "text": "inode"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "swap 是磁盘上的交换空间，内存不足时换出部分页面腾出物理内存，是辅助而非主力。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M115",
-      "type": "single",
-      "module": "os",
-      "stem": "`df` 与 `du` 的区别是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "df 看分区空间使用，du 统计目录/文件占用"
-        },
-        {
-          "key": "B",
-          "text": "df 统计目录占用，du 看分区使用"
-        },
-        {
-          "key": "C",
-          "text": "两者完全相同"
-        },
-        {
-          "key": "D",
-          "text": "两者都用于修改磁盘"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "df 按分区统计空间，du 统计目录占用；df 显示满但 du 很小往往是“被删除但仍被打开”的文件占着空间。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M116",
-      "type": "single",
-      "module": "os",
-      "stem": "服务只监听 127.0.0.1 时，表示：",
-      "options": [
-        {
-          "key": "A",
-          "text": "仅本机可访问"
-        },
-        {
-          "key": "B",
-          "text": "所有主机都能直接访问"
-        },
-        {
-          "key": "C",
-          "text": "网络无法访问"
-        },
-        {
-          "key": "D",
-          "text": "服务未启动"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "127.0.0.1 是回环接口只代表本机；监听 0.0.0.0 绑定所有网卡，其他主机才能连入。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M117",
-      "type": "single",
-      "module": "os",
-      "stem": "本地 DNS 服务器配置保存在哪个文件？",
-      "options": [
-        {
-          "key": "A",
-          "text": "/etc/resolv.conf"
-        },
-        {
-          "key": "B",
-          "text": "/etc/passwd"
-        },
-        {
-          "key": "C",
-          "text": "/etc/fstab"
-        },
-        {
-          "key": "D",
-          "text": "/etc/hostname"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "DNS 配置在 /etc/resolv.conf；解析失败会导致 ping 通 IP 但打不开域名页面。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M118",
-      "type": "single",
-      "module": "os",
-      "stem": "HTTPS 站点报证书错误，应优先检查：",
-      "options": [
-        {
-          "key": "A",
-          "text": "系统时间和证书链"
-        },
-        {
-          "key": "B",
-          "text": "CPU 架构"
-        },
-        {
-          "key": "C",
-          "text": "磁盘剩余空间"
-        },
-        {
-          "key": "D",
-          "text": "内存使用量"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "证书有有效期，本机时间偏差过大会被误判过期/未生效，故先查系统时间和证书链。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M119",
-      "type": "single",
-      "module": "os",
-      "stem": "同一份 x86 二进制程序复制到 ARM64 系统后无法直接运行，根本原因是：",
-      "options": [
-        {
-          "key": "A",
-          "text": "机器指令集面向不同 ISA"
-        },
-        {
-          "key": "B",
-          "text": "文件名不同"
-        },
-        {
-          "key": "C",
-          "text": "文件大小不同"
-        },
-        {
-          "key": "D",
-          "text": "内存不足"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "CPU 只认自己指令集的二进制，不同 ISA 指令编码不同，必须重新编译（对应 ch05 兼容性层次）。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M120",
-      "type": "single",
-      "module": "os",
-      "stem": "应用启动报缺共享库，可用哪个命令查看缺失的库？",
-      "options": [
-        {
-          "key": "A",
-          "text": "ldd"
-        },
-        {
-          "key": "B",
-          "text": "whoami"
-        },
-        {
-          "key": "C",
-          "text": "chmod"
-        },
-        {
-          "key": "D",
-          "text": "tar"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "用 ldd 查看缺失共享库后补装对应架构的库；缺库属于运行时依赖适配不完整。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M121",
-      "type": "multi",
-      "module": "os",
-      "stem": "关于 Linux 内核职责的说法正确的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "负责进程调度与切换"
-        },
-        {
-          "key": "B",
-          "text": "负责内存分配回收与 swap"
-        },
-        {
-          "key": "C",
-          "text": "负责文件系统与 inode"
-        },
-        {
-          "key": "D",
-          "text": "负责设备驱动与中断"
-        },
-        {
-          "key": "E",
-          "text": "负责编译器词法分析"
-        },
-        {
-          "key": "F",
-          "text": "负责图形界面像素绘制"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "内核管进程、内存、文件、设备；编译器和图形界面绘制在用户态完成，不属内核职责。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M122",
-      "type": "multi",
-      "module": "os",
-      "stem": "Linux 系统的组成部分包括：",
-      "options": [
-        {
-          "key": "A",
-          "text": "内核"
-        },
-        {
-          "key": "B",
-          "text": "用户空间"
-        },
-        {
-          "key": "C",
-          "text": "Shell"
-        },
-        {
-          "key": "D",
-          "text": "图形环境"
-        },
-        {
-          "key": "E",
-          "text": "CPU 硬件"
-        },
-        {
-          "key": "F",
-          "text": "显示器"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "Linux 由内核、用户空间、系统服务、Shell 及图形环境组成；CPU、显示器是硬件，不属于组成。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M123",
-      "type": "multi",
-      "module": "os",
-      "stem": "关于中断、系统调用、信号，下列对应正确的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "系统调用：用户程序主动请求内核服务"
-        },
-        {
-          "key": "B",
-          "text": "中断：硬件设备通知处理器"
-        },
-        {
-          "key": "C",
-          "text": "信号：内核向进程通知事件"
-        },
-        {
-          "key": "D",
-          "text": "三者都是进程级机制"
-        },
-        {
-          "key": "E",
-          "text": "中断由用户进程主动发起"
-        },
-        {
-          "key": "F",
-          "text": "系统调用由硬件设备发起"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C"
-      ],
-      "explanation": "系统调用向下请求内核、中断由硬件发起、信号是进程级通知；三者机制不同，D/E/F 错误。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M124",
-      "type": "multi",
-      "module": "os",
-      "stem": "常见的 Linux 文件系统类型有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "ext4"
-        },
-        {
-          "key": "B",
-          "text": "xfs"
-        },
-        {
-          "key": "C",
-          "text": "btrfs"
-        },
-        {
-          "key": "D",
-          "text": "NTFS"
-        },
-        {
-          "key": "E",
-          "text": "FAT32"
-        },
-        {
-          "key": "F",
-          "text": "CDFS"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C"
-      ],
-      "explanation": "ext4、xfs、btrfs 是常见 Linux 文件系统；NTFS/FAT32 更常见于 Windows，CDFS 是光盘文件系统。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M125",
-      "type": "multi",
-      "module": "os",
-      "stem": "下列关于权限数字表示的说法正确的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "4 表示读"
-        },
-        {
-          "key": "B",
-          "text": "2 表示写"
-        },
-        {
-          "key": "C",
-          "text": "1 表示执行"
-        },
-        {
-          "key": "D",
-          "text": "755 对应 rwxr-xr-x"
-        },
-        {
-          "key": "E",
-          "text": "6 表示执行"
-        },
-        {
-          "key": "F",
-          "text": "0 表示可读写执行"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "数字权限中 4=读、2=写、1=执行，相加得权限值；755=rwxr-xr-x；E/F 错误。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M126",
-      "type": "multi",
-      "module": "os",
-      "stem": "下列属于 systemctl 常用子命令的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "status"
-        },
-        {
-          "key": "B",
-          "text": "enable"
-        },
-        {
-          "key": "C",
-          "text": "reload"
-        },
-        {
-          "key": "D",
-          "text": "restart"
-        },
-        {
-          "key": "E",
-          "text": "chmod"
-        },
-        {
-          "key": "F",
-          "text": "ps"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "status/start/stop/restart/reload/enable/disable 都是 systemctl 子命令；chmod、ps 是其他命令。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M127",
-      "type": "multi",
-      "module": "os",
-      "stem": "下列关于 RAID 的说法正确的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "RAID0 条带化提升性能但无冗余"
-        },
-        {
-          "key": "B",
-          "text": "RAID1 镜像提供冗余"
-        },
-        {
-          "key": "C",
-          "text": "RAID5 用奇偶校验兼顾性能与冗余"
-        },
-        {
-          "key": "D",
-          "text": "RAID 可防误删和逻辑损坏"
-        },
-        {
-          "key": "E",
-          "text": "RAID 做成后就不再需要备份"
-        },
-        {
-          "key": "F",
-          "text": "RAID 只能用于单块硬盘"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C"
-      ],
-      "explanation": "RAID 只防硬件故障，不防误删/病毒/逻辑损坏；备份才是兜底，D/E/F 错误。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M128",
-      "type": "multi",
-      "module": "os",
-      "stem": "网络连通性一般依赖哪些要素？",
-      "options": [
-        {
-          "key": "A",
-          "text": "子网"
-        },
-        {
-          "key": "B",
-          "text": "网关"
-        },
-        {
-          "key": "C",
-          "text": "路由"
-        },
-        {
-          "key": "D",
-          "text": "DNS"
-        },
-        {
-          "key": "E",
-          "text": "CPU 主频"
-        },
-        {
-          "key": "F",
-          "text": "硬盘容量"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "连通性依赖子网、网关、路由、DNS、监听地址五要素；CPU、硬盘与网络连通性无关。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M129",
-      "type": "multi",
-      "module": "os",
-      "stem": "下列属于系统信息采集命令的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "whoami（当前用户）"
-        },
-        {
-          "key": "B",
-          "text": "uname -m（CPU 架构）"
-        },
-        {
-          "key": "C",
-          "text": "free -h（内存）"
-        },
-        {
-          "key": "D",
-          "text": "ip addr（网络接口 IP）"
-        },
-        {
-          "key": "E",
-          "text": "tar（打包）"
-        },
-        {
-          "key": "F",
-          "text": "chmod（改权限）"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "whoami、uname -m、free -h、ip addr 都是系统信息采集命令；tar、chmod 是其他操作命令。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M130",
-      "type": "multi",
-      "module": "os",
-      "stem": "下列关于进程与信号的说法正确的有：",
-      "options": [
-        {
-          "key": "A",
-          "text": "进程是资源分配的基本单位"
-        },
-        {
-          "key": "B",
-          "text": "同一进程的线程共享地址空间，通信成本低"
-        },
-        {
-          "key": "C",
-          "text": "SIGTERM 可被进程捕获做清理"
-        },
-        {
-          "key": "D",
-          "text": "SIGKILL 不可被捕获或忽略"
-        },
-        {
-          "key": "E",
-          "text": "线程拥有独立的地址空间"
-        },
-        {
-          "key": "F",
-          "text": "SIGKILL 可被进程忽略"
-        }
-      ],
-      "answerKeys": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "explanation": "进程是资源分配基本单位、线程共享地址空间；SIGTERM 可捕获、SIGKILL 不可捕获/忽略，E/F 错误。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M131",
-      "type": "judge",
-      "module": "os",
-      "stem": "统信 UOS 是基于 Linux 内核开发的国产操作系统。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "UOS 基于 Linux 内核，面向国产 CPU 平台。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M132",
-      "type": "judge",
-      "module": "os",
-      "stem": "Linux 内核是唯一能直接操作硬件的软件。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "内核运行在内核态，是唯一能直接操作硬件的软件；应用需经系统调用请内核代办。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M133",
-      "type": "judge",
-      "module": "os",
-      "stem": "系统调用是用户程序主动向下请求内核服务的机制。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "系统调用由用户程序主动发起，是进入内核的入口，方向向下。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M134",
-      "type": "judge",
-      "module": "os",
-      "stem": "中断是内核向进程通知事件的进程级机制。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "中断是硬件设备通知处理器（异步）；内核向进程通知事件的是信号。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M135",
-      "type": "judge",
-      "module": "os",
-      "stem": "Linux 采用的是微内核架构。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "Linux 是单体内核，核心能力集中在同一内核空间。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M136",
-      "type": "judge",
-      "module": "os",
-      "stem": "GRUB 引导程序位于内核初始化硬件之前。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "启动顺序为固件→GRUB 加载内核→内核初始化并挂载根文件系统→systemd 启动服务。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M137",
-      "type": "judge",
-      "module": "os",
-      "stem": "systemd 是 Linux 启动后的第一个用户态进程（PID 1）。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "systemd 成为一号进程，是几乎所有服务的祖先。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M138",
-      "type": "judge",
-      "module": "os",
-      "stem": "`systemctl enable 服务` 意味着该服务当前已经运行。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "enable 只配置开机自启（创建符号链接），不等于当前已运行；start 才是立即启动。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M139",
-      "type": "judge",
-      "module": "os",
-      "stem": "SIGKILL 信号可以被进程捕获并忽略。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "SIGKILL 由内核强制终止、不可捕获/忽略；SIGTERM 才是可捕获的礼貌请求。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M140",
-      "type": "judge",
-      "module": "os",
-      "stem": "硬链接与源文件共享同一个 inode。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "硬链接共享同一 inode，删除任一链接不影响其他；软链接是指向路径的特殊文件。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M141",
-      "type": "judge",
-      "module": "os",
-      "stem": "软链接指向的目标被删除后，软链接仍然有效。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "软链接是指向路径的特殊文件，目标被移动/删除则失效。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M142",
-      "type": "judge",
-      "module": "os",
-      "stem": "目录的执行权限（x）决定能否进入或遍历该目录路径。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "目录的 x 决定能否进入/遍历、访问目录内条目；与文件的 x（可执行）语义不同。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M143",
-      "type": "judge",
-      "module": "os",
-      "stem": "默认 umask 为 022 时，新建普通文件的默认权限是 644。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "文件默认基数666 − umask022 = 644；目录为 777−022=755。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M144",
-      "type": "judge",
-      "module": "os",
-      "stem": "僵尸进程是已退出但仍占用进程表项的进程，需父进程回收。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "僵尸进程退出后未回收、仍占表项；父进程不回收会堆积拖垮系统。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M145",
-      "type": "judge",
-      "module": "os",
-      "stem": "swap 是内存的长期主力，可完全替代物理内存。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "swap 远慢于内存，只缓解短期压力，不能替代扩容内存，是辅助而非主力。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M146",
-      "type": "judge",
-      "module": "os",
-      "stem": "服务监听 0.0.0.0 表示仅本机可访问。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "监听 0.0.0.0 绑定所有网卡，其他主机才能连入；127.0.0.1 才是仅本机。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M147",
-      "type": "judge",
-      "module": "os",
-      "stem": "被删除但仍被进程打开的文件，其磁盘空间会立即释放。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "inode 仍被引用，需关闭或重启占用进程，空间才会释放；这解释了 df 显示满但 du 很小。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M148",
-      "type": "judge",
-      "module": "os",
-      "stem": "RAID 可以防止误删文件、病毒等逻辑损坏。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "RAID 只防硬件故障，不防误删/病毒/逻辑损坏；备份才是应对这些的兜底。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M149",
-      "type": "judge",
-      "module": "os",
-      "stem": "nohup 配合 & 可以让进程在终端关闭后继续运行。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "A"
-      ],
-      "explanation": "nohup 防终端挂断，配合 & 后台执行，终端关闭后进程仍继续。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
-      "id": "M150",
-      "type": "judge",
-      "module": "os",
-      "stem": "Ctrl+Z 会终止当前前台进程。",
-      "options": [
-        {
-          "key": "A",
-          "text": "正确"
-        },
-        {
-          "key": "B",
-          "text": "错误"
-        }
-      ],
-      "answerKeys": [
-        "B"
-      ],
-      "explanation": "Ctrl+Z 发送 SIGTSTP 挂起（暂停）进程而非终止；可用 fg 恢复前台运行。",
-      "chapter": "/ch02_os_linux",
-      "source": "mock"
-    },
-    {
       "id": "M151",
       "type": "single",
       "module": "software",
@@ -8733,6 +6986,6507 @@
       ],
       "explanation": "混用铜铝会因电偶腐蚀加速损坏，要么全铜、要么全铝（或加足缓蚀剂）。",
       "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M091",
+      "type": "single",
+      "module": "os",
+      "stem": "Linux 启动后，拉起并管理所有服务的一号进程（PID 1）是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "systemd"
+        },
+        {
+          "key": "B",
+          "text": "grub"
+        },
+        {
+          "key": "C",
+          "text": "bash"
+        },
+        {
+          "key": "D",
+          "text": "init.d"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "systemd 是一号进程，接管后成为所有服务的祖先，支持并行启动与依赖管理。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M092",
+      "type": "single",
+      "module": "os",
+      "stem": "systemctl status 服务 的作用是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "查看服务是否运行及状态"
+        },
+        {
+          "key": "B",
+          "text": "配置服务开机自启"
+        },
+        {
+          "key": "C",
+          "text": "立即启动服务"
+        },
+        {
+          "key": "D",
+          "text": "删除服务"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "status 看服务是否运行；enable 配开机自启；start 立即启动。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M093",
+      "type": "single",
+      "module": "os",
+      "stem": "systemctl enable 服务 与 systemctl start 服务 的区别是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "enable 配置开机自启，start 立即启动"
+        },
+        {
+          "key": "B",
+          "text": "start 配置开机自启，enable 立即启动"
+        },
+        {
+          "key": "C",
+          "text": "两者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "两者都只查状态"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "enable 只把服务加入开机启动清单（创建符号链接），不等于当前已运行；start 才是立即启动。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M094",
+      "type": "single",
+      "module": "os",
+      "stem": "服务修改配置后，应优先用哪个子命令（能减少中断）？",
+      "options": [
+        {
+          "key": "A",
+          "text": "reload"
+        },
+        {
+          "key": "B",
+          "text": "restart"
+        },
+        {
+          "key": "C",
+          "text": "stop"
+        },
+        {
+          "key": "D",
+          "text": "disable"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "reload 不中断服务、只在运行中重读配置；restart 会中断连接，仅当服务不支持 reload 或需重置状态时使用。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M095",
+      "type": "single",
+      "module": "os",
+      "stem": "查看 systemd 服务的运行日志，常用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "journalctl"
+        },
+        {
+          "key": "B",
+          "text": "dmesg"
+        },
+        {
+          "key": "C",
+          "text": "whoami"
+        },
+        {
+          "key": "D",
+          "text": "ps"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "journalctl 查看 systemd 日志；dmesg 看内核日志。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M096",
+      "type": "single",
+      "module": "os",
+      "stem": "按“分 时 日 月 周”周期性执行任务，使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "crontab"
+        },
+        {
+          "key": "B",
+          "text": "systemctl"
+        },
+        {
+          "key": "C",
+          "text": "journalctl"
+        },
+        {
+          "key": "D",
+          "text": "chmod"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "crontab 配置定时任务，按分时日月周执行；与 journalctl（日志）不同。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M097",
+      "type": "single",
+      "module": "os",
+      "stem": "启动排障时，判断“卡在内核阶段”，应查看：",
+      "options": [
+        {
+          "key": "A",
+          "text": "dmesg（内核日志）"
+        },
+        {
+          "key": "B",
+          "text": "引导配置（grub.cfg）"
+        },
+        {
+          "key": "C",
+          "text": "journalctl（服务日志）"
+        },
+        {
+          "key": "D",
+          "text": "bash 历史"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "固件/GRUB 看引导配置；内核阶段看 dmesg；服务阶段看 journalctl。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M098",
+      "type": "single",
+      "module": "os",
+      "stem": "启动排障时，判断“卡在服务(systemd)阶段”，应查看：",
+      "options": [
+        {
+          "key": "A",
+          "text": "journalctl"
+        },
+        {
+          "key": "B",
+          "text": "引导配置"
+        },
+        {
+          "key": "C",
+          "text": "dmesg 内核日志"
+        },
+        {
+          "key": "D",
+          "text": "date"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "服务阶段看 systemd 日志（journalctl）；内核阶段才用 dmesg。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M099",
+      "type": "single",
+      "module": "os",
+      "stem": "确认“当前登录用户是谁”，使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "whoami"
+        },
+        {
+          "key": "B",
+          "text": "hostname"
+        },
+        {
+          "key": "C",
+          "text": "df -h"
+        },
+        {
+          "key": "D",
+          "text": "uname -r"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "whoami 显示当前登录用户名；hostname 主机名；id/groups 看用户与组。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M100",
+      "type": "single",
+      "module": "os",
+      "stem": "查看当前用户的信息（uid、所属组），使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "id"
+        },
+        {
+          "key": "B",
+          "text": "date"
+        },
+        {
+          "key": "C",
+          "text": "ip addr"
+        },
+        {
+          "key": "D",
+          "text": "free -h"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "id 显示当前用户 ID 与所属组；groups 只看所属组。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M101",
+      "type": "single",
+      "module": "os",
+      "stem": "创建一个新用户，使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "useradd"
+        },
+        {
+          "key": "B",
+          "text": "userdel"
+        },
+        {
+          "key": "C",
+          "text": "passwd"
+        },
+        {
+          "key": "D",
+          "text": "groupadd"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "useradd 创建用户；passwd 设密码；userdel 删除用户；groupadd 创建组。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M102",
+      "type": "single",
+      "module": "os",
+      "stem": "以管理员权限临时执行一条命令，使用：",
+      "options": [
+        {
+          "key": "A",
+          "text": "sudo"
+        },
+        {
+          "key": "B",
+          "text": "su"
+        },
+        {
+          "key": "C",
+          "text": "exit"
+        },
+        {
+          "key": "D",
+          "text": "whoami"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "sudo 以管理员权限临时执行命令；其原则是只在需要时提权、执行前明确目标与风险。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M103",
+      "type": "single",
+      "module": "os",
+      "stem": "普通文件的常见默认权限 644 表示：",
+      "options": [
+        {
+          "key": "A",
+          "text": "所有者可读写，组和其他用户只可读"
+        },
+        {
+          "key": "B",
+          "text": "所有人可读写执行"
+        },
+        {
+          "key": "C",
+          "text": "只有所有者可读"
+        },
+        {
+          "key": "D",
+          "text": "组内可写"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "644 = rw- r-- r--，即属主读写、组和其他只读。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M104",
+      "type": "single",
+      "module": "os",
+      "stem": "硬链接与源文件的关系是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "指向同一个 inode，只是多了一个名字"
+        },
+        {
+          "key": "B",
+          "text": "是一个独立文件，内容为路径"
+        },
+        {
+          "key": "C",
+          "text": "复制了一份数据"
+        },
+        {
+          "key": "D",
+          "text": "必须跨文件系统"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "硬链接是给同一 inode 再添一个名字；源文件只是第一个名字，二者地位对等。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M105",
+      "type": "single",
+      "module": "os",
+      "stem": "软链接（符号链接）的特点是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "是一个存目标路径的小文件，目标被删则失效"
+        },
+        {
+          "key": "B",
+          "text": "与目标共享同一 inode"
+        },
+        {
+          "key": "C",
+          "text": "不能跨文件系统"
+        },
+        {
+          "key": "D",
+          "text": "删除软链接会删掉目标"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "软链接指向路径；目标被移动/删除会失效（悬空链接）；删除软链接不影响目标；可跨文件系统、可指向目录。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M106",
+      "type": "single",
+      "module": "os",
+      "stem": "inode（索引节点）中不存放的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "文件名"
+        },
+        {
+          "key": "B",
+          "text": "文件大小"
+        },
+        {
+          "key": "C",
+          "text": "属主与权限"
+        },
+        {
+          "key": "D",
+          "text": "数据块位置"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "inode 存大小/属主/权限/时间/链接数/数据块位置等元数据；文件名是目录项，由目录维护。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M107",
+      "type": "single",
+      "module": "os",
+      "stem": "ps aux | grep nginx 的作用是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "从进程列表中查找包含 nginx 的进程"
+        },
+        {
+          "key": "B",
+          "text": "重启 nginx 服务"
+        },
+        {
+          "key": "C",
+          "text": "删除 nginx 进程"
+        },
+        {
+          "key": "D",
+          "text": "查看磁盘占用"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ps 列出进程，管道传给 grep 过滤出目标进程——是“定位”环节的典型命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M108",
+      "type": "single",
+      "module": "os",
+      "stem": "动态查看进程 CPU/内存资源占用，使用：",
+      "options": [
+        {
+          "key": "A",
+          "text": "top"
+        },
+        {
+          "key": "B",
+          "text": "df -h"
+        },
+        {
+          "key": "C",
+          "text": "whoami"
+        },
+        {
+          "key": "D",
+          "text": "ip addr"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "top/htop 动态查看进程资源占用；ps 是快照。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M109",
+      "type": "single",
+      "module": "os",
+      "stem": "确认某进程异常后终止它，使用：",
+      "options": [
+        {
+          "key": "A",
+          "text": "kill <PID>"
+        },
+        {
+          "key": "B",
+          "text": "df -h"
+        },
+        {
+          "key": "C",
+          "text": "cd"
+        },
+        {
+          "key": "D",
+          "text": "ls"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "kill <PID> 向指定进程发送信号终止（观察→定位→处理→复盘链路里的“处理”）。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M110",
+      "type": "single",
+      "module": "os",
+      "stem": "df -h 的作用是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "查看文件系统容量、使用率、挂载点、剩余空间"
+        },
+        {
+          "key": "B",
+          "text": "评估目录体积"
+        },
+        {
+          "key": "C",
+          "text": "查看内存"
+        },
+        {
+          "key": "D",
+          "text": "查看进程"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "df 按分区统计空间；du 才是统计目录/文件占用。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M111",
+      "type": "single",
+      "module": "os",
+      "stem": "du -sh /var 的作用是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "评估 /var 目录的总体积，找空间异常增长位置"
+        },
+        {
+          "key": "B",
+          "text": "查看分区空间使用"
+        },
+        {
+          "key": "C",
+          "text": "查看内存"
+        },
+        {
+          "key": "D",
+          "text": "修改目录权限"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "du 统计目录占用（-s 汇总、-h 易读）；常配合 df 定位“哪个目录吃掉空间”。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M112",
+      "type": "single",
+      "module": "os",
+      "stem": "被删除但仍被进程打开的文件，其磁盘空间：",
+      "options": [
+        {
+          "key": "A",
+          "text": "不会立即释放，需关闭/重启占用进程"
+        },
+        {
+          "key": "B",
+          "text": "立即释放"
+        },
+        {
+          "key": "C",
+          "text": "永远不释放"
+        },
+        {
+          "key": "D",
+          "text": "自动移到回收站"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "inode 仍被引用，需定位并关闭/重启占用进程，空间才释放；这是 df 满而 du 小常见原因。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M113",
+      "type": "single",
+      "module": "os",
+      "stem": "服务只监听 127.0.0.1 时，表示：",
+      "options": [
+        {
+          "key": "A",
+          "text": "仅本机可访问"
+        },
+        {
+          "key": "B",
+          "text": "所有主机都能访问"
+        },
+        {
+          "key": "C",
+          "text": "服务未启动"
+        },
+        {
+          "key": "D",
+          "text": "网络断开"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "127.0.0.1 是回环接口只代表本机；监听 0.0.0.0 才绑定所有网卡、其他主机才能连入。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M114",
+      "type": "single",
+      "module": "os",
+      "stem": "查看本机正在监听的端口与对应服务，使用：",
+      "options": [
+        {
+          "key": "A",
+          "text": "ss -tuln"
+        },
+        {
+          "key": "B",
+          "text": "free -h"
+        },
+        {
+          "key": "C",
+          "text": "whoami"
+        },
+        {
+          "key": "D",
+          "text": "uname -m"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ss -tuln 查看端口监听与连接（-t TCP、-u UDP、-l 监听、-n 数字）；是“端口监听”排查环节命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M115",
+      "type": "single",
+      "module": "os",
+      "stem": "远程登录到 192.0.2.10 主机，使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "ssh user@192.0.2.10"
+        },
+        {
+          "key": "B",
+          "text": "scp file user@192.0.2.10:/tmp/"
+        },
+        {
+          "key": "C",
+          "text": "ping 192.0.2.10"
+        },
+        {
+          "key": "D",
+          "text": "ss -tuln"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ssh 用于远程登录；scp 远程复制文件；ping 测连通；ss 看端口监听。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M116",
+      "type": "single",
+      "module": "os",
+      "stem": "更新本机软件包索引（在安装前），使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "sudo apt update"
+        },
+        {
+          "key": "B",
+          "text": "sudo apt install"
+        },
+        {
+          "key": "C",
+          "text": "systemctl restart"
+        },
+        {
+          "key": "D",
+          "text": "journalctl -u"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "apt update 更新包索引；apt install 安装（自动解析依赖）。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M117",
+      "type": "single",
+      "module": "os",
+      "stem": "关于“软件包”与“服务”的关系，正确的是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "软件包 ≠ 服务：安装成功不代表服务已启动"
+        },
+        {
+          "key": "B",
+          "text": "安装成功即服务已运行"
+        },
+        {
+          "key": "C",
+          "text": "服务与软件包无关"
+        },
+        {
+          "key": "D",
+          "text": "软件包就是服务单元"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "软件包负责装/升/卸；服务由 systemd 管理，安装后是否运行需 systemctl status / journalctl 验证。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M118",
+      "type": "single",
+      "module": "os",
+      "stem": "查看某服务最近 50 行日志，使用的命令是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "journalctl -u <服务> -n 50"
+        },
+        {
+          "key": "B",
+          "text": "dmesg"
+        },
+        {
+          "key": "C",
+          "text": "df -h"
+        },
+        {
+          "key": "D",
+          "text": "whoami"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "journalctl -u <服务> 只看该服务的日志，-n 50 显示最近 50 行；dmesg 是内核日志。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M119",
+      "type": "single",
+      "module": "os",
+      "stem": "同一份 x86 二进制程序复制到 ARM64 系统无法运行，根本原因是：",
+      "options": [
+        {
+          "key": "A",
+          "text": "机器指令集面向不同 ISA"
+        },
+        {
+          "key": "B",
+          "text": "文件名不同"
+        },
+        {
+          "key": "C",
+          "text": "内存不足"
+        },
+        {
+          "key": "D",
+          "text": "文件太大"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "不同 ISA 指令编码不同，x86 二进制在 ARM64 需重新编译（对应生态适配的“指令集+运行库+ABI”三层）。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M120",
+      "type": "single",
+      "module": "os",
+      "stem": "统信 UOS 操作系统基于哪个内核开发？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Linux"
+        },
+        {
+          "key": "B",
+          "text": "Windows NT"
+        },
+        {
+          "key": "C",
+          "text": "macOS Darwin"
+        },
+        {
+          "key": "D",
+          "text": "FreeBSD"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "UOS 基于 Linux 内核，面向国产 CPU 平台。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M121",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列属于 systemctl 常用子命令的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "status"
+        },
+        {
+          "key": "B",
+          "text": "enable"
+        },
+        {
+          "key": "C",
+          "text": "reload"
+        },
+        {
+          "key": "D",
+          "text": "restart"
+        },
+        {
+          "key": "E",
+          "text": "chmod"
+        },
+        {
+          "key": "F",
+          "text": "ps"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "status/start/stop/restart/reload/enable/disable 都是 systemctl 子命令；chmod、ps 是其他命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M122",
+      "type": "multi",
+      "module": "os",
+      "stem": "启动排障按故障阶段定位，对应的观察/命令正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "固件/GRUB 阶段看引导配置"
+        },
+        {
+          "key": "B",
+          "text": "内核阶段看 dmesg"
+        },
+        {
+          "key": "C",
+          "text": "服务阶段看 journalctl"
+        },
+        {
+          "key": "D",
+          "text": "所有阶段都由 systemctl 判断"
+        },
+        {
+          "key": "E",
+          "text": "启动排障只查看日志文件"
+        },
+        {
+          "key": "F",
+          "text": "无需区分阶段"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "三阶段看不同来源：固件/GRUB → 引导配置，内核 → dmesg，服务(systemd) → journalctl；D/E/F 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M123",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列属于“身份/用户组”相关命令的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "whoami"
+        },
+        {
+          "key": "B",
+          "text": "id"
+        },
+        {
+          "key": "C",
+          "text": "groups"
+        },
+        {
+          "key": "D",
+          "text": "useradd"
+        },
+        {
+          "key": "E",
+          "text": "df -h"
+        },
+        {
+          "key": "F",
+          "text": "ip addr"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "whoami/id/groups 看身份与组，useradd/passwd/userdel/groupadd 管理用户组；df、ip 与身份无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M124",
+      "type": "multi",
+      "module": "os",
+      "stem": "进程监控“观察→定位→处理→复盘”链路涉及的命令有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "top"
+        },
+        {
+          "key": "B",
+          "text": "ps aux | grep"
+        },
+        {
+          "key": "C",
+          "text": "kill <PID>"
+        },
+        {
+          "key": "D",
+          "text": "free -h"
+        },
+        {
+          "key": "E",
+          "text": "chmod"
+        },
+        {
+          "key": "F",
+          "text": "tar"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "top/free/df 观察，ps|grep 定位，kill 处理；chmod、tar 不是进程监控命令。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M125",
+      "type": "multi",
+      "module": "os",
+      "stem": "磁盘/存储排障“发现→定位→取证→处理”涉及的命令有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "df -h"
+        },
+        {
+          "key": "B",
+          "text": "du -sh"
+        },
+        {
+          "key": "C",
+          "text": "journalctl"
+        },
+        {
+          "key": "D",
+          "text": "grep 关键日志"
+        },
+        {
+          "key": "E",
+          "text": "whoami"
+        },
+        {
+          "key": "F",
+          "text": "ssh"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "df 发现容量、du 定位目录、journalctl//var/log 定位、grep 取证；whoami、ssh 与此无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M126",
+      "type": "multi",
+      "module": "os",
+      "stem": "网络/端口/SSH 排查链路涉及的命令有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "ip addr"
+        },
+        {
+          "key": "B",
+          "text": "ping"
+        },
+        {
+          "key": "C",
+          "text": "ss -tuln"
+        },
+        {
+          "key": "D",
+          "text": "ssh"
+        },
+        {
+          "key": "E",
+          "text": "groupadd"
+        },
+        {
+          "key": "F",
+          "text": "userdel"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "ip 看本机 IP、ping 测可达、ss 看端口监听、ssh 远程访问；E/F 是用户管理命令，与网络排查无关。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M127",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列关于硬链接/软链接的说法正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "硬链接与源文件共享同一 inode"
+        },
+        {
+          "key": "B",
+          "text": "软链接是存目标路径的小文件"
+        },
+        {
+          "key": "C",
+          "text": "软链接可跨文件系统、可指向目录"
+        },
+        {
+          "key": "D",
+          "text": "硬链接不能跨文件系统、不能指向目录"
+        },
+        {
+          "key": "E",
+          "text": "软链接目标被删仍有效"
+        },
+        {
+          "key": "F",
+          "text": "硬链接目标被删则数据丢失"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "硬链接共享 inode、不能跨文件系统/目录；软链接存路径、可跨/可指目录、目标删则失效、删除软链接不影响目标；E/F 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M128",
+      "type": "multi",
+      "module": "os",
+      "stem": "权限数字表示中正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "4 表示读"
+        },
+        {
+          "key": "B",
+          "text": "2 表示写"
+        },
+        {
+          "key": "C",
+          "text": "1 表示执行"
+        },
+        {
+          "key": "D",
+          "text": "755 对应 rwxr-xr-x"
+        },
+        {
+          "key": "E",
+          "text": "6 表示执行"
+        },
+        {
+          "key": "F",
+          "text": "0 表示可读写执行"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "4=读、2=写、1=执行，相加得权限值；755=rwxr-xr-x；E/F 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M129",
+      "type": "multi",
+      "module": "os",
+      "stem": "CPU 使用率高时，合理的排查步骤/判断包括：",
+      "options": [
+        {
+          "key": "A",
+          "text": "确认进程 PID 与命令"
+        },
+        {
+          "key": "B",
+          "text": "查看相关日志"
+        },
+        {
+          "key": "C",
+          "text": "观察 CPU 占用是否持续"
+        },
+        {
+          "key": "D",
+          "text": "结合内存、磁盘、I/O 联合观察"
+        },
+        {
+          "key": "E",
+          "text": "立即 kill 掉所有进程"
+        },
+        {
+          "key": "F",
+          "text": "只看 CPU 一个指标即可下结论"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "CPU 高不一定是故障，应联合观察并确认持续性；不要只盯一个指标、也不要盲目终止所有进程。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M130",
+      "type": "multi",
+      "module": "os",
+      "stem": "下列关于系统调用、中断、信号的说法正确的有：",
+      "options": [
+        {
+          "key": "A",
+          "text": "系统调用是用户程序主动请求内核服务（向下）"
+        },
+        {
+          "key": "B",
+          "text": "中断是硬件设备通知处理器（异步）"
+        },
+        {
+          "key": "C",
+          "text": "信号是内核向进程通知事件（进程级）"
+        },
+        {
+          "key": "D",
+          "text": "三者是平级的“事件通道”，只是作用域不同"
+        },
+        {
+          "key": "E",
+          "text": "三者都是硬件层面的机制"
+        },
+        {
+          "key": "F",
+          "text": "三者方向完全相同"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "三类事件通道各有作用域（用户请求/硬件/进程）；概念平级，分述于各主题；E/F 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M131",
+      "type": "judge",
+      "module": "os",
+      "stem": "systemctl enable 服务 意味着该服务当前已经运行。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "enable 只配置开机自启（创建符号链接），不等于当前已运行；start 才是立即启动。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M132",
+      "type": "judge",
+      "module": "os",
+      "stem": "SIGKILL 信号可被进程捕获并忽略。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "SIGKILL 由内核强制终止、不可捕获/忽略；SIGTERM 才是可捕获的礼貌请求。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M133",
+      "type": "judge",
+      "module": "os",
+      "stem": "硬链接与源文件共享同一个 inode。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "硬链接是给同一 inode 再添一个名字；源文件只是第一个名字。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M134",
+      "type": "judge",
+      "module": "os",
+      "stem": "软链接指向的目标被删除后，软链接仍然有效。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "软链接是指向路径的小文件，目标被移动/删除则失效（悬空链接）。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M135",
+      "type": "judge",
+      "module": "os",
+      "stem": "目录的执行权限（x）决定能否进入或访问该目录内条目。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "目录的 x 决定能否进入/遍历、访问目录内条目；与文件的 x（可执行）语义不同。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M136",
+      "type": "judge",
+      "module": "os",
+      "stem": "默认 umask 为 022 时，新建普通文件权限是 644。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "文件默认基数 666 − umask 022 = 644；目录为 777−022=755。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M137",
+      "type": "judge",
+      "module": "os",
+      "stem": "swap 是内存的长期主力，可完全替代物理内存。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "swap 远慢于内存，只缓解短期压力，不能替代扩容内存，是辅助而非主力。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M138",
+      "type": "judge",
+      "module": "os",
+      "stem": "服务监听 0.0.0.0 表示仅本机可访问。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "监听 0.0.0.0 绑定所有网卡，其他主机才能连入；127.0.0.1 才是仅本机。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M139",
+      "type": "judge",
+      "module": "os",
+      "stem": "被删除但仍被进程打开的文件，其磁盘空间会立即释放。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "inode 仍被引用，需关闭/重启占用进程空间才释放；这是 df 满而 du 小常见原因。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M140",
+      "type": "judge",
+      "module": "os",
+      "stem": "RAID 可以防止误删、病毒等逻辑损坏。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "RAID 只防硬件故障，不防误删/病毒/逻辑损坏；备份才是兜底。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M141",
+      "type": "judge",
+      "module": "os",
+      "stem": "软件包安装成功，就意味着对应的服务已经启动并运行。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "软件包≠服务；安装成功不代表服务已启动，需 systemctl status / journalctl 验证。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M142",
+      "type": "judge",
+      "module": "os",
+      "stem": "统信 UOS 是基于 Linux 内核开发的国产操作系统。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "UOS 基于 Linux 内核，面向国产 CPU 平台。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M143",
+      "type": "judge",
+      "module": "os",
+      "stem": "系统调用是用户程序主动向下请求内核服务的机制。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "系统调用由用户程序主动发起，是进入内核的入口，方向向下。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M144",
+      "type": "judge",
+      "module": "os",
+      "stem": "中断是硬件设备通知处理器的一种异步机制。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "中断由硬件设备主动通知处理器（异步）；信号才是内核向进程的通知。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M145",
+      "type": "judge",
+      "module": "os",
+      "stem": "信号是内核向进程通知事件的进程级机制。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "信号是进程级事件通知（如 SIGTERM/SIGKILL）；与中断、系统调用作用域不同。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M146",
+      "type": "judge",
+      "module": "os",
+      "stem": "硬链接可以跨文件系统、也可以指向目录。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "硬链接不能跨文件系统、不能指向目录；软链接没有这些限制。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M147",
+      "type": "judge",
+      "module": "os",
+      "stem": "启动排障中，内核阶段应查看 systemd 日志 journalctl，而非 dmesg。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "内核阶段看 dmesg（内核日志）；服务阶段才看 journalctl。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M148",
+      "type": "judge",
+      "module": "os",
+      "stem": "服务修改配置后，reload 可以在不中断服务的情况下重读配置。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "reload 不中断服务、只在运行中重读配置；restart 会中断连接（仅当服务不支持 reload 时用）。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M149",
+      "type": "judge",
+      "module": "os",
+      "stem": "whoami 命令用于显示当前登录的用户名。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "whoami 显示当前登录用户名；id/groups 看用户与组。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M150",
+      "type": "judge",
+      "module": "os",
+      "stem": "系统安全从身份和权限开始，不应把管理员权限当作默认状态。",
+      "options": [
+        {
+          "key": "A",
+          "text": "正确"
+        },
+        {
+          "key": "B",
+          "text": "错误"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "呼应“身份→用户组→权限→sudo→审计”：sudo 只在需要时提权、执行前明确目标与风险。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M301",
+      "type": "single",
+      "module": "ai",
+      "stem": "梯度下降更新参数时，学习率过大会导致哪种现象？",
+      "options": [
+        {
+          "key": "A",
+          "text": "损失函数收敛到全局最优"
+        },
+        {
+          "key": "B",
+          "text": "参数跨过最优点来回震荡、训练发散"
+        },
+        {
+          "key": "C",
+          "text": "梯度逐渐趋近于零"
+        },
+        {
+          "key": "D",
+          "text": "模型欠拟合、收敛过慢"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "学习率过大时步长超过损失面曲率允许的范围，参数会跳过谷底来回震荡，训练损失发散；过小才导致收敛缓慢。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M302",
+      "type": "single",
+      "module": "ai",
+      "stem": "L1 与 L2 正则化都能抑制过拟合，二者的关键区别是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "L1 使权重整体变小，L2 使权重精确归零"
+        },
+        {
+          "key": "B",
+          "text": "L1 在零点附近梯度恒定、推动权重精确归零；L2 梯度随权重线性缩小、只能压小不能归零"
+        },
+        {
+          "key": "C",
+          "text": "L1 只适用于神经网络，L2 只适用于线性模型"
+        },
+        {
+          "key": "D",
+          "text": "L1 降低方差，L2 降低偏差"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "L1 在零点附近梯度恒定（使权重稀疏归零），L2 梯度随权重线性缩小（压小不归零）；二者都是加在损失上的参数惩罚。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M303",
+      "type": "single",
+      "module": "ai",
+      "stem": "模型在训练集表现好、在测试集表现差，且特征过多、数据偏少，最可能属于？",
+      "options": [
+        {
+          "key": "A",
+          "text": "欠拟合（高偏差）"
+        },
+        {
+          "key": "B",
+          "text": "过拟合（高方差）"
+        },
+        {
+          "key": "C",
+          "text": "数据标准化不足"
+        },
+        {
+          "key": "D",
+          "text": "学习率过小"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "过拟合是训练集好、测试集差，常因模型复杂度过高或样本过少而记住噪声；欠拟合则训练测试都差。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M304",
+      "type": "single",
+      "module": "ai",
+      "stem": "神经网络中，偏置 bias 的主要作用是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "增加网络深度、引入非线性"
+        },
+        {
+          "key": "B",
+          "text": "平移激活函数与决策边界，让网络能拟合不过原点的规律"
+        },
+        {
+          "key": "C",
+          "text": "加快反向传播的收敛速度"
+        },
+        {
+          "key": "D",
+          "text": "减少参数量、降低计算开销"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "偏置是在加权和上再加一个常数，相当于直线 y=wx+b 中的 b 定平移；没有偏置决策边界被限制在过原点。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M305",
+      "type": "single",
+      "module": "ai",
+      "stem": "在自注意力的点积中，除以 √d_k 的目的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "让多头注意力可以并行计算"
+        },
+        {
+          "key": "B",
+          "text": "防止点积随维度增大而落入 Softmax 饱和区导致梯度消失"
+        },
+        {
+          "key": "C",
+          "text": "把键值向量压缩到更低的维度"
+        },
+        {
+          "key": "D",
+          "text": "实现因果掩码、保证只看到前文"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "点积随维度增大而变大，直接进 Softmax 易饱和、梯度消失；除以 √d_k 缩放可稳定梯度。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M306",
+      "type": "single",
+      "module": "ai",
+      "stem": "MQA（多查询注意力）相比 MHA 的核心变化是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "把每个 Token 的 K/V 压成低维潜向量"
+        },
+        {
+          "key": "B",
+          "text": "所有头共享同一组 K/V，从而最小化 KV Cache"
+        },
+        {
+          "key": "C",
+          "text": "在若干头之间分组共享 K/V"
+        },
+        {
+          "key": "D",
+          "text": "用分块计算减少显存读写"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "MQA 让所有头共享同一组 K/V，KV Cache 最小但质量损失较大；GQA 分组共享折中，MLA 用低秩压缩。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M307",
+      "type": "single",
+      "module": "ai",
+      "stem": "量化把权重从 FP16 压到 INT8 后，显存占用大约？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不变"
+        },
+        {
+          "key": "B",
+          "text": "减少约一半"
+        },
+        {
+          "key": "C",
+          "text": "减少约四分之三"
+        },
+        {
+          "key": "D",
+          "text": "增加约一倍"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "权重从 FP16 每参数 2 字节降为 INT8 1 字节，显存占用减少约一半；同时吞吐提升约 4 倍但精度略损。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M308",
+      "type": "single",
+      "module": "ai",
+      "stem": "推理时把多个请求合并成一批同时计算，为什么能提升吞吐？",
+      "options": [
+        {
+          "key": "A",
+          "text": "因为减少了一次性请求的总计算量"
+        },
+        {
+          "key": "B",
+          "text": "因为权重读取是固定开销，批处理把同一份权重的读取成本摊薄给多个请求"
+        },
+        {
+          "key": "C",
+          "text": "因为每请求不再需要读权重"
+        },
+        {
+          "key": "D",
+          "text": "因为批处理会减少 KV Cache 的显存占用"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "自回归每生成一个 Token 都要读一遍权重，这是与请求数无关的固定开销；batch 后权重读一次、同时算 N 个请求，每请求成本摊薄。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M309",
+      "type": "single",
+      "module": "ai",
+      "stem": "MoE 混合专家省算力的核心机制是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "把全部专家参数压缩成低精度"
+        },
+        {
+          "key": "B",
+          "text": "门控路由每次只激活部分专家，总参数量大但实际计算量小"
+        },
+        {
+          "key": "C",
+          "text": "用 KV Cache 复用专家中间结果"
+        },
+        {
+          "key": "D",
+          "text": "让所有专家共享同一套权重"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "MoE 把网络拆成多个专家，门控把输入分发给部分专家（如 8 个中激活 2 个），稀疏激活省算力；负载均衡影响训练稳定性。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M310",
+      "type": "single",
+      "module": "ai",
+      "stem": "向量数据库检索时常用哪种索引结构来加速大规模相似度检索？",
+      "options": [
+        {
+          "key": "A",
+          "text": "B+ 树聚簇索引"
+        },
+        {
+          "key": "B",
+          "text": "HNSW 图索引、IVF 倒排等近似最近邻索引"
+        },
+        {
+          "key": "C",
+          "text": "哈希表（无序）"
+        },
+        {
+          "key": "D",
+          "text": "跳表有序集合"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "全库线性扫描在大数据下太慢，HNSW/IVF 等近似最近邻索引用空间结构跳过大量无关向量。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M311",
+      "type": "single",
+      "module": "os",
+      "stem": "UOS 默认使用的文件系统是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "btrfs"
+        },
+        {
+          "key": "B",
+          "text": "xfs"
+        },
+        {
+          "key": "C",
+          "text": "ext4"
+        },
+        {
+          "key": "D",
+          "text": "NTFS"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "常见文件系统有 ext4、xfs、btrfs，UOS 默认使用 ext4。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M312",
+      "type": "single",
+      "module": "os",
+      "stem": "Linux 启动流程中，负责加载内核的引导程序通常是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "systemd"
+        },
+        {
+          "key": "B",
+          "text": "GRUB"
+        },
+        {
+          "key": "C",
+          "text": "dmesg"
+        },
+        {
+          "key": "D",
+          "text": "journalctl"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "启动接力链为：固件初始化硬件 → GRUB 加载内核 → 内核初始化并挂载根文件系统 → systemd 以一进程身份启动服务。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M313",
+      "type": "single",
+      "module": "os",
+      "stem": "systemctl 中 enable 与 start 的区别是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "二者完全相同，可互相替代"
+        },
+        {
+          "key": "B",
+          "text": "enable 配置开机自启（创建符号链接），不等于当前已运行；start 才立即启动"
+        },
+        {
+          "key": "C",
+          "text": "enable 立即启动，start 设置开机自启"
+        },
+        {
+          "key": "D",
+          "text": "enable 重启服务，start 停止服务"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "enable 只是把服务加入开机启动清单，不等于当前已运行；start 才是立即启动，二者不可互相替代。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M314",
+      "type": "single",
+      "module": "os",
+      "stem": "要让服务在运行中重读配置而不中断连接，应优先使用？",
+      "options": [
+        {
+          "key": "A",
+          "text": "stop"
+        },
+        {
+          "key": "B",
+          "text": "restart"
+        },
+        {
+          "key": "C",
+          "text": "reload"
+        },
+        {
+          "key": "D",
+          "text": "disable"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "reload 不中断服务、只在运行中重读配置；restart 会中断连接，仅当服务不支持 reload 或需重置状态时使用。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M315",
+      "type": "single",
+      "module": "os",
+      "stem": "Shell 中把前一条命令的输出作为后一条命令输入的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "分号 ;"
+        },
+        {
+          "key": "B",
+          "text": "管道 |"
+        },
+        {
+          "key": "C",
+          "text": "重定向 >"
+        },
+        {
+          "key": "D",
+          "text": "通配符 *"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "管道 | 把前命令输出作为后命令输入（如 ps aux | grep nginx）；分号顺序执行、重定向写文件/读文件。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M316",
+      "type": "single",
+      "module": "os",
+      "stem": "脚本首行写 #!/bin/bash 的作用是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "给脚本赋执行权限"
+        },
+        {
+          "key": "B",
+          "text": "指定解释器，告诉内核用哪个解释器执行该文件"
+        },
+        {
+          "key": "C",
+          "text": "声明脚本只用系统命令"
+        },
+        {
+          "key": "D",
+          "text": "让脚本开机自启"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "首行 shebang 指定解释器，不写则按当前 Shell 默认方式解析、行为容易不一致；执行权限用 chmod +x 设置。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M317",
+      "type": "single",
+      "module": "os",
+      "stem": "数字权限 755 对应的符号权限是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "rw-r--r--"
+        },
+        {
+          "key": "B",
+          "text": "rwxr-xr-x"
+        },
+        {
+          "key": "C",
+          "text": "rw-r-x---"
+        },
+        {
+          "key": "D",
+          "text": "rwxrwx---"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "755 = rwxr-xr-x：所有者可读写执行，组和其他用户读+执行；644 = rw-r--r-- 是普通文件常见默认。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M318",
+      "type": "single",
+      "module": "os",
+      "stem": "SIGTERM 与 SIGKILL 的区别是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "SIGTERM 由内核强制终止，SIGKILL 可被捕获"
+        },
+        {
+          "key": "B",
+          "text": "SIGTERM 是可控终止、进程可捕获并做清理；SIGKILL 由内核强制终止、无法捕获"
+        },
+        {
+          "key": "C",
+          "text": "二者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "SIGKILL 会请求进程优雅退出"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "TERM 是礼貌请求、把清理机会留给进程；KILL 由内核直接执行，用于 TERM 无效或进程失控时的兜底。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M319",
+      "type": "single",
+      "module": "os",
+      "stem": "df -h 显示磁盘几乎满、而 du 统计却很小，最可能的原因是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "磁盘坏道"
+        },
+        {
+          "key": "B",
+          "text": "被删除但仍被进程打开的文件仍占用空间"
+        },
+        {
+          "key": "C",
+          "text": "文件系统未挂载"
+        },
+        {
+          "key": "D",
+          "text": "缓存未刷新"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "被删除但仍被打开的文件 inode 仍被引用、空间不释放；du 按目录看不到已删除文件，df 按分区统计才反映真实占用。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M320",
+      "type": "single",
+      "module": "os",
+      "stem": "故障排除时，查看 systemd 服务的日志应使用？",
+      "options": [
+        {
+          "key": "A",
+          "text": "dmesg"
+        },
+        {
+          "key": "B",
+          "text": "journalctl"
+        },
+        {
+          "key": "C",
+          "text": "free -h"
+        },
+        {
+          "key": "D",
+          "text": "uname -r"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "journalctl 查看 systemd 日志（如 journalctl -u 服务名）；dmesg 看内核日志，free 看内存。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M321",
+      "type": "single",
+      "module": "os",
+      "stem": "动态链接程序在国产平台上启动报\"缺少共享库\"，应优先用哪个命令排查？",
+      "options": [
+        {
+          "key": "A",
+          "text": "ldd"
+        },
+        {
+          "key": "B",
+          "text": "which"
+        },
+        {
+          "key": "C",
+          "text": "umask"
+        },
+        {
+          "key": "D",
+          "text": "top"
+        }
+      ],
+      "answerKeys": [
+        "A"
+      ],
+      "explanation": "ldd 可查看程序依赖的共享库，确认缺失后补装对应架构的库；属运行时依赖适配不完整。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M322",
+      "type": "single",
+      "module": "software",
+      "stem": "关系数据库中，事务的隔离级别越高会带来什么后果？",
+      "options": [
+        {
+          "key": "A",
+          "text": "并发性能越高、数据越容易不一致"
+        },
+        {
+          "key": "B",
+          "text": "并发性能越低，因为需要加更多锁/快照控制"
+        },
+        {
+          "key": "C",
+          "text": "读写速度越快"
+        },
+        {
+          "key": "D",
+          "text": "索引失效"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "高隔离需要加更多锁/快照控制，事务相互等待增多，并发度下降；级别从读到串行化依次升高。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M323",
+      "type": "single",
+      "module": "software",
+      "stem": "数据库建立索引会带来哪个代价？",
+      "options": [
+        {
+          "key": "A",
+          "text": "降低读取速度"
+        },
+        {
+          "key": "B",
+          "text": "增加写入维护成本并需要额外存储空间"
+        },
+        {
+          "key": "C",
+          "text": "破坏事务的 ACID 特性"
+        },
+        {
+          "key": "D",
+          "text": "使外键失效"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "索引用 B+ 树/哈希加速查询，但每次增删改都要同步更新索引，还占用额外空间。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M324",
+      "type": "single",
+      "module": "software",
+      "stem": "MySQL 默认存储引擎 InnoDB 的特点不包括？",
+      "options": [
+        {
+          "key": "A",
+          "text": "支持事务（ACID）"
+        },
+        {
+          "key": "B",
+          "text": "支持行级锁"
+        },
+        {
+          "key": "C",
+          "text": "支持外键"
+        },
+        {
+          "key": "D",
+          "text": "把数据存成 JSON 文档"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "InnoDB 支持事务、行级锁、外键，把数据按表空间组织落盘到 .ibd；JSON 文档是 NoSQL 文档型的组织方式。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M325",
+      "type": "single",
+      "module": "software",
+      "stem": "InnoDB 读写磁盘的最小单位是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "行 Row"
+        },
+        {
+          "key": "B",
+          "text": "页 Page（默认约 16KB）"
+        },
+        {
+          "key": "C",
+          "text": "表空间 .ibd"
+        },
+        {
+          "key": "D",
+          "text": "字节"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "页是 InnoDB 读写磁盘的最小单位（默认约 16KB），一页放多行；页最终落到 .ibd 数据文件。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M326",
+      "type": "single",
+      "module": "software",
+      "stem": "消息队列在高峰期\"削峰\"的原理是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "直接拒绝多余请求"
+        },
+        {
+          "key": "B",
+          "text": "先承接请求入队列，再按消费者能力处理，实现缓冲"
+        },
+        {
+          "key": "C",
+          "text": "把请求同步转发给所有消费者"
+        },
+        {
+          "key": "D",
+          "text": "不使用任何缓冲直接处理"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "高峰时消息队列先承接再按消费者能力处理，实现削峰缓冲与异步解耦；还需要确认、重试、幂等、死信等机制保证可靠。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M327",
+      "type": "single",
+      "module": "software",
+      "stem": "容器相比虚拟机的优势是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "隔离级别更高、每台独立操作系统"
+        },
+        {
+          "key": "B",
+          "text": "共享宿主机内核、启动更快、资源占用更小"
+        },
+        {
+          "key": "C",
+          "text": "安全性与隔离性更强"
+        },
+        {
+          "key": "D",
+          "text": "必须启动一整套操作系统"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "容器共享宿主机内核、只打包应用及依赖，启动快、资源小；虚拟机能更强隔离但开销大。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M328",
+      "type": "single",
+      "module": "software",
+      "stem": "Docker 中\"镜像\"与\"容器\"的关系是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "容器是静态模板，镜像运行后的实例"
+        },
+        {
+          "key": "B",
+          "text": "镜像是静态的可复用模板，容器是镜像运行后的实例、拥有独立可写层"
+        },
+        {
+          "key": "C",
+          "text": "二者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "镜像只能运行一次"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "镜像由只读层组成、用 Dockerfile 构建可复用；容器是镜像运行实例，有独立可写层，运行时改动不影响镜像。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M329",
+      "type": "single",
+      "module": "software",
+      "stem": "CAP 定理中，分布式系统在分区时通常必须满足的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "一致性（C）必须优先"
+        },
+        {
+          "key": "B",
+          "text": "可用性（A）必须优先"
+        },
+        {
+          "key": "C",
+          "text": "分区容错性（P），因为网络故障不可避免"
+        },
+        {
+          "key": "D",
+          "text": "三者可以同时完全满足"
+        }
+      ],
+      "answerKeys": [
+        "C"
+      ],
+      "explanation": "P 网络分区在分布式系统中不可避免，系统必须能在分区下继续工作；因此 C 与 A 只能二选一优先。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M330",
+      "type": "single",
+      "module": "software",
+      "stem": "NoSQL 中\"键值\"类型数据库的典型代表是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "MongoDB"
+        },
+        {
+          "key": "B",
+          "text": "Redis"
+        },
+        {
+          "key": "C",
+          "text": "Neo4j"
+        },
+        {
+          "key": "D",
+          "text": "HBase"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Redis 是键值型；MongoDB 是文档型、Neo4j 是图、HBase 是宽列族。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M331",
+      "type": "single",
+      "module": "software",
+      "stem": "国产数据库的代表产品不包括？",
+      "options": [
+        {
+          "key": "A",
+          "text": "达梦数据库"
+        },
+        {
+          "key": "B",
+          "text": "人大金仓"
+        },
+        {
+          "key": "C",
+          "text": "openGauss"
+        },
+        {
+          "key": "D",
+          "text": "Redis"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "达梦、人大金仓、GaussDB、openGauss、OceanBase 都是国产数据库；Redis 是 NoSQL 键值缓存中间件。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M332",
+      "type": "single",
+      "module": "agent",
+      "stem": "Agent 中，LLM 主要负责哪部分、执行层主要负责哪部分？",
+      "options": [
+        {
+          "key": "A",
+          "text": "LLM 负责执行，执行层负责决策"
+        },
+        {
+          "key": "B",
+          "text": "LLM 负责理解目标、拆解、决策、工具选择与参数生成（脑力）；执行层负责真正调用（体力）"
+        },
+        {
+          "key": "C",
+          "text": "LLM 与执行层都只负责决策"
+        },
+        {
+          "key": "D",
+          "text": "LLM 直接操作文件和命令"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "LLM 是文本生成器/决策者，文件读写、命令执行等实际动作发生在模型之外，由外部执行层按参数调用系统能力。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M333",
+      "type": "single",
+      "module": "agent",
+      "stem": "Agent 认知架构的结构维（components）对应 LangGraph 的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "edges / 条件边"
+        },
+        {
+          "key": "B",
+          "text": "nodes（节点，即零件清单）"
+        },
+        {
+          "key": "C",
+          "text": "状态 state"
+        },
+        {
+          "key": "D",
+          "text": "memory"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "结构维讲由什么零件构成，对应 LangGraph 的 nodes；行为维（主循环）对应 edges/条件边。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M334",
+      "type": "single",
+      "module": "agent",
+      "stem": "Function Calling 协议中，模型输出什么、谁负责执行？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模型直接执行工具"
+        },
+        {
+          "key": "B",
+          "text": "模型输出结构化的调用请求（函数名+JSON 参数），外部执行层真正执行并回传结果"
+        },
+        {
+          "key": "C",
+          "text": "执行层决定调用哪个工具"
+        },
+        {
+          "key": "D",
+          "text": "模型只输出自然语言，不涉及参数"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "函数调用让模型输出调用请求，外部执行层执行并回传；生成→执行→回传→继续生成的接力正是决策者/执行者分工。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M335",
+      "type": "single",
+      "module": "agent",
+      "stem": "MCP 中，\"Host\"与\"Client\"的关系是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Host 与 Client 是协议连接关系"
+        },
+        {
+          "key": "B",
+          "text": "Client 是 Host 内部按需创建的组件，属于包含/实例化关系；真正协议连接发生在 Client ↔ Server"
+        },
+        {
+          "key": "C",
+          "text": "Client 是独立于 Host 的外部进程"
+        },
+        {
+          "key": "D",
+          "text": "Host 与 Client 互为 Server"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Host 是整台 AI 应用，Client 是 Host 里负责连某个 Server 的通道；接入配置只写 Servers、不写 Client。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M336",
+      "type": "single",
+      "module": "agent",
+      "stem": "MCP 三大原语中，\"Tools\"的主要特点是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "供应用读取数据、无副作用"
+        },
+        {
+          "key": "B",
+          "text": "模型调用去执行、有副作用的动作"
+        },
+        {
+          "key": "C",
+          "text": "预置的可复用交互模板"
+        },
+        {
+          "key": "D",
+          "text": "只能由用户复用、无副作用"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Tools 让模型调用执行、有副作用（查成绩、下单）；Resources 供应用读取无副作用；Prompts 是模板。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M337",
+      "type": "single",
+      "module": "agent",
+      "stem": "MCP 中协议消息与日志必须隔离，其中日志应输出到？",
+      "options": [
+        {
+          "key": "A",
+          "text": "stdout"
+        },
+        {
+          "key": "B",
+          "text": "stderr 或文件"
+        },
+        {
+          "key": "C",
+          "text": "stdin"
+        },
+        {
+          "key": "D",
+          "text": "任意流均可"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "stdio 模式 stdin 进、stdout 出（协议），stderr 旁路（日志）；Client 把 stdout 逐字节当 JSON-RPC 解析，写日志会错乱。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M338",
+      "type": "single",
+      "module": "agent",
+      "stem": "Skill 与 Tool 的关系是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Skill 是原子动作，Tool 是组合包"
+        },
+        {
+          "key": "B",
+          "text": "Tool 是原子动作，Skill 是\"原子动作+编排顺序\"的组合包，抽象层级更高"
+        },
+        {
+          "key": "C",
+          "text": "二者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "Skill 比 Tool 更灵活低层"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Tool 是单个原子操作（如搜索）；Skill 把一组工具和业务流程封装成可复用的高层能力，模型把 Skill 当大工具选调。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M339",
+      "type": "single",
+      "module": "agent",
+      "stem": "Prompt 工程中，系统提示词主要放置？",
+      "options": [
+        {
+          "key": "A",
+          "text": "当次任务指令"
+        },
+        {
+          "key": "B",
+          "text": "角色、行为规则与边界（稳定层，通常每轮不变）"
+        },
+        {
+          "key": "C",
+          "text": "外部检索内容"
+        },
+        {
+          "key": "D",
+          "text": "用户随机输入"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "系统提示词设定角色/规则/边界（稳定层），用户提示词是每轮变化的任务卡片（可变层），外部内容属更低信任层。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M340",
+      "type": "single",
+      "module": "agent",
+      "stem": "RAG 与微调的对比，正确的是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "RAG 更新模型参数，微调更新知识库"
+        },
+        {
+          "key": "B",
+          "text": "RAG 在推理时检索外部知识并加入上下文、无需改模型参数；微调用数据更新模型参数"
+        },
+        {
+          "key": "C",
+          "text": "二者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "补没学过的知识用微调、学风格用 RAG"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "缺没学过的知识用 RAG（知识更新只需改知识库），要学某种风格/行为用微调。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M341",
+      "type": "single",
+      "module": "agent",
+      "stem": "ReAct 循环的正确流程是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "行动→思考→行动"
+        },
+        {
+          "key": "B",
+          "text": "思考→行动→观察，再进入下一轮思考，直到信息充足输出结果"
+        },
+        {
+          "key": "C",
+          "text": "观察→思考→输出"
+        },
+        {
+          "key": "D",
+          "text": "一次规划到底、不观察"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "ReAct 把推理和行动交织：思考确定下一步、行动调用工具、观察读取返回，循环至信息充足后输出。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M342",
+      "type": "single",
+      "module": "agent",
+      "stem": "提示注入为什么难以从根本上杜绝？",
+      "options": [
+        {
+          "key": "A",
+          "text": "因为模型可以区分指令与数据"
+        },
+        {
+          "key": "B",
+          "text": "因为模型无法从原理上区分\"指令\"与\"数据\"，进入上下文的文本话语权相同"
+        },
+        {
+          "key": "C",
+          "text": "因为注入只来自用户输入"
+        },
+        {
+          "key": "D",
+          "text": "因为沙箱完全可靠"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "模型不能从原理上区分指令与数据，所有进入上下文的文本话语权相同；因此要外部内容与系统指令隔离、加最小权限。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M343",
+      "type": "single",
+      "module": "agent",
+      "stem": "Agent 进入死循环或浪费 Token 时，常用的兜底手段是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "加大上下文窗口"
+        },
+        {
+          "key": "B",
+          "text": "设置最大迭代次数和 Token 预算限制"
+        },
+        {
+          "key": "C",
+          "text": "提高温度参数"
+        },
+        {
+          "key": "D",
+          "text": "只记录成功日志"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "死循环/浪费 Token 时用最大迭代次数与 Token 预算兜底止损；日志记录每步思考、调用与结果用于定位。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M344",
+      "type": "single",
+      "module": "agent",
+      "stem": "在 MCP 客户端接入配置里，通常只填写？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Client 清单"
+        },
+        {
+          "key": "B",
+          "text": "mcpServers（Server 启动命令等）清单"
+        },
+        {
+          "key": "C",
+          "text": "client 与 server 都需要声明"
+        },
+        {
+          "key": "D",
+          "text": "Host 与 Client 关系"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "接入配置是 Host 的配置，只写 Servers（command/args/env）；Client 是 Host 内部自动建立的通道，无需声明。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M345",
+      "type": "single",
+      "module": "agent",
+      "stem": "MCP 服务用 FastMCP 定义工具时，工具的参数 schema 由什么自动生成？",
+      "options": [
+        {
+          "key": "A",
+          "text": "手写的 JSON 配置文件"
+        },
+        {
+          "key": "B",
+          "text": "函数的签名（名称、类型注解、默认值）"
+        },
+        {
+          "key": "C",
+          "text": "数据文件内容"
+        },
+        {
+          "key": "D",
+          "text": "客户端配置"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "FastMCP 装饰器按函数签名自动生成工具描述与参数 schema，类型注解与默认值会反映到参数定义。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M346",
+      "type": "single",
+      "module": "agent",
+      "stem": "RAG 检索结果与系统提示词分开存放，主要是为了防止？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据丢失"
+        },
+        {
+          "key": "B",
+          "text": "外部文本被当成新指令（指令注入）"
+        },
+        {
+          "key": "C",
+          "text": "检索速度变慢"
+        },
+        {
+          "key": "D",
+          "text": "内存不足"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "检索结果是不可信文本，注入上下文前要与系统指令隔离，否则可能被当作新指令执行；带文档名前缀便于溯源。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M347",
+      "type": "single",
+      "module": "agent",
+      "stem": "UOS AI 智能平台中，\"MCP、Skills、SDK\"分别解决什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "MCP 解决怎么用、Skills 解决怎么接、SDK 解决再开发"
+        },
+        {
+          "key": "B",
+          "text": "MCP 解决怎么接、Skills 解决接进来怎么用得更顺、SDK 解决别人怎么基于它再开发"
+        },
+        {
+          "key": "C",
+          "text": "三者都解决同一件事"
+        },
+        {
+          "key": "D",
+          "text": "SDK 解决接入、Skills 解决再开发"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "生态构建三层递进：MCP 统一工具接口（怎么接）、Skills 沉淀可复用能力（怎么用）、SDK 提供开发入口（再开发）。",
+      "chapter": "/ch08_intelligent_platform",
+      "source": "mock"
+    },
+    {
+      "id": "M348",
+      "type": "single",
+      "module": "agent",
+      "stem": "UOS AI 的 Agent OS 平台架构自下而上的五大层是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "应用能力层→智能体服务层→AI SDK→系统能力层→模型调度层"
+        },
+        {
+          "key": "B",
+          "text": "模型调度层→系统能力层→AI SDK→智能体服务层→应用能力层"
+        },
+        {
+          "key": "C",
+          "text": "模型调度层→AI SDK→系统能力层→应用能力层→智能体服务层"
+        },
+        {
+          "key": "D",
+          "text": "智能体服务层→模型调度层→系统能力层→AI SDK→应用能力层"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "Agent OS 自下而上五层：模型调度层→系统能力层→AI SDK→智能体服务层→应用能力层；AI SDK 是横切层。",
+      "chapter": "/ch08_intelligent_platform",
+      "source": "mock"
+    },
+    {
+      "id": "M349",
+      "type": "single",
+      "module": "hardware",
+      "stem": "不同指令集架构（ISA）的二进制程序不能互相直接运行的根源是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "API 不兼容"
+        },
+        {
+          "key": "B",
+          "text": "机器指令编码面向不同 ISA，CPU 只认自己指令集的二进制"
+        },
+        {
+          "key": "C",
+          "text": "共享库缺失"
+        },
+        {
+          "key": "D",
+          "text": "操作系统不同"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "ISA 是处理器能理解的机器指令等接口规范，不同 ISA 指令编码不同，x86 二进制拷到 ARM64 无法运行、需重新编译。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M350",
+      "type": "single",
+      "module": "hardware",
+      "stem": "指令集（ISA）与微架构的关系是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "ISA 是物理电路，微架构是接口规范"
+        },
+        {
+          "key": "B",
+          "text": "ISA 是接口规范，微架构是具体实现；同一指令集可有多种微架构"
+        },
+        {
+          "key": "C",
+          "text": "二者完全相同"
+        },
+        {
+          "key": "D",
+          "text": "微架构先于 ISA 定义"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "指令集是抽象接口规范（无物理实体），微架构是执行指令的硬件电路实现；同一 ISA 可有多种微架构实现。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M351",
+      "type": "single",
+      "module": "hardware",
+      "stem": "GPU 中负责调度和执行大量线程的核心计算单元是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CUDA Core"
+        },
+        {
+          "key": "B",
+          "text": "SM（Streaming Multiprocessor）"
+        },
+        {
+          "key": "C",
+          "text": "Tensor Core"
+        },
+        {
+          "key": "D",
+          "text": "Warp 调度器"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "SM 是 GPU 核心计算单元，负责调度执行大量线程；CUDA Core 是最小算术单元，Tensor Core 是矩阵专用加速单元。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M352",
+      "type": "single",
+      "module": "hardware",
+      "stem": "CUDA 中，标了 __global__ 的函数被称为什么？由谁调用？",
+      "options": [
+        {
+          "key": "A",
+          "text": "设备函数，由 GPU 调用"
+        },
+        {
+          "key": "B",
+          "text": "Kernel（内核），由 CPU 端调用启动、在 GPU 上并行执行"
+        },
+        {
+          "key": "C",
+          "text": "主机函数，由 CPU 执行"
+        },
+        {
+          "key": "D",
+          "text": "线程函数，由 warp 调度器调用"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "__global__ 函数是 Kernel，由 CPU 端调用启动（<<<>>>），GPU 并行执行；启动是异步的，CPU 继续往下跑。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M353",
+      "type": "single",
+      "module": "hardware",
+      "stem": "CUDA 中一个 warp（线程束）包含多少个线程？",
+      "options": [
+        {
+          "key": "A",
+          "text": "16"
+        },
+        {
+          "key": "B",
+          "text": "32"
+        },
+        {
+          "key": "C",
+          "text": "64"
+        },
+        {
+          "key": "D",
+          "text": "128"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "warp 是基本调度单位：32 个线程为一组、同一时刻执行相同命令（SIMT），是控制电路摊销与分支惩罚的折中。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M354",
+      "type": "single",
+      "module": "hardware",
+      "stem": "训练大模型时，GPU 间通信依赖高速互联网络，下列哪个是高性能首选方案？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Wi-Fi"
+        },
+        {
+          "key": "B",
+          "text": "InfiniBand 400G 以上"
+        },
+        {
+          "key": "C",
+          "text": "千兆以太网"
+        },
+        {
+          "key": "D",
+          "text": "USB 4.0"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "并行要频繁交换梯度或中间结果，通信带宽不足会拖慢整体；InfiniBand 400G 以上为高性能首选，RoCE 100G/200G 性价比高。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M355",
+      "type": "single",
+      "module": "hardware",
+      "stem": "液冷系统中，冷却液分配单元 CDU 的作用不包括？",
+      "options": [
+        {
+          "key": "A",
+          "text": "分配冷却液至各冷板支路"
+        },
+        {
+          "key": "B",
+          "text": "将热量从冷头转移出去"
+        },
+        {
+          "key": "C",
+          "text": "监测温度、压力、漏液"
+        },
+        {
+          "key": "D",
+          "text": "直接替代 CPU 计算"
+        }
+      ],
+      "answerKeys": [
+        "D"
+      ],
+      "explanation": "CDU 含循环泵、换热器、过滤器、膨胀罐、控制系统，负责分配、换热、稳定与监测；不参与计算。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M356",
+      "type": "single",
+      "module": "hardware",
+      "stem": "冷板液冷中，冷板材料\"铜\"与\"铝\"混用会带来的风险是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "散热效率翻倍"
+        },
+        {
+          "key": "B",
+          "text": "电偶腐蚀加速损坏"
+        },
+        {
+          "key": "C",
+          "text": "冷却液结冰"
+        },
+        {
+          "key": "D",
+          "text": "泵功率下降"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "混用铜铝会因电偶腐蚀加速损坏，应全铜或全铝（或加足缓蚀剂）；铜导热好、耐腐蚀，密度大成本高。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M357",
+      "type": "single",
+      "module": "hardware",
+      "stem": "国产 GPU 厂商\"天数智芯\"的天垓系列定位是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "推理产品"
+        },
+        {
+          "key": "B",
+          "text": "训练产品"
+        },
+        {
+          "key": "C",
+          "text": "边端产品"
+        },
+        {
+          "key": "D",
+          "text": "存储产品"
+        }
+      ],
+      "answerKeys": [
+        "B"
+      ],
+      "explanation": "天垓系列是训练产品（天垓100 为国内首款全自研 GPU 架构云端训练芯片）；智铠系列是推理、彤央系列是边端。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M358",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列关于机器学习学习范式的说法，正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "监督学习用带标签样本学习输入到目标的映射"
+        },
+        {
+          "key": "B",
+          "text": "无监督学习从无标签数据中发现结构"
+        },
+        {
+          "key": "C",
+          "text": "强化学习根据环境交互的反馈与奖励学习策略"
+        },
+        {
+          "key": "D",
+          "text": "三种范式的训练数据都必然带标签"
+        },
+        {
+          "key": "E",
+          "text": "监督学习无法用于分类任务"
+        },
+        {
+          "key": "F",
+          "text": "强化学习依赖带标签的训练数据"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "监督学习有标签、无监督无标签、强化学习靠奖励；只有监督学习的训练数据需带标签，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M359",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于决策树与集成学习，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "决策树是基学习器，可解释性强但易过拟合"
+        },
+        {
+          "key": "B",
+          "text": "Bagging 靠\"平均\"降低方差、压制过拟合"
+        },
+        {
+          "key": "C",
+          "text": "GBDT 逐棵树拟合前序残差、靠\"修正\"降低偏差"
+        },
+        {
+          "key": "D",
+          "text": "随机森林与 GBDT 都是串行、逐步推进"
+        },
+        {
+          "key": "E",
+          "text": "随机森林是串行、逐棵补残差"
+        },
+        {
+          "key": "F",
+          "text": "Bagging 靠“修正”降低偏差"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "随机森林是 Bagging（并行、投票/平均）降方差；GBDT 是 Boosting（串行、拟合残差）降偏差，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M360",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于支持向量机（SVM），下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "SVM 找间隔最大的分类边界，属于判别模型"
+        },
+        {
+          "key": "B",
+          "text": "支持向量是真正顶着间隔边界的少数样本"
+        },
+        {
+          "key": "C",
+          "text": "核技巧把数据映射到高维实现非线性分类"
+        },
+        {
+          "key": "D",
+          "text": "SVM 对特征尺度不敏感，无需标准化"
+        },
+        {
+          "key": "E",
+          "text": "支持向量越多模型越稳定"
+        },
+        {
+          "key": "F",
+          "text": "核技巧只适用于线性可分数据"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "SVM 依赖距离/内积，对尺度敏感、使用前需特征标准化，故 D 错误；软间隔用惩罚 C 平衡，核技巧处理线性不可分。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M361",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于朴素贝叶斯，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "基于贝叶斯定理，用先验概率×似然算后验"
+        },
+        {
+          "key": "B",
+          "text": "\"朴素\"指假定各特征条件独立"
+        },
+        {
+          "key": "C",
+          "text": "常用于文本分类，训练极快、可增量更新"
+        },
+        {
+          "key": "D",
+          "text": "属于判别模型，通过几何间隔分类"
+        },
+        {
+          "key": "E",
+          "text": "“朴素”指样本之间相互独立"
+        },
+        {
+          "key": "F",
+          "text": "朴素贝叶斯不能用于文本分类"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "朴素贝叶斯是生成模型、从概率入手算后验，假设条件独立；SVM 才是判别模型用几何间隔，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M362",
+      "type": "multi",
+      "module": "ai",
+      "stem": "下列哪些属于防止过拟合的常用手段？",
+      "options": [
+        {
+          "key": "A",
+          "text": "正则化（L1/L2）"
+        },
+        {
+          "key": "B",
+          "text": "Dropout 随机丢弃部分神经元"
+        },
+        {
+          "key": "C",
+          "text": "早停（观察验证集表现）"
+        },
+        {
+          "key": "D",
+          "text": "增加特征数量"
+        },
+        {
+          "key": "E",
+          "text": "增加模型参数与网络层数"
+        },
+        {
+          "key": "F",
+          "text": "降低正则化强度"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "正则化、Dropout、早停、数据增强都能抑制过拟合；增加特征/模型复杂度过高反而更易过拟合，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M363",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于神经网络中的激活函数，下列理解正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "多层网络靠激活函数引入非线性"
+        },
+        {
+          "key": "B",
+          "text": "完全线性的多层叠加仍是线性变换"
+        },
+        {
+          "key": "C",
+          "text": "激活函数让神经网络拟合复杂非线性规律"
+        },
+        {
+          "key": "D",
+          "text": "激活函数只会让输出恒为零"
+        },
+        {
+          "key": "E",
+          "text": "激活函数会削弱网络表达能力"
+        },
+        {
+          "key": "F",
+          "text": "用线性激活函数即可让多层网络等价于深层非线性模型"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "激活函数引入非线性是关键；若没有非线性激活，多层线性叠加本质仍是线性变换，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M364",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于 Transformer 的注意力机制，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "自注意力让每个位置能直接关注序列中所有位置"
+        },
+        {
+          "key": "B",
+          "text": "Q（查询）、K（键）、V（值）由输入向量乘权重矩阵得到"
+        },
+        {
+          "key": "C",
+          "text": "因果掩码保证生成第 n 个 Token 时只能看到前 n-1 个"
+        },
+        {
+          "key": "D",
+          "text": "KV Cache 让每步必须重算前面所有 Token 的 K/V"
+        },
+        {
+          "key": "E",
+          "text": "自注意力只能关注相邻位置"
+        },
+        {
+          "key": "F",
+          "text": "KV Cache 会显著减慢推理速度"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "KV Cache 正好相反——缓存已生成 Token 的 K/V、每步只算新 Token 的 Q，避免重算，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M365",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于注意力变体，下列对应关系正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "MHA：每头独立 QKV，KV Cache 最大、质量最强"
+        },
+        {
+          "key": "B",
+          "text": "MQA：所有头共享同一组 K/V，KV Cache 最小"
+        },
+        {
+          "key": "C",
+          "text": "GQA：在若干头之间分组共享 KV，折中"
+        },
+        {
+          "key": "D",
+          "text": "MLA：把 K/V 压成低维潜向量，缓存远大于 MHA"
+        },
+        {
+          "key": "E",
+          "text": "GQA 的 KV Cache 比 MQA 更小"
+        },
+        {
+          "key": "F",
+          "text": "MQA 在质量上通常优于 MHA"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "MLA 通过低秩压缩大幅缩小 KV Cache（约 93%），基本不丢质量，故 D 说\"缓存远大于 MHA\"错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M366",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于大语言模型的训练阶段，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "预训练在无标注语料上做语言建模，学习通用语言能力"
+        },
+        {
+          "key": "B",
+          "text": "SFT 用带指令或示例的数据，让模型学会按指令行事"
+        },
+        {
+          "key": "C",
+          "text": "RLHF 通过人类反馈的强化学习使输出符合人类偏好"
+        },
+        {
+          "key": "D",
+          "text": "对齐阶段的目标是让模型输出更随机"
+        },
+        {
+          "key": "E",
+          "text": "预训练使用带指令标注的数据"
+        },
+        {
+          "key": "F",
+          "text": "SFT 不需要任何示例数据"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "训练三阶段为预训练、SFT、RLHF；对齐是让输出有益、无害、诚实，而非更随机，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M367",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于推理阶段的显存占用，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "推理显存主要由权重、KV Cache、激活值三部分组成"
+        },
+        {
+          "key": "B",
+          "text": "参数量越大、精度越高，权重占显存越多"
+        },
+        {
+          "key": "C",
+          "text": "KV Cache 随序列长度增长，长上下文时显著增大"
+        },
+        {
+          "key": "D",
+          "text": "降低精度（量化到 INT8）会减少显存占用"
+        },
+        {
+          "key": "E",
+          "text": "激活值不随批量增大而增加"
+        },
+        {
+          "key": "F",
+          "text": "输入/输出长度越短 KV Cache 越大"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "推理显存=权重+KV Cache+激活值；参数量/精度影响权重，序列长度影响 KV Cache，量化减位宽可省显存，四项均正确。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M368",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于大模型的工程优化手段，下列正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "LoRA 冻结原始权重、只训练低秩分解矩阵，参数量大幅减少"
+        },
+        {
+          "key": "B",
+          "text": "QLoRA 在 LoRA 基础上进一步量化基座权重"
+        },
+        {
+          "key": "C",
+          "text": "MoE 用稀疏激活，总参数量大但实际计算量小"
+        },
+        {
+          "key": "D",
+          "text": "vLLM 的 PagedAttention 会增加显存碎片"
+        },
+        {
+          "key": "E",
+          "text": "LoRA 需更新全部原始权重"
+        },
+        {
+          "key": "F",
+          "text": "QLoRA 完全不量化、显存占用更大"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "PagedAttention 恰好是减少显存碎片、让同显存塞更多批次，故 D 错误；LoRA/QLoRA 降微调成本，MoE 省推理算力。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M369",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于并行策略，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据并行每卡持有完整模型、处理不同数据批次"
+        },
+        {
+          "key": "B",
+          "text": "模型并行把模型层切分到不同 GPU"
+        },
+        {
+          "key": "C",
+          "text": "张量并行把单层参数切分到多 GPU、通信频率极高"
+        },
+        {
+          "key": "D",
+          "text": "流水线并行通信量最大"
+        },
+        {
+          "key": "E",
+          "text": "数据并行每卡只存部分模型层"
+        },
+        {
+          "key": "F",
+          "text": "张量并行通信频率最低"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "流水线并行按层分段、段间传递开销较小；通信量最大的是数据并行（梯度同步）与张量并行（频率极高），故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M370",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于 Embedding 与向量检索，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Embedding 把文本编码为固定维度向量，语义相近的向量距离更近"
+        },
+        {
+          "key": "B",
+          "text": "向量库存储向量并支持相似度检索"
+        },
+        {
+          "key": "C",
+          "text": "余弦相似度越高说明两个文本在当前表示中更接近"
+        },
+        {
+          "key": "D",
+          "text": "高相似度即可证明两份文本事实内容一致"
+        },
+        {
+          "key": "E",
+          "text": "向量距离越小说明语义越疏远"
+        },
+        {
+          "key": "F",
+          "text": "Embedding 只能由检索专用模型产生、模型内部无嵌入"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "高向量相似度只说明当前表示下更接近，单独不能证明事实一致，故 D 错误；检索结果是候选资料而非已验证事实。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M371",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于多模态与语音模型，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "多模态模型可同时处理文本、图像、音频等多种数据"
+        },
+        {
+          "key": "B",
+          "text": "视觉语言模型支持看图问答"
+        },
+        {
+          "key": "C",
+          "text": "语音识别把语音转文本，语音合成把文本转语音"
+        },
+        {
+          "key": "D",
+          "text": "图片和视频的 Token 开销小于文本"
+        },
+        {
+          "key": "E",
+          "text": "多模态模型无法同时处理文本与图像"
+        },
+        {
+          "key": "F",
+          "text": "语音合成把语音转为文本"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "多模态输入经各自编码器统一到向量空间，由语言模型融合；图片和视频的 Token 开销大于文本，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M372",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 Linux 内核，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "内核是操作系统的核心程序，运行在 CPU 特权模式"
+        },
+        {
+          "key": "B",
+          "text": "内核是唯一能直接操作硬件的软件"
+        },
+        {
+          "key": "C",
+          "text": "Linux 是单体内核，核心能力都在同一内核空间"
+        },
+        {
+          "key": "D",
+          "text": "应用可以直接读写磁盘、网卡等硬件"
+        },
+        {
+          "key": "E",
+          "text": "微内核把所有服务都放在内核态"
+        },
+        {
+          "key": "F",
+          "text": "用户态进程可直接操作硬件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "应用运行在受限的用户态，必须通过系统调用请内核代办硬件访问，不能直接碰硬件，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M373",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于启动排障，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "固件/GRUB 阶段检查引导配置（如 grub.cfg）"
+        },
+        {
+          "key": "B",
+          "text": "内核阶段查看 dmesg"
+        },
+        {
+          "key": "C",
+          "text": "服务阶段查看 journalctl"
+        },
+        {
+          "key": "D",
+          "text": "图形界面与命令行登录进入同一目标级别"
+        },
+        {
+          "key": "E",
+          "text": "内核启动日志通过 journalctl 查看"
+        },
+        {
+          "key": "F",
+          "text": "服务阶段故障应看 dmesg"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "图形界面和命令行登录分别进入不同的目标级别，故 D 错误；其余阶段对应的日志入口正确。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M374",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 Shell 多命令组合，下列连接符作用正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "分号 ; 顺序执行多条命令"
+        },
+        {
+          "key": "B",
+          "text": "管道 | 把前命令输出作为后命令输入"
+        },
+        {
+          "key": "C",
+          "text": "重定向 > >> < 用于写文件/追加/从文件读"
+        },
+        {
+          "key": "D",
+          "text": "通配符 * ? 用于匹配网络主机"
+        },
+        {
+          "key": "E",
+          "text": "分号 | 把输出串成输入"
+        },
+        {
+          "key": "F",
+          "text": "重定向 >> 会覆盖原文件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "通配符 * 和 ? 用于匹配文件名（任意/单个字符）批量选中，而非匹配网络主机，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M375",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于文件与目录操作命令，下列用途正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "mkdir -p 可一次创建多层目录"
+        },
+        {
+          "key": "B",
+          "text": "cp -r 递归复制目录"
+        },
+        {
+          "key": "C",
+          "text": "tar -czvf 创建 gzip 压缩包"
+        },
+        {
+          "key": "D",
+          "text": "tar -xzvf 用于列出压缩包内容"
+        },
+        {
+          "key": "E",
+          "text": "touch 只能更新时间戳、不能创建新文件"
+        },
+        {
+          "key": "F",
+          "text": "mv 用于复制文件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "tar -tzvf 才用于列出压缩包内容，tar -xzvf 用于解压，故 D 错误；其余命令用途正确。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M376",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于硬链接与软链接，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "硬链接是共享同一个 inode 的另一个名字"
+        },
+        {
+          "key": "B",
+          "text": "软链接是存目标路径的小文件"
+        },
+        {
+          "key": "C",
+          "text": "硬链接不能跨文件系统，软链接能"
+        },
+        {
+          "key": "D",
+          "text": "软链接可指向目录，硬链接也能指向目录"
+        },
+        {
+          "key": "E",
+          "text": "硬链接可跨文件系统"
+        },
+        {
+          "key": "F",
+          "text": "删除软链接会删除目标文件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "硬链接不能指向目录，软链接能指向目录，故 D 错误；删除一个硬链接名引用计数减 1，软链接目标被删会失效。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M377",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于权限模型与 umask，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "权限分读 r、写 w、执行 x 三种，访问者分所有者/组/其他"
+        },
+        {
+          "key": "B",
+          "text": "文件默认基数 666、目录默认基数 777"
+        },
+        {
+          "key": "C",
+          "text": "默认 umask 022 下新文件为 644、新目录为 755"
+        },
+        {
+          "key": "D",
+          "text": "umask 会影响已存在文件的权限"
+        },
+        {
+          "key": "E",
+          "text": "umask 046 屏蔽了属主的读权限"
+        },
+        {
+          "key": "F",
+          "text": "目录默认 644、文件默认 755"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "umask 只作用于新建对象，改已存在文件权限要用 chmod，故 D 错误；最终权限=默认基数−umask 屏蔽位。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M378",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于进程与信号，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "进程是资源分配的基本单位，具有 PID、状态等属性"
+        },
+        {
+          "key": "B",
+          "text": "僵尸进程是已退出但仍占用进程表项的进程"
+        },
+        {
+          "key": "C",
+          "text": "SIGTERM 可被进程捕获并做清理，SIGKILL 无法捕获"
+        },
+        {
+          "key": "D",
+          "text": "同一进程的线程共享各自独立的地址空间"
+        },
+        {
+          "key": "E",
+          "text": "SIGKILL 可被进程捕获并忽略"
+        },
+        {
+          "key": "F",
+          "text": "僵尸进程由内核自动回收、不占资源"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "同一进程的线程共享同一个地址空间、通信成本低，故 D 错误；僵尸由父进程回收，SIGKILL 由内核强制终止。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M379",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于存储管理，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "寄存器最靠近 CPU、容量最小、访问最快"
+        },
+        {
+          "key": "B",
+          "text": "缓存利用局部性降低访存开销"
+        },
+        {
+          "key": "C",
+          "text": "swap 是磁盘上的交换分区或文件，提供辅助虚拟内存"
+        },
+        {
+          "key": "D",
+          "text": "swap 速度快、可替代物理内存做主存"
+        },
+        {
+          "key": "E",
+          "text": "寄存器容量最大、访问最慢"
+        },
+        {
+          "key": "F",
+          "text": "缓存命中率越低访存开销越小"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "磁盘远慢于内存，频繁换入换出会拖慢系统，swap 是辅助而非主力，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M380",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 RAID 与备份，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "RAID0 条带化提升性能但无冗余"
+        },
+        {
+          "key": "B",
+          "text": "RAID1 镜像提供冗余，RAID5 带奇偶校验兼顾性能与冗余"
+        },
+        {
+          "key": "C",
+          "text": "备份分全量、增量、差异三种，全量最完整"
+        },
+        {
+          "key": "D",
+          "text": "RAID 可防误删、病毒与逻辑损坏"
+        },
+        {
+          "key": "E",
+          "text": "RAID1 分条提升性能但无冗余"
+        },
+        {
+          "key": "F",
+          "text": "全量备份是增量备份的子集"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "RAID 只防硬件故障，不防误删、病毒或逻辑损坏；备份才是这些场景的兜底，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M381",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于网络连通性，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "连通性依赖子网、网关、路由、DNS、监听地址五要素"
+        },
+        {
+          "key": "B",
+          "text": "服务只监听 127.0.0.1 时仅本机可访问"
+        },
+        {
+          "key": "C",
+          "text": "监听 0.0.0.0 表示绑定所有网卡、其他主机可访问"
+        },
+        {
+          "key": "D",
+          "text": "ping 通 IP 但打不开域名页面，说明一定是网络不通"
+        },
+        {
+          "key": "E",
+          "text": "监听 0.0.0.0 表示仅本机可访问"
+        },
+        {
+          "key": "F",
+          "text": "DNS 把 IP 地址解析成域名"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "ping 通 IP 但打不开域名页面往往是 DNS 解析失败而非网络不通，需区分，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M382",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于软件包管理与生态适配，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "包管理器统一解决下载、依赖、版本、卸载问题"
+        },
+        {
+          "key": "B",
+          "text": "安装应用时按依赖关系解析并安装依赖包"
+        },
+        {
+          "key": "C",
+          "text": "软件源定义包获取地址，包索引记录可用包信息"
+        },
+        {
+          "key": "D",
+          "text": "软件包安装成功即表示服务已启动"
+        },
+        {
+          "key": "E",
+          "text": "apt install 不会解析依赖"
+        },
+        {
+          "key": "F",
+          "text": "包索引用于存储包内所有源码"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "软件包 ≠ 服务：安装成功不代表服务已启动，服务由 systemd 管理，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M383",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于关系型数据库事务的 ACID，下列对应正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "A 原子性：操作要么全部成功、要么整体失败"
+        },
+        {
+          "key": "B",
+          "text": "C 一致性：事务前后数据都处于合法状态"
+        },
+        {
+          "key": "C",
+          "text": "I 隔离性：并发事务互不干扰"
+        },
+        {
+          "key": "D",
+          "text": "D 持久性：提交前数据可以丢失"
+        },
+        {
+          "key": "E",
+          "text": "I 隔离性指提交后数据不丢失"
+        },
+        {
+          "key": "F",
+          "text": "A 原子性指数据始终保持一致"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "D 持久性指提交后数据不丢失，故 D 错误；ACID 是事务可靠性的四项性质。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M384",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于索引与存储结构，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "B+ 树层数浅、叶子之间有链表，利于范围查询"
+        },
+        {
+          "key": "B",
+          "text": "聚簇索引的叶子节点直接存整行数据"
+        },
+        {
+          "key": "C",
+          "text": "普通（二级）索引叶子只存主键值，命中后需回表"
+        },
+        {
+          "key": "D",
+          "text": "redo/undo 日志存在 .ibd 数据文件内"
+        },
+        {
+          "key": "E",
+          "text": "聚簇索引只存主键值"
+        },
+        {
+          "key": "F",
+          "text": "B+ 树叶子无链表、范围查询慢"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "redo/undo 是独立日志文件、不在 .ibd 里，.ibd 存数据与索引，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M385",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于 NoSQL 数据库，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "键值型适合按唯一键快速读写简单状态"
+        },
+        {
+          "key": "B",
+          "text": "文档型用 JSON 文档组织、适合嵌套数据"
+        },
+        {
+          "key": "C",
+          "text": "图数据库用节点与边存储、适合关系网络查询"
+        },
+        {
+          "key": "D",
+          "text": "NoSQL 是 SQL 的一种特殊用法"
+        },
+        {
+          "key": "E",
+          "text": "NoSQL 无法处理海量数据"
+        },
+        {
+          "key": "F",
+          "text": "图数据库不适合作关系网络查询"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "NoSQL 是与关系数据库并列的非关系型类别、不使用 SQL 作为统一标准，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M386",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于消息队列的可靠处理机制，下列正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "确认机制：消费者处理成功后才确认"
+        },
+        {
+          "key": "B",
+          "text": "失败重试：处理失败的消息重新投递"
+        },
+        {
+          "key": "C",
+          "text": "幂等处理：重复消费不产生重复业务"
+        },
+        {
+          "key": "D",
+          "text": "天然保证消息不丢失，无需额外机制"
+        },
+        {
+          "key": "E",
+          "text": "消费失败无需任何重试"
+        },
+        {
+          "key": "F",
+          "text": "幂等指同一操作多次执行产生不同结果"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "消息可靠需要确认、重试、幂等、死信等机制配合，并非天然不丢，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M387",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于中间件，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "中间件位于操作系统基础能力与业务应用之间"
+        },
+        {
+          "key": "B",
+          "text": "通用能力包括事务协调、通信、消息传递、服务治理"
+        },
+        {
+          "key": "C",
+          "text": "缓存中间件把热点数据放入内存加速读取"
+        },
+        {
+          "key": "D",
+          "text": "分布式协调只提供单一节点的配置"
+        },
+        {
+          "key": "E",
+          "text": "缓存中间件把热点数据放磁盘"
+        },
+        {
+          "key": "F",
+          "text": "消息队列让生产与消费同步阻塞"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "分布式协调为集群提供配置、锁、选举等一致性能力，并非只服务单节点，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M388",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于容器的隔离机制，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "命名空间 Namespace 让每个容器有独立的进程、网络、挂载视图"
+        },
+        {
+          "key": "B",
+          "text": "控制组 cgroup 限制 CPU、内存等资源用量"
+        },
+        {
+          "key": "C",
+          "text": "镜像由多层只读层堆叠、运行时加一层可写层"
+        },
+        {
+          "key": "D",
+          "text": "容器内部包含完整的操作系统内核"
+        },
+        {
+          "key": "E",
+          "text": "cgroup 提供进程、网络、挂载隔离视图"
+        },
+        {
+          "key": "F",
+          "text": "镜像层之间不可复用"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "容器共享宿主机内核、只打包应用及依赖，不含完整 OS 内核，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M389",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于 CAP 定理与 CP/AP 取舍，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "P 网络分区在分布式系统中必须满足"
+        },
+        {
+          "key": "B",
+          "text": "CP 是宁可不可用、也不给错数据"
+        },
+        {
+          "key": "C",
+          "text": "AP 是两个团体各自继续服务、数据暂时不一致"
+        },
+        {
+          "key": "D",
+          "text": "网络恢复正常后 CP 系统数据仍不一致"
+        },
+        {
+          "key": "E",
+          "text": "AP 系统恢复后数据仍永久不一致"
+        },
+        {
+          "key": "F",
+          "text": "CP 分区时少数团体也继续写入"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "CP 恢复后补同步积压差异、少数团体重归多数，最终一致，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M390",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于兼容与迁移验证，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "四个关注点：工具链、二进制依赖、外设驱动、性能验证"
+        },
+        {
+          "key": "B",
+          "text": "应用能启动即证明整套系统兼容"
+        },
+        {
+          "key": "C",
+          "text": "回归测试用于确认迁移没有破坏既有相关功能"
+        },
+        {
+          "key": "D",
+          "text": "数据库迁移不能只比较数据条数"
+        },
+        {
+      "key": "E",
+      "text": "应用迁移只需验证单个组件能启动"
+    },
+    {
+      "key": "F",
+      "text": "迁移之后无需再做回归测试"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "只验证某个单品能启动不足以证明整套兼容，故 B 错误；迁移要验证完整技术栈组合与关键业务路径。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M391",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于国产基础软件生态，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "国产数据库包括达梦、人大金仓、openGauss 等"
+        },
+        {
+          "key": "B",
+          "text": "国产中间件包括东方通、金蝶天燕、宝兰德"
+        },
+        {
+          "key": "C",
+          "text": "国产浏览器多基于 Chromium 内核"
+        },
+        {
+          "key": "D",
+          "text": "国产软件只适配 x86 一种架构"
+        },
+        {
+          "key": "E",
+          "text": "国产数据库只有达梦一款"
+        },
+        {
+          "key": "F",
+          "text": "国产浏览器都基于自研内核"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "国产软件与 X86、ARM 等多种架构适配，并非只有 x86，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M392",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Agent 的组成与运转，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "结构维五环节：感知、规划、行动、反思、记忆"
+        },
+        {
+          "key": "B",
+          "text": "行为维主循环：目标→计划→行动→观察→判断"
+        },
+        {
+          "key": "C",
+          "text": "结构维讲组成、行为维讲运转，是同一架构的两个正交切面"
+        },
+        {
+          "key": "D",
+          "text": "缺少观察环节闭环仍能完整运转"
+        },
+        {
+          "key": "E",
+          "text": "结构维与行为维是同一维度"
+        },
+        {
+          "key": "F",
+          "text": "记忆不属于五环节之一"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "若没有观察，反馈无法注入下一轮判断，错误会累积，闭环跑不完整，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M393",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Planning 规划，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "把复杂目标拆成可验证、有明确完成条件的子任务"
+        },
+        {
+          "key": "B",
+          "text": "计划可随执行结果和新信息动态调整"
+        },
+        {
+          "key": "C",
+          "text": "规划保证所有子任务都能并行完成"
+        },
+        {
+          "key": "D",
+          "text": "执行发现前置条件不成立时，可根据新信息调整或重新规划"
+        },
+        {
+          "key": "E",
+          "text": "计划一旦生成就不可修改"
+        },
+        {
+          "key": "F",
+          "text": "规划只需拆解、无需明确完成条件"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "存在依赖的子任务必须按序执行，只有相互独立的部分可并行，故 C 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M394",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于工具调用与参数校验，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "工具描述与 Schema 声明用途、参数名称、类型和取值范围"
+        },
+        {
+          "key": "B",
+          "text": "生成后的参数需校验类型与取值范围，防止非法参数进入执行层"
+        },
+        {
+          "key": "C",
+          "text": "有副作用的操作应避免无条件重试"
+        },
+        {
+          "key": "D",
+          "text": "工具返回错误信息时应默认成功或直接忽略"
+        },
+        {
+          "key": "E",
+          "text": "工具描述越模糊模型越能灵活选择"
+        },
+        {
+          "key": "F",
+          "text": "有副作用的操作可以无条件重试"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "忽略工具错误等于切断闭环反馈回路，必须让模型看到错误并纳入下一步决策，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M395",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 MCP 的组成与传输，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "MCP 用 Host / Client / Server 描述谁决定要、谁去连、谁提供"
+        },
+        {
+          "key": "B",
+          "text": "stdio 通过标准输入输出通信，适合本地工具"
+        },
+        {
+          "key": "C",
+          "text": "HTTP+SSE 适合独立部署、跨机、常驻服务"
+        },
+        {
+          "key": "D",
+          "text": "接入配置里需要显式声明 Client 组件"
+        },
+        {
+          "key": "E",
+          "text": "Host 与 Client 之间是协议连接"
+        },
+        {
+          "key": "F",
+          "text": "HTTP+SSE 适合本地同机工具"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "接入配置是 Host 的配置，只写 Servers、不写 Client，Client 是 Host 内部自动建立的通道，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M396",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 MCP 三大原语，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tools 由模型调用执行、有副作用"
+        },
+        {
+          "key": "B",
+          "text": "Resources 供应用读取数据、无副作用"
+        },
+        {
+          "key": "C",
+          "text": "Prompts 是预置的可复用交互模板"
+        },
+        {
+          "key": "D",
+          "text": "三类原语都只能由模型使用"
+        },
+        {
+          "key": "E",
+          "text": "Resources 由模型调用执行、有副作用"
+        },
+        {
+          "key": "F",
+          "text": "Prompts 只能由模型复用"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "三类原语由 Server 暴露，但用途不同：Tool 给模型干活、Resource 给应用喂数据、Prompt 给用户/客户端固定话术，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M397",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Skill 与 Workflow 的对比，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tool 是最灵活但每轮都要决策的原子操作"
+        },
+        {
+          "key": "B",
+          "text": "Skill 是工具+业务流程的封装包，折中灵活与确定"
+        },
+        {
+          "key": "C",
+          "text": "Workflow 是固定路径的流程编排，最确定但最不灵活"
+        },
+        {
+          "key": "D",
+          "text": "越往上预定的逻辑越少、运行时临场决策越多"
+        },
+        {
+          "key": "E",
+          "text": "Workflow 运行时可临场改路径"
+        },
+        {
+          "key": "F",
+          "text": "Tool 最确定但最不灵活"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "越往上设计时预定的逻辑越多、运行时临场决策越少，换来确定性、可复用、更可靠，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M398",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 RAG，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "RAG 是\"先检索外部知识、再基于资料生成\"的增强生成方案"
+        },
+        {
+          "key": "B",
+          "text": "Agent 型 RAG 本质仍是 RAG，是检索更智能的架构变体"
+        },
+        {
+          "key": "C",
+          "text": "普通 RAG 每问固定检索一次、一次到底"
+        },
+        {
+          "key": "D",
+          "text": "检索结果是被验证过的事实，可直接采信"
+        },
+        {
+          "key": "E",
+          "text": "普通 RAG 根据情况自主决定是否多次检索"
+        },
+        {
+          "key": "F",
+          "text": "RAG 需修改模型参数才能更新知识"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "检索结果只是候选资料，高相似度不代表事实一致，答案检索相关而非必然正确，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M399",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于记忆，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "短期记忆随上下文窗口轮换，窗口就是短期记忆的物理载体"
+        },
+        {
+          "key": "B",
+          "text": "长期记忆写入外部持久化存储、可跨会话使用"
+        },
+        {
+          "key": "C",
+          "text": "记忆写入与检索都要有访问控制"
+        },
+        {
+          "key": "D",
+          "text": "记忆的价值在于\"什么都存\"，存得越全越好"
+        },
+        {
+          "key": "E",
+          "text": "短期记忆持久保存在外部存储"
+        },
+        {
+          "key": "F",
+          "text": "记忆的写入与检索无需访问控制"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "存得越多检索噪声越大、成本越高，记忆价值在\"需要时找得到\"，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M400",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Agent 安全，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "提示注入可能藏在网页、文档等外部内容中"
+        },
+        {
+          "key": "B",
+          "text": "最小权限原则让注入成功时也难越权"
+        },
+        {
+          "key": "C",
+          "text": "运行时沙箱限制文件、网络、命令访问范围"
+        },
+        {
+          "key": "D",
+          "text": "高风险动作前无需人工确认"
+        },
+        {
+          "key": "E",
+          "text": "运行时沙箱会扩大访问范围"
+        },
+        {
+          "key": "F",
+          "text": "最小权限与沙箱相互排斥、不能叠加"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "不可逆或敏感操作前应加入人工确认控制点，故 D 错误；最小权限与沙箱是收权与划界的互补。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M401",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Agent 评测指标，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "任务成功率衡量任务是否按预期完成"
+        },
+        {
+          "key": "B",
+          "text": "工具选择准确率衡量是否选对工具"
+        },
+        {
+          "key": "C",
+          "text": "安全违规率衡量是否触发越权或危险操作"
+        },
+        {
+          "key": "D",
+          "text": "答案正确即可，无需关注调用次数"
+        },
+        {
+          "key": "E",
+          "text": "工具调用次数越多代表效果越好"
+        },
+        {
+          "key": "F",
+          "text": "稳定性指标只需执行一次即可"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "答案正确但调用大量无关工具说明效率与工具选择仍需优化，\"结果对\"不等于\"过程好\"，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M402",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Prompt 工程，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "输入质量是输出质量的上限（Garbage in, garbage out）"
+        },
+        {
+          "key": "B",
+          "text": "系统提示词放稳定层、用户提示词放可变层"
+        },
+        {
+          "key": "C",
+          "text": "Few-shot 通过示例让模型模仿规律"
+        },
+        {
+          "key": "D",
+          "text": "外部检索内容可直接当作系统指令使用"
+        },
+        {
+          "key": "E",
+          "text": "温度参数属于 Prompt 内容"
+        },
+        {
+          "key": "F",
+          "text": "系统提示词每轮都随任务变化"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "外部检索内容是\"不可信文本\"，注入前应与系统指令隔离，不能当作指令，故 D 错误。",
+      "chapter": "/ch04_agent",
+      "source": "mock"
+    },
+    {
+      "id": "M403",
+      "type": "multi",
+      "module": "agent",
+      "stem": "零基础从 0 开发 MCP 服务器并用 JSON 持久化，下列做法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据存到本地 JSON 文件、每次修改后立即写回，保证重启不丢失"
+        },
+        {
+          "key": "B",
+          "text": "用 ensure_ascii=False 保证中文以原文写入"
+        },
+        {
+          "key": "C",
+          "text": "查询不存在的学生返回明确提示，服务进程继续运行"
+        },
+        {
+          "key": "D",
+          "text": "把协议消息直接写到 stdout 以方便调试"
+        },
+        {
+          "key": "E",
+          "text": "数据只存内存、不落盘"
+        },
+        {
+          "key": "F",
+          "text": "查询不存在的学生应让进程崩溃"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "协议消息必须走 stdin/stdout 收发，日志走 stderr 或文件；写 stdout 会污染协议流导致错乱，故 D 错误。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M404",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 Agent 核心循环的实现（messages 承载状态），下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "messages 列表同时承载历史、模型回复和工具结果，是短期记忆"
+        },
+        {
+          "key": "B",
+          "text": "模型返回 tool_calls 时执行工具，结果以 role=tool 追加"
+        },
+        {
+          "key": "C",
+          "text": "没有 tool_calls 时模型输出即最终答案"
+        },
+        {
+          "key": "D",
+          "text": "MAX_STEPS 越设越大越好，能提升准确率"
+        },
+        {
+          "key": "E",
+          "text": "工具结果以 role=user 追加到消息列表"
+        },
+        {
+          "key": "F",
+          "text": "MAX_STEPS 越大越节省 Token"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "MAX_STEPS 用于限制循环次数、防止死循环浪费 Token，并非越大越好，故 D 错误。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M405",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于把流程封装成 Skill，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模型只看到 Skill 一个入口，感知不到内部要调多个工具"
+        },
+        {
+          "key": "B",
+          "text": "固定剧本替代模型每轮临场组合多次调用，更快更稳"
+        },
+        {
+          "key": "C",
+          "text": "可在 TOOLS 里同时保留底层工具以便自由组合"
+        },
+        {
+          "key": "D",
+          "text": "Skill 会改变核心循环的结构"
+        },
+        {
+          "key": "E",
+          "text": "Skill 必须让模型感知内部多个工具"
+        },
+        {
+          "key": "F",
+          "text": "Skill 会彻底改变核心循环结构"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Skill 只打包了调用、并不改变思考→调用→读结果→再思考的核心循环，故 D 错误。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M406",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 RAG 切块与检索，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "切块大小是两难：太小语义不完整、太大命中不精准"
+        },
+        {
+          "key": "B",
+          "text": "切块重叠给边界内容上\"双保险\"，防止语义被切断"
+        },
+        {
+          "key": "C",
+          "text": "向量检索（粗排）+ 重排 Rerank（精排）可提升答案质量"
+        },
+        {
+          "key": "D",
+          "text": "混合检索只依赖词面匹配，忽略语义"
+        },
+        {
+          "key": "E",
+          "text": "切块重叠会切断边界语义"
+        },
+        {
+          "key": "F",
+          "text": "重排 Rerank 需要对全部候选二次排序"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "混合检索结合向量相似度与关键词匹配，兼顾语义与精确词命中，故 D 错误。",
+      "chapter": "/ch07_mcp_agent_practice",
+      "source": "mock"
+    },
+    {
+      "id": "M407",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于 UOS AI 智能平台的功能与生态，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "智能写作基于本地素材权威成文、每句有据、数据不出门"
+        },
+        {
+          "key": "B",
+          "text": "智能办公把一句话拆解成多步骤、由多个应用协同完成"
+        },
+        {
+          "key": "C",
+          "text": "智能生态三大抓手是 MCP、Skills、SDK"
+        },
+        {
+          "key": "D",
+          "text": "Agent OS 五层中最底层是应用能力层"
+        },
+        {
+          "key": "E",
+          "text": "智能写作的素材必须上传到云端"
+        },
+        {
+          "key": "F",
+          "text": "Agent OS 五层最顶层是模型调度层"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Agent OS 五层自下而上是模型调度层→系统能力层→AI SDK→智能体服务层→应用能力层，最底层是模型调度层，故 D 错误。",
+      "chapter": "/ch08_intelligent_platform",
+      "source": "mock"
+    },
+    {
+      "id": "M408",
+      "type": "multi",
+      "module": "agent",
+      "stem": "关于智能办公如何实现\"一句话办成一件事\"，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "核心是意图→目标→步骤的规划与工具协同闭环"
+        },
+        {
+          "key": "B",
+          "text": "能力扩展靠 MCP（怎么接）+ Skills（怎么用）"
+        },
+        {
+          "key": "C",
+          "text": "预置场景（如一键合并 PDF）是已封装成可复用 Skill"
+        },
+        {
+          "key": "D",
+          "text": "复杂任务不需要任务拆解，直接执行即可"
+        },
+        {
+          "key": "E",
+          "text": "预置场景需用户手动拆解成多步"
+        },
+        {
+          "key": "F",
+          "text": "智能办公只处理单个应用、无需协同"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "智能办公靠任务理解与拆解把意图自动分解为多个执行步骤，故 D 错误。",
+      "chapter": "/ch08_intelligent_platform",
+      "source": "mock"
+    },
+    {
+      "id": "M409",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于异构计算单元，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CPU 通用计算、擅长复杂逻辑与任务调度"
+        },
+        {
+          "key": "B",
+          "text": "GPU 适合大规模并行、计算密集的任务"
+        },
+        {
+          "key": "C",
+          "text": "NPU 面向神经网络做专用加速、低功耗"
+        },
+        {
+          "key": "D",
+          "text": "GPU 峰值算力高意味着任意程序在 GPU 上都更快"
+        },
+        {
+          "key": "E",
+          "text": "CPU 适合海量并行计算"
+        },
+        {
+          "key": "F",
+          "text": "TPU 是面向通用计算的 CPU"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "GPU 峰值算力高不代表任意程序在 GPU 上都更快，串行逻辑仍是 CPU 优势，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M410",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于 GPU 存储层级，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "寄存器每线程私有、就在执行单元旁、最快"
+        },
+        {
+          "key": "B",
+          "text": "shared memory 块内共享、位于 SM 内部"
+        },
+        {
+          "key": "C",
+          "text": "显存（全局内存）是 GPU 的\"主存\"、容量大但延迟高"
+        },
+        {
+          "key": "D",
+          "text": "寄存器和 shared memory 在 Kernel 结束后仍然存在"
+        },
+        {
+          "key": "E",
+          "text": "L2 缓存块内共享、位于 SM 内部"
+        },
+        {
+          "key": "F",
+          "text": "显存带宽越低算力越能发挥"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "寄存器和 shared memory 只在 Kernel 执行期间存在，想活过 Kernel 边界的数据必须落显存，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M411",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于 HBM 与 GDDR，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "HBM 用多层 DRAM 堆叠 + TSV 互连、2.5D 封装与 GPU 直连"
+        },
+        {
+          "key": "B",
+          "text": "HBM 带宽可达数 TB/s、常用于数据中心 GPU"
+        },
+        {
+          "key": "C",
+          "text": "GDDR 带宽较低、成本低、常用于消费级显卡"
+        },
+        {
+          "key": "D",
+          "text": "GDDR 通过堆叠缩短互连距离，带宽高于 HBM"
+        },
+        {
+          "key": "E",
+          "text": "HBM 靠 PCB 布线获得高带宽"
+        },
+        {
+          "key": "F",
+          "text": "GDDR 通过 TSV 堆叠与 GPU 直连"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "是 HBM 靠堆叠+TSV+2.5D 封装获得高带宽，GDDR 不堆叠、靠 PCB 布线，带宽低于 HBM，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M412",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于 CUDA 编程模型，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CUDA 的线程组织分三级：Grid、Block、Thread"
+        },
+        {
+          "key": "B",
+          "text": "Block 整块分配到一个 SM，块内线程可共享 shared memory、可同步"
+        },
+        {
+          "key": "C",
+          "text": "块与块之间不允许同步、不保证执行顺序"
+        },
+        {
+          "key": "D",
+          "text": "每块线程数上限为 4096"
+        },
+        {
+          "key": "E",
+          "text": "Grid 是单个 Block 内线程的集合"
+        },
+        {
+          "key": "F",
+          "text": "块与块之间可以互相同步"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "每块线程数上限是 1024，且建议 32 的倍数，故 D 错误；块间不许同步换来可扩展性。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M413",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于 CUDA 性能优化要点，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "warp divergence 线程束发散会降低并行效率"
+        },
+        {
+          "key": "B",
+          "text": "shared memory 延迟远低于全局显存"
+        },
+        {
+          "key": "C",
+          "text": "相邻线程访问相邻内存地址时合并访问可提升带宽利用率"
+        },
+        {
+          "key": "D",
+          "text": "Kernel 计算结束后结果会自动回传到主机内存"
+        },
+        {
+          "key": "E",
+          "text": "线程束发散能提升并行效率"
+        },
+        {
+          "key": "F",
+          "text": "合并访问会降低带宽利用率"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "GPU 不会\"算完自动送回\"，不写 store（显存）结果即丢，需显式 cudaMemcpy 回传，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M414",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于国产加速芯片生态，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "技术路线分通用 GPU 与专用 NPU 两大类"
+        },
+        {
+          "key": "B",
+          "text": "通用 GPU 兼容性好、专用 NPU 能效高"
+        },
+        {
+          "key": "C",
+          "text": "国产芯片普遍配套自研软件栈（如华为昇腾 CANN）"
+        },
+        {
+          "key": "D",
+          "text": "兼容 CUDA 生态的芯片迁移成本更高"
+        },
+        {
+          "key": "E",
+          "text": "专用 NPU 的迁移成本最低"
+        },
+        {
+          "key": "F",
+          "text": "国产加速芯片无需自研软件栈"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "软件生态决定应用迁移成本，兼容 CUDA 生态的芯片迁移成本更低，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M415",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于液冷散热系统，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "高功耗芯片（500W 以上）风冷压不住，需靠液冷"
+        },
+        {
+          "key": "B",
+          "text": "冷板液冷属于间接接触式，冷板与芯片顶盖接触"
+        },
+        {
+          "key": "C",
+          "text": "冷却液要求导热高、电导率低、化学兼容"
+        },
+        {
+          "key": "D",
+          "text": "普通自来水含离子、电导率高，可直接作为冷却液"
+        },
+        {
+          "key": "E",
+          "text": "冷板液冷属于直接接触式"
+        },
+        {
+          "key": "F",
+          "text": "冷却液的导热系数可以任意低"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "普通自来水会漏电、腐蚀管路、结垢，需先经去离子处理，不能直接用，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M416",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于液冷散热效率，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "微通道部分堵塞会导致散热效率下降"
+        },
+        {
+          "key": "B",
+          "text": "导热硅脂干涸失效会导致散热效率下降"
+        },
+        {
+          "key": "C",
+          "text": "适当提高水泵转速可增强对流换热、提升散热"
+        },
+        {
+          "key": "D",
+          "text": "供液温度过低不会带来风险"
+        },
+        {
+          "key": "E",
+          "text": "水泵转速可以无限提高"
+        },
+        {
+          "key": "F",
+          "text": "供液温度过高不会带来风险"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "供液温度过低不仅效率降还可能结冰（注意冷却液冰点），故 D 错误；提高流量有上限，过大加重冲刷腐蚀。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M417",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于大模型训练集群的并行策略，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "数据并行每卡完整模型、不同数据批次、梯度同步通信量大"
+        },
+        {
+          "key": "B",
+          "text": "流水线并行按层分段处理、段间传递开销较小"
+        },
+        {
+          "key": "C",
+          "text": "张量并行单层参数切分到多 GPU、通信频率极高"
+        },
+        {
+          "key": "D",
+          "text": "通信带宽不足只会影响数据并行，不影响其他策略"
+        },
+        {
+          "key": "E",
+          "text": "数据并行通信量最小"
+        },
+        {
+          "key": "F",
+          "text": "通信带宽不足只影响模型并行"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "并行策略都要频繁交换梯度或中间结果，通信带宽不足会拖慢整体、影响所有策略，故 D 错误。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M418",
+      "type": "multi",
+      "module": "hardware",
+      "stem": "关于天数智芯产品线，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "天垓系列是训练产品，天垓100 为国内首款全自研 GPU 架构云端训练芯片"
+        },
+        {
+          "key": "B",
+          "text": "智铠系列是推理产品，支持 FP32、FP16、INT8 多精度混合计算"
+        },
+        {
+          "key": "C",
+          "text": "彤央系列是边端产品"
+        },
+        {
+          "key": "D",
+          "text": "智铠系列兼容 CUDA 生态，迁移时间缩短约 50% 以上"
+        },
+        {
+          "key": "E",
+          "text": "智铠 100 是训练芯片"
+        },
+        {
+          "key": "F",
+          "text": "天垓系列是推理产品"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "explanation": "天数智芯覆盖训练（天垓）、推理（智铠）、边端（彤央），智铠兼容 CUDA、迁移时间下降 50% 以上，四项均正确。",
+      "chapter": "/ch05_hardware",
+      "source": "mock"
+    },
+    {
+      "id": "M419",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于偏差与方差，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "偏差衡量模型预测的平均偏离程度，高偏差对应欠拟合"
+        },
+        {
+          "key": "B",
+          "text": "方差衡量模型对训练数据变化的敏感程度，高方差对应过拟合"
+        },
+        {
+          "key": "C",
+          "text": "模型复杂度增加时，偏差下降、方差上升"
+        },
+        {
+          "key": "D",
+          "text": "偏差与方差之和越小，模型拟合能力一定越强"
+        },
+        {
+          "key": "E",
+          "text": "高方差对应欠拟合"
+        },
+        {
+          "key": "F",
+          "text": "模型复杂度增加时方差下降"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "偏差/方差衡量不同侧面的错误来源，需要平衡而非只求和；复杂度升高拟合能力增强（偏差降）但对数据波动更敏感（方差升），故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M420",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于分类评估指标，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "精确率衡量预测为正类的样本中预测正确的比例"
+        },
+        {
+          "key": "B",
+          "text": "召回率衡量真实正类中被正确找出的比例"
+        },
+        {
+          "key": "C",
+          "text": "F1 是精确率与召回率的调和平均"
+        },
+        {
+          "key": "D",
+          "text": "准确率在类别不平衡时总能准确反映模型性能"
+        },
+        {
+          "key": "E",
+          "text": "精确率衡量真实正类中被找出比例"
+        },
+        {
+          "key": "F",
+          "text": "F1 是精确率与召回率的算术平均"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "类别不平衡时准确率会被多数类主导、不能真实反映性能，需结合精确率/召回率/F1，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M421",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于生成控制与采样参数，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "温度大于 1 使分布更平滑、更随机"
+        },
+        {
+          "key": "B",
+          "text": "Top-p 从概率最高候选开始累加，候选集合大小每一步可变"
+        },
+        {
+          "key": "C",
+          "text": "贪心解码每次取概率最高 Token，可能重复单调"
+        },
+        {
+          "key": "D",
+          "text": "采样参数会修改模型权重"
+        },
+        {
+          "key": "E",
+          "text": "温度越低输出越随机"
+        },
+        {
+          "key": "F",
+          "text": "Top-k 的候选集合大小随分布变化"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "采样参数是解码策略的数值配置，推理时可调、不改变模型权重，故 D 错误；生成行为由上下文、Prompt、能力与采样共同决定。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M422",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于推理引擎，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "vLLM 采用 PagedAttention 管理 KV Cache、支持连续批处理"
+        },
+        {
+          "key": "B",
+          "text": "llama.cpp 面向 CPU 和边缘设备、量化支持好"
+        },
+        {
+          "key": "C",
+          "text": "TensorRT-LLM 在 NVIDIA GPU 上做图优化和层融合"
+        },
+        {
+          "key": "D",
+          "text": "推理优化只需要批处理，无需其他手段"
+        },
+        {
+          "key": "E",
+          "text": "vLLM 不支持连续批处理"
+        },
+        {
+          "key": "F",
+          "text": "TensorRT-LLM 面向 CPU 和边缘设备"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "推理优化手段包括批处理、KV Cache 复用、量化、层融合等，是组合拳而非单一手段，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M423",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于微调方式，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "全量微调更新全部参数，算力和显存开销大"
+        },
+        {
+          "key": "B",
+          "text": "SFT 使用带指令或示例的监督数据微调模型"
+        },
+        {
+          "key": "C",
+          "text": "LoRA 只训练低秩分解矩阵，参数量大幅减少"
+        },
+        {
+          "key": "D",
+          "text": "PEFT 类方法会大幅增加微调的显存和算力需求"
+        },
+        {
+          "key": "E",
+          "text": "LoRA 更新并存储全部参数"
+        },
+        {
+          "key": "F",
+          "text": "QLoRA 的显存占用比 LoRA 更大"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "PEFT（含 LoRA、QLoRA）恰恰是大幅降低微调显存与算力需求、适合算力受限场景，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M424",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于大模型的上下文窗口与能力边界，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "上下文窗口限制模型一次推理可用的 Token 数量范围"
+        },
+        {
+          "key": "B",
+          "text": "超出窗口的历史信息无法参与本次生成"
+        },
+        {
+          "key": "C",
+          "text": "上下文学习 ICL 让模型从 Prompt 示例中学习、无需更新参数"
+        },
+        {
+          "key": "D",
+          "text": "幻觉一定是模型故意编造，与概率采样无关"
+        },
+        {
+          "key": "E",
+          "text": "超出窗口的历史信息仍参与本次生成"
+        },
+        {
+          "key": "F",
+          "text": "上下文学习 ICL 需更新模型参数"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "幻觉源于模型对知识的模糊记忆与概率采样（按概率续写、无依据时就编造），并非故意，故 D 错误。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M425",
+      "type": "multi",
+      "module": "ai",
+      "stem": "关于数据预处理与数据集划分，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "标准化 z-score 处理后均值为 0、标准差为 1"
+        },
+        {
+          "key": "B",
+          "text": "归一化把数值映射到固定区间（如 0 到 1）"
+        },
+        {
+          "key": "C",
+          "text": "训练集用于更新参数，验证集用于调参选型，测试集用于最终评估"
+        },
+        {
+          "key": "D",
+          "text": "KNN、SVM 这类基于距离的算法对特征缩放不敏感"
+        },
+        {
+          "key": "E",
+          "text": "归一化处理后均值为 0、标准差为 1"
+        },
+        {
+          "key": "F",
+          "text": "测试集用于调参与模型选型"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "KNN、SVM 依赖距离，对缩放敏感、使用前需标准化，故 D 错误；量纲差异会干扰基于距离与梯度的算法。",
+      "chapter": "/ch01_ai_foundation",
+      "source": "mock"
+    },
+    {
+      "id": "M426",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于 systemd 与服务管理，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "systemd 是主流 Linux 服务管理器，支持并行启动和依赖管理"
+        },
+        {
+          "key": "B",
+          "text": "systemd 以一号进程（PID 1）身份启动"
+        },
+        {
+          "key": "C",
+          "text": "enable 是把服务加入开机启动清单，不等于当前已运行"
+        },
+        {
+          "key": "D",
+          "text": "早期 init 按并行方式启动服务，又快又省事"
+        },
+        {
+          "key": "E",
+          "text": "enable 会立即启动服务"
+        },
+        {
+          "key": "F",
+          "text": "早期 init 已支持并行启动服务"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "早期 init 按顺序串行启动、又慢又难管依赖，这正是 systemd 改进的地方，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M427",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于环境变量与变量，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "变量赋值时 = 两侧不能有空格"
+        },
+        {
+          "key": "B",
+          "text": "用 $name 引用变量，双引号内会展开变量"
+        },
+        {
+          "key": "C",
+          "text": "export 可把变量导出给子进程"
+        },
+        {
+          "key": "D",
+          "text": "PATH 决定命令输出内容的格式"
+        },
+        {
+          "key": "E",
+          "text": "变量赋值时 = 两侧可带空格"
+        },
+        {
+          "key": "F",
+          "text": "单引号内会展开变量"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "PATH 决定命令的查找路径（按目录逐个找可执行文件），而非输出格式，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M428",
+      "type": "multi",
+      "module": "os",
+      "stem": "关于进程排查，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "ps 查看当前进程快照，top/htop 动态查看资源占用"
+        },
+        {
+          "key": "B",
+          "text": "排查高 CPU 应先确认 PID 与命令、观察是否持续、再决定是否处理"
+        },
+        {
+          "key": "C",
+          "text": "free -h 可查看内存使用"
+        },
+        {
+          "key": "D",
+          "text": "CPU 高就一定是故障，应立即终止所有进程"
+        },
+        {
+          "key": "E",
+          "text": "top 只能查看一次性的进程快照"
+        },
+        {
+          "key": "F",
+          "text": "确认异常后应立即终止全部进程"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "CPU 高可能只是瞬时任务，误杀正常进程会造成业务中断，应先观察持续性再动手，故 D 错误。",
+      "chapter": "/ch02_os_linux",
+      "source": "mock"
+    },
+    {
+      "id": "M429",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于消息队列与缓存中间件，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "消息队列通过生产者、队列/主题、消费者实现异步与解耦"
+        },
+        {
+          "key": "B",
+          "text": "缓存中间件把热点数据放入内存，降低数据源压力"
+        },
+        {
+          "key": "C",
+          "text": "RabbitMQ 面向灵活路由和低延迟"
+        },
+        {
+          "key": "D",
+          "text": "Kafka 面向低延迟而非高吞吐"
+        },
+        {
+          "key": "E",
+          "text": "RabbitMQ 面向高吞吐日志"
+        },
+        {
+          "key": "F",
+          "text": "消息队列把请求同步阻塞给消费者"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Kafka 面向高吞吐日志和流处理，RabbitMQ 面向灵活路由和低延迟，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M430",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于数据文件与 JSON 的取舍，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "JSON 是轻量级数据交换格式，以键值对和嵌套结构组织数据"
+        },
+        {
+          "key": "B",
+          "text": "程序启动时从数据文件加载数据、写入时保存，实现持久化"
+        },
+        {
+          "key": "C",
+          "text": "统计类结果应实时计算，写死的固定结果无法反映数据变化"
+        },
+        {
+          "key": "D",
+          "text": "数据量大、高并发、要事务时更适合用文件 + JSON"
+        },
+        {
+          "key": "E",
+          "text": "JSON 适合大量、高并发、要事务的场景"
+        },
+        {
+          "key": "F",
+          "text": "写死的统计结果能反映数据变化"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "数据量大、高并发、要事务时更适合用数据库；文件+JSON 适合量小、结构简单的场景，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M431",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于分布式协调与事务/服务治理，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "分布式协调为集群提供分布式锁、配置中心、Leader 选举"
+        },
+        {
+          "key": "B",
+          "text": "事务协调处理跨应用、跨库的分布式事务一致性"
+        },
+        {
+          "key": "C",
+          "text": "服务治理包括服务注册发现、负载均衡、限流、熔断"
+        },
+        {
+          "key": "D",
+          "text": "ZooKeeper 是消息中间件"
+        },
+        {
+          "key": "E",
+          "text": "分布式协调只处理单机配置"
+        },
+        {
+          "key": "F",
+          "text": "服务治理不包含限流与熔断"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "ZooKeeper 是分布式协调组件（配置、锁、选举），不是消息中间件，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M432",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于应用迁移流程，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "盘点应用清单与依赖，识别迁移范围和潜在问题"
+        },
+        {
+          "key": "B",
+          "text": "完成目标架构搭建"
+        },
+        {
+          "key": "C",
+          "text": "执行功能验证、兼容性验证与回归测试"
+        },
+        {
+          "key": "D",
+          "text": "回归测试只需验证少量功能"
+        },
+        {
+          "key": "E",
+          "text": "兼容性验证只检查工具链"
+        },
+        {
+          "key": "F",
+          "text": "应用迁移无需盘点依赖清单"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "回归测试用于确认迁移没有破坏既有相关功能，应覆盖相关功能而非少量抽查，故 D 错误。",
+      "chapter": "/ch03_software",
+      "source": "mock"
+    },
+    {
+      "id": "M433",
+      "type": "multi",
+      "module": "software",
+      "stem": "关于数据库与 NoSQL 对比，下列说法正确的有哪些？",
+      "options": [
+        {
+          "key": "A",
+          "text": "关系型强于事务（ACID）与灵活查询"
+        },
+        {
+          "key": "B",
+          "text": "NoSQL 强于海量、高并发和灵活结构"
+        },
+        {
+          "key": "C",
+          "text": "键值/文档读写快、延迟低，适合缓存与热点数据"
+        },
+        {
+          "key": "D",
+          "text": "关系型横向扩展比 NoSQL 更容易"
+        },
+        {
+          "key": "E",
+          "text": "NoSQL 横向扩展比分库分表更复杂"
+        },
+        {
+          "key": "F",
+          "text": "关系型写吞吐永远低于 NoSQL"
+        }
+      ],
+      "answerKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "NoSQL 容易横向扩展（多台机器分片），关系型分库分表复杂，故 D 错误。",
+      "chapter": "/ch03_software",
       "source": "mock"
     }
   ]

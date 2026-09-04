@@ -6,32 +6,40 @@ import AnswerSheet from './AnswerSheet.vue'
 
 const realQuestions = ref([])
 const mockQuestions = ref([])
+const mockPapers = ref([])
 const loadError = ref('')
-const exam = useExam(realQuestions, mockQuestions)
+const exam = useExam(realQuestions, mockQuestions, mockPapers)
 const activeSource = ref('real')
+const activeMockPaper = ref('A')
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
 onMounted(async () => {
   try {
-    const [realRes, mockRes] = await Promise.all([
+    const [realRes, mockRes, paperRes] = await Promise.all([
       fetch('/quiz-data.json'),
       fetch('/quiz-mock.json'),
+      fetch('/quiz-papers.json'),
     ])
-    if (!realRes.ok || !mockRes.ok) throw new Error('bad status')
+    if (!realRes.ok || !mockRes.ok || !paperRes.ok) throw new Error('bad status')
     const realData = await realRes.json()
     const mockData = await mockRes.json()
-    if (!realData?.questions || !mockData?.questions) throw new Error('bad payload')
+    const paperData = await paperRes.json()
+    if (!realData?.questions || !mockData?.questions || !paperData?.papers) {
+      throw new Error('bad payload')
+    }
     realQuestions.value = realData.questions.map((q) => ({ ...q, source: 'real' }))
     mockQuestions.value = mockData.questions.map((q) => ({ ...q, source: 'mock' }))
+    mockPapers.value = paperData.papers
   } catch {
     loadError.value = '题库加载失败，请刷新重试'
   }
 })
 
-function startExam(source) {
+function startExam(source, paperId) {
   activeSource.value = source
-  if (!exam.start(source)) {
+  if (source === 'mock' && paperId) activeMockPaper.value = paperId
+  if (!exam.start(source, paperId)) {
     alert('当前题库暂无可用题目')
   }
 }
@@ -40,9 +48,12 @@ function fmtAnswer(idxArr) {
   return idxArr.map((i) => LETTERS[i]).join(',') || '未作答'
 }
 
+// 根据当前题目的 type 动态给出分段标题（兼容不同卷面分布）
 function sectionTitle(i) {
-  if (i < 30) return '一、单项选择题'
-  if (i < 40) return '二、多项选择题'
+  const q = exam.paper.value[i]
+  if (!q) return ''
+  if (q.type === 'single') return '一、单项选择题'
+  if (q.type === 'multi') return '二、多项选择题'
   return '三、判断题'
 }
 
@@ -67,7 +78,9 @@ function removeCurrentWrong() {
   if (!q) return
   exam.removeWrong(q.id, q.source)
   exam.startReview()
-  exam.reviewIndex.value = 0
+  // 移出当前错题后，把序号收回到合法范围（不强行归零，避免序号跳变/越界）
+  const last = exam.paper.value.length - 1
+  exam.reviewIndex.value = Math.min(exam.reviewIndex.value, Math.max(0, last))
 }
 
 const MODULE_LABEL = { ai: 'AI', os: 'OS', software: '软件', agent: 'Agent', hardware: '硬件' }
@@ -104,13 +117,17 @@ const moduleStat = computed(() => {
       <div class="exam-start-cards">
         <div class="exam-entry-card">
           <h3>真题练习</h3>
-          <p>从 A/B 卷 120 道真题题库随机组卷 60 题，按官方结构（单选 30 + 多选 10 + 判断 20）与模块占比抽取，选项顺序随机。</p>
+          <p>官方 A/B 卷共 120 道真题，按最新正式命题规则整卷呈现（单选 60 + 多选 20 + 判断 40），选项顺序随机。真题内容不改动、不删节。</p>
           <button class="eq-btn eq-btn-primary" @click="startExam('real')">开始真题练习</button>
         </div>
         <div class="exam-entry-card">
           <h3>模拟练习</h3>
-          <p>从 AI 生成的 300 道模拟题库随机组卷，覆盖相同知识点与模块配比，与真题题库完全隔离。</p>
-          <button class="eq-btn eq-btn-primary" @click="startExam('mock')">开始模拟练习</button>
+          <p>按最新正式命题规则（每卷 120 题 = 单选 60 + 多选 40 + 判断 20）从模拟题库编制三套固定卷 A / B / C，覆盖相同知识点与模块占比，与真题题库完全隔离。</p>
+          <div class="exam-entry-actions">
+            <button class="eq-btn eq-btn-primary" @click="startExam('mock', 'A')">模拟卷 A</button>
+            <button class="eq-btn eq-btn-primary" @click="startExam('mock', 'B')">模拟卷 B</button>
+            <button class="eq-btn eq-btn-primary" @click="startExam('mock', 'C')">模拟卷 C</button>
+          </div>
         </div>
         <div class="exam-entry-card">
           <h3>错题本</h3>
@@ -138,7 +155,7 @@ const moduleStat = computed(() => {
     <div v-else-if="exam.phase.value === 'exam'" class="exam-body">
       <div class="exam-main">
         <div class="exam-source-tag">
-          {{ activeSource === 'mock' ? '模拟练习' : activeSource === 'wrong' ? '错题重练' : '真题练习' }}
+          {{ activeSource === 'mock' ? '模拟卷 ' + activeMockPaper : activeSource === 'wrong' ? '错题重练' : '真题练习' }}
         </div>
         <QuestionCard
           :question="exam.currentQuestion.value"
