@@ -511,6 +511,14 @@
       "chapter": "/ch08_intelligent_platform",
       "anchor": "_8-4-智能协同-uclaw",
       "desc": "跨端无界：手机指令远程操控，工具直达免冗余推理，USEC 安全管控。"
+    },
+    {
+      "id": "discriminative-generative",
+      "name": "判别模型与生成模型",
+      "module": "ai",
+      "chapter": "/ch01_ai_foundation",
+      "anchor": "判别模型与生成模型-概念辨析",
+      "desc": "机器学习的两个派别：判别模型学条件分布 P(y|x)/决策边界（如 SVM、逻辑回归、神经网络），生成模型学联合分布 P(x,y) 并能生成新样本（如朴素贝叶斯、GMM、GAN、VAE、扩散模型）。"
     }
   ],
   "edges": [
@@ -1003,6 +1011,21 @@
       "source": "uclaw",
       "target": "agent-os",
       "relation": "平台承载"
+    },
+    {
+      "source": "discriminative-generative",
+      "target": "svm",
+      "relation": "判别模型的典型代表"
+    },
+    {
+      "source": "discriminative-generative",
+      "target": "naive-bayes",
+      "relation": "生成模型的典型代表"
+    },
+    {
+      "source": "supervised",
+      "target": "discriminative-generative",
+      "relation": "监督学习下的模型派别划分"
     }
   ]
 }
